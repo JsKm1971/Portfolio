@@ -31,6 +31,42 @@ body{
 }
 
 /* ==========================
+   NAVIGATION
+========================== */
+
+.navbar{
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    z-index:100;
+}
+
+.nav-btn{
+    display:inline-block;
+    padding:12px 24px;
+    background:white;
+    color:#000052;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.nav-btn:hover{
+    transform:translateY(-3px);
+    background:#f2f2f2;
+}
+
+
+
+
+   
+/* ==========================
    CONTACT CARD
 ========================== */
 
@@ -173,7 +209,27 @@ button:hover{
 </style>
 </head>
 <body>
+<!-- Navigation Menu -->
 
+<nav class="navbar">
+
+    <a href="index.html" class="nav-btn">
+        Home
+    </a>
+
+    <a href="about.html" class="nav-btn">
+        About Me
+    </a>
+
+    <a href="portfolio.html" class="nav-btn">
+        Portfolio
+    </a>
+
+    <a href="contact.html" class="nav-btn">
+        Contact
+    </a>
+
+</nav>
 <div class="contact-container">
 
     <!-- LEFT SIDE -->
