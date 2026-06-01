@@ -21,13 +21,11 @@
 }
 
 body{
-    font-family:'Roboto', sans-serif;
-    background:linear-gradient(135deg,#000052,#002a7f);
+    font-family:'Roboto',sans-serif;
+    background:#F7F9FC;
+    color:#333;
+    line-height:1.6;
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px 20px;
 }
 
 /* ==========================
@@ -35,50 +33,53 @@ body{
 ========================== */
 
 .navbar{
-    position:absolute;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
+    position:sticky;
+    top:0;
+    z-index:1000;
+
     display:flex;
-    gap:15px;
+    justify-content:center;
+    gap:20px;
     flex-wrap:wrap;
-    z-index:100;
+
+    padding:20px;
+    background:white;
+
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
 }
 
 .nav-btn{
-    display:inline-block;
-    padding:12px 24px;
-    background:white;
-    color:#000052;
     text-decoration:none;
-    border-radius:8px;
-    font-weight:600;
-    transition:.3s;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    color:#0F4C81;
+    font-weight:500;
+    padding:12px 24px;
+    border-radius:50px;
+    transition:.3s ease;
 }
 
 .nav-btn:hover{
-    transform:translateY(-3px);
-    background:#f2f2f2;
+    background:#0F4C81;
+    color:white;
 }
-
-
-
-
    
 /* ==========================
    CONTACT CARD
 ========================== */
 
 .contact-container{
-    width:100%;
-    max-width:1100px;
-    background:#fff;
+    max-width:1200px;
+    margin:60px auto;
+    background:white;
+
     border-radius:20px;
+
     overflow:hidden;
+
     display:grid;
     grid-template-columns:1fr 1fr;
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+    box-shadow:
+        0 10px 30px rgba(15,76,129,.08);
 }
 
 /* ==========================
@@ -86,20 +87,19 @@ body{
 ========================== */
 
 .contact-info{
-    background:#000052;
+    background:#0F4C81;
     color:white;
-    padding:50px;
+    padding:60px;
 }
 
 .contact-info h1{
-    margin-bottom:15px;
-    font-size:2.2rem;
+    font-size:2.5rem;
+    margin-bottom:20px;
 }
 
 .contact-info p{
-    margin-bottom:35px;
-    line-height:1.7;
-    opacity:.9;
+    margin-bottom:30px;
+    opacity:.95;
 }
 
 .info-item{
@@ -107,8 +107,8 @@ body{
 }
 
 .info-item h3{
+    color:#A8D0FF;
     margin-bottom:5px;
-    color:#7ab8ff;
 }
 
 .info-item a{
@@ -117,38 +117,19 @@ body{
 }
 
 .info-item a:hover{
-    color:#7ab8ff;
+    text-decoration:underline;
 }
-
-/* Resume Button */
-
-.resume-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:14px 24px;
-    background:white;
-    color:#000052;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.resume-btn:hover{
-    transform:translateY(-3px);
-}
-
 /* ==========================
    RIGHT PANEL
 ========================== */
 
 .contact-form{
-    padding:50px;
+    padding:60px;
 }
 
 .contact-form h2{
-    color:#000052;
-    margin-bottom:25px;
+    color:#0F4C81;
+    margin-bottom:30px;
 }
 
 .form-group{
@@ -158,40 +139,58 @@ body{
 input,
 textarea{
     width:100%;
-    padding:14px;
-    border:1px solid #ddd;
-    border-radius:8px;
+    padding:15px;
+
+    border:1px solid #DCE5F0;
+
+    border-radius:12px;
+
     font-size:1rem;
+
+    transition:.3s ease;
+}
+
+input:focus,
+textarea:focus{
+    outline:none;
+    border-color:#0F4C81;
 }
 
 textarea{
+    height:180px;
     resize:none;
-    height:150px;
 }
 
 button{
     width:100%;
+
     border:none;
-    background:#000052;
+
+    background:#0F4C81;
     color:white;
+
     padding:16px;
-    border-radius:8px;
+
+    border-radius:12px;
+
     font-size:1rem;
+    font-weight:500;
+
     cursor:pointer;
-    transition:.3s;
+
+    transition:.3s ease;
 }
 
 button:hover{
-    background:#002a7f;
+    background:#1C629F;
 }
-
 /* Success Message */
 
 .success-message{
     display:none;
     margin-top:20px;
-    color:green;
-    font-weight:500;
+    color:#0F4C81;
+    font-weight:600;
 }
 
 /* ==========================
@@ -200,12 +199,21 @@ button:hover{
 
 @media(max-width:900px){
 
-.contact-container{
-    grid-template-columns:1fr;
-}
+    .contact-container{
+        grid-template-columns:1fr;
+        margin:30px 20px;
+    }
+
+    .contact-info,
+    .contact-form{
+        padding:40px 30px;
+    }
+
+    .contact-info{
+        text-align:center;
+    }
 
 }
-
 </style>
 </head>
 <body>
