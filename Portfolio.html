@@ -1,3 +1,329 @@
+/* ==================================
+   GLOBAL STYLES
+================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Roboto',sans-serif;
+    background:#f7f9fc;
+    color:#333;
+    line-height:1.6;
+}
+
+/* ==================================
+   NAVIGATION
+================================== */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+
+    padding:20px;
+    background:#ffffff;
+
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+}
+
+.nav-btn{
+    text-decoration:none;
+    color:#0F4C81;
+    font-weight:500;
+    padding:12px 24px;
+    border-radius:50px;
+    transition:.3s ease;
+}
+
+.nav-btn:hover{
+    background:#0F4C81;
+    color:white;
+}
+
+/* ==================================
+   MAIN CONTAINER
+================================== */
+
+.about-container{
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ==================================
+   HERO
+================================== */
+
+.hero{
+    text-align:center;
+    padding:100px 40px;
+    background:white;
+    margin:40px auto;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(15,76,129,.08);
+}
+
+.hero-content{
+    max-width:900px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size:4rem;
+    color:#0F4C81;
+    margin-bottom:15px;
+}
+
+.hero h2{
+    font-size:1.4rem;
+    font-weight:300;
+    color:#666;
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    max-width:750px;
+    margin:auto;
+}
+
+/* ==================================
+   SECTION STYLING
+================================== */
+
+.section{
+    max-width:1400px;
+    margin:40px auto;
+    padding:50px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(15,76,129,.08);
+}
+
+.section h2{
+    color:#0F4C81;
+    margin-bottom:30px;
+    text-align:center;
+    font-size:2rem;
+}
+
+/* ==================================
+   PROJECT CARDS
+================================== */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.skill-card{
+    background:#fff;
+    padding:30px;
+    border-radius:16px;
+
+    border-left:5px solid #0F4C81;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+
+    transition:.3s ease;
+}
+
+.skill-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(15,76,129,.12);
+}
+
+.skill-card h3{
+    color:#0F4C81;
+    margin-bottom:15px;
+}
+
+.skill-card p{
+    margin-bottom:25px;
+}
+
+/* ==================================
+   BUTTONS
+================================== */
+
+.cta-btn{
+    display:inline-block;
+
+    padding:12px 24px;
+
+    background:#0F4C81;
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    transition:.3s ease;
+}
+
+.cta-btn:hover{
+    background:#1c629f;
+    transform:translateY(-2px);
+}
+
+/* ==================================
+   LEARNING OBJECT IFRAME
+================================== */
+
+.section iframe{
+    width:100%;
+    border:none;
+    border-radius:12px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.12);
+}
+
+/* ==================================
+   VIDEO
+================================== */
+
+.video-container{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.12);
+}
+
+.video-container iframe{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+}
+
+/* ==================================
+   GALLERY
+================================== */
+
+.gallery{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+}
+
+/* ==================================
+   LIGHTBOX
+================================== */
+
+.lightbox{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.9);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+
+    border-radius:12px;
+}
+
+/* ==================================
+   DOCUMENT SECTION
+================================== */
+
+.document-card{
+    background:#F7F9FC;
+    border-left:5px solid #0F4C81;
+}
+
+/* ==================================
+   FOOTER (OPTIONAL)
+================================== */
+
+footer{
+    text-align:center;
+    padding:40px;
+
+    color:#666;
+}
+
+/* ==================================
+   MOBILE
+================================== */
+
+@media (max-width:768px){
+
+    .hero{
+        padding:60px 25px;
+    }
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .hero h2{
+        font-size:1.1rem;
+    }
+
+    .section{
+        padding:30px 20px;
+    }
+
+    .navbar{
+        gap:10px;
+    }
+
+    .nav-btn{
+        padding:10px 18px;
+    }
+}
 <body>
 
     <!-- NAVIGATION -->
