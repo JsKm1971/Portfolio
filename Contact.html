@@ -10,9 +10,9 @@
 
 <style>
 
-/* ==========================
+/* =====================
    GLOBAL STYLES
-========================== */
+===================== */
 
 *{
     margin:0;
@@ -21,47 +21,50 @@
 }
 
 body{
-    font-family:'Roboto',sans-serif;
-    background:#F7F9FC;
+    font-family:'Roboto', sans-serif;
+    background:#ffffff;
     color:#333;
     line-height:1.6;
-    min-height:100vh;
 }
 
-/* ==========================
-   NAVIGATION
-========================== */
+/* =====================
+   HEADER
+===================== */
 
-.navbar{
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#fff;
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
     position:sticky;
     top:0;
     z-index:1000;
+}
 
+.logo img{
+    height:175px;
+    width:auto;
+    display:block;
+}
+
+   nav{
     display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-
-    padding:20px;
-    background:white;
-
-    box-shadow:0 2px 15px rgba(0,0,0,.05);
+    gap:30px;
 }
 
-.nav-btn{
+nav a{
     text-decoration:none;
-    color:#0F4C81;
+    color:#444;
     font-weight:500;
-    padding:12px 24px;
-    border-radius:50px;
-    transition:.3s ease;
+    transition:.3s;
 }
 
-.nav-btn:hover{
-    background:#0F4C81;
-    color:white;
+nav a:hover{
+    color:#0F4C81;
 }
-   
+
 /* ==========================
    CONTACT CARD
 ========================== */
@@ -219,25 +222,21 @@ button:hover{
 <body>
 <!-- Navigation Menu -->
 
-<nav class="navbar">
+<header>
 
-    <a href="index.html" class="nav-btn">
-        Home
-    </a>
+    <div class="logo">
+    <img src="images/Corporate Logo.png"
+         alt="Jeremy L. Haecker Logo">
+</div>
 
-    <a href="About.html" class="nav-btn">
-        About Me
-    </a>
+    <nav>
+        <a href="index.html">Home</a>
+       <a href="About.html">About</a>
+        <a href="Portfolio.html">Portfolio</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
 
-    <a href="Portfolio.html" class="nav-btn">
-        Portfolio
-    </a>
-<a href="Contact.html" class="nav-btn">
-        Contact
-    </a>
-    
-
-</nav>
+</header>
 <div class="contact-container">
 
     <!-- LEFT SIDE -->
