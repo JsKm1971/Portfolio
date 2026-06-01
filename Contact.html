@@ -217,6 +217,36 @@ button:hover{
     }
 
 }
+.resume-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #0056b3;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+   
+.resume-btn:hover {
+    background: #003f85;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+.resume-btn:active {
+    transform: translateY(0);
+}
+
+.resume-btn::before {
+    content: "📄 ";
+}
+
+   
 </style>
 </head>
 <body>
@@ -281,10 +311,11 @@ button:hover{
         </div>
 
         <a href="docs/Jeremy-Haecker-Resume.pdf"
-           class="resume-btn"
-           target="_blank">
-            Download Resume
-        </a>
+   class="resume-btn"
+   target="_blank"
+   id="resumeDownloadBtn">
+    Download Resume
+</a>
 
     </div>
 
@@ -365,6 +396,26 @@ document
 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const resumeBtn = document.getElementById('resumeDownloadBtn');
+
+    resumeBtn.addEventListener('click', () => {
+        console.log('Resume Download Clicked');
+        
+        // Optional: Google Analytics Event
+        // gtag('event', 'resume_download', {
+        //     event_category: 'Portfolio',
+        //     event_label: 'Resume PDF'
+        // });
+    });
+});
+
+
+
+
+
+
+   
 </script>
 
 </body>
