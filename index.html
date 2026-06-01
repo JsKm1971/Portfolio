@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
-
+/* New formatted background */
 body{
     font-family:'Roboto', sans-serif;
     background:#F7F9FC;
@@ -88,6 +88,84 @@ body{
     color:#5F6B7A;
 }
 
+    /* Decorative Buttons */
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:500;
+    transition:.3s ease;
+}
+
+.btn-primary{
+    background:#0F4C81;
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(15,76,129,.25);
+}
+
+.btn-secondary{
+    background:white;
+    border:2px solid #0F4C81;
+    color:#0F4C81;
+}
+
+.btn-secondary:hover{
+    background:#0F4C81;
+    color:white;
+}
+
+/* Updated Cards */
+.card{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:
+        0 10px 30px rgba(15,76,129,.08);
+    transition:.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+        0 15px 40px rgba(15,76,129,.12);
+}
+
+.card h3{
+    color:#0F4C81;
+    margin-bottom:15px;
+}
+
+/* Updated Footers */
+footer{
+    background:#F0F5FA;
+    color:#4A5568;
+    text-align:center;
+    padding:30px;
+    border-top:1px solid #DCE5F0;
+}
+/* Profile Images */
+
+.profile-image{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid white;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    margin-bottom:30px;
+}
+
+
+
+
+
+
+    
 </style>
 </head>
 
@@ -97,7 +175,9 @@ body{
 
 <div class="hero-content">
 
-
+<img src="images/jeremy-profile.jpg"
+     alt="Jeremy Haecker"
+     class="profile-image">
 
     
 <h1>Jeremy Haecker</h1>
