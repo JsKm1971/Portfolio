@@ -289,6 +289,79 @@ nav a:hover{
 
 }
 
+
+
+/* =====================
+  Quote Box
+===================== */
+
+
+        body {
+            font-family: "Open Sans", Arial, sans-serif;
+            background-color: #F7F6F9;
+            padding: 30px;
+        }
+
+        /* Container for side-by-side layout */
+        .box-container {
+            display: flex;
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Individual content box */
+        .content-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            flex: 1;
+            padding: 20px 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Header */
+        .content-box h2 {
+            color: #4f3674;
+            /* BU Purple */
+            margin: 0;
+        }
+
+        /* Divider bar under header */
+        .header-divider {
+            height: 3px;
+            width: 100%;
+            background-color: #4f3674;
+            border-radius: 2px;
+            margin: 8px 0 16px 0;
+        }
+
+        /* Body text */
+        .content-box p {
+            color: #000000;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        /* Mobile friendly */
+        @media (max-width: 800px) {
+            .box-container {
+                flex-direction: column;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+   
 </style>
 </head>
 <body>
@@ -332,15 +405,25 @@ nav a:hover{
 
             <h2>Instructional Designer | eLearning Developer</h2>
 
-            <p>
-                Welcome to my professional portfolio.
-                I specialize in designing engaging learning
-                experiences that transform complex information
-                into meaningful, measurable performance outcomes.
-                My work combines instructional design principles,
-                learning technologies, accessibility standards,
-                and creative problem solving.
-            </p>
+            <div class="box-container">
+
+        <!-- Box 1 -->
+        <div class="content-box">
+
+
+            <div class="header-divider"></div>
+            <blockquote>
+                <p><em><center>"I turn complex content into powerful learning experiences through AI-driven innovation and strategic
+                    leadership."</center></em></p>
+            </blockquote>
+        </div>
+
+
+
+
+
+    </div>
+
 
         </div>
 
@@ -470,4 +553,3 @@ nav a:hover{
 
 </body>
 </html>
-```
