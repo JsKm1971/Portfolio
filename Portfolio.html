@@ -8,135 +8,272 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-<style>
+/* ==========================
+   GLOBAL STYLES
+========================== */
 
-/* ALL OF YOUR CSS GOES HERE */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-/* ==================================
-FEATURED LEARNING SHOWCASE
-================================== */
+body{
+    font-family:'Roboto',sans-serif;
+    background:#f7f9fc;
+    color:#333;
+    line-height:1.6;
+}
+
+.about-container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.section{
+    background:#fff;
+    margin:40px auto;
+    padding:50px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(15,76,129,.08);
+}
+
+.section h2{
+    color:#000052;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#fff;
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+}
+
+.logo img{
+    height:120px;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#0F4C81;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+    text-align:center;
+    padding:100px 40px;
+    background:#fff;
+    margin:40px auto;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(15,76,129,.08);
+}
+
+.hero-content{
+    max-width:900px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size:4rem;
+    color:#000052;
+    margin-bottom:15px;
+}
+
+.hero h2{
+    color:#000052;
+    font-weight:300;
+    margin-bottom:20px;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.cta-btn,
+.preview-btn{
+    display:inline-block;
+    padding:12px 24px;
+    background:#0F4C81;
+    color:#fff;
+    text-decoration:none;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.cta-btn:hover,
+.preview-btn:hover{
+    background:#1c629f;
+}
+
+/* ==========================
+   FEATURED LEARNING SHOWCASE
+========================== */
 
 .learning-showcase{
-display:flex;
-flex-direction:column;
-gap:40px;
-max-width:1400px;
-margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
 }
 
 .showcase-item{
-background:#fff;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(15,76,129,.08);
-transition:.3s ease;
-}
-
-.showcase-item:hover{
-transform:translateY(-3px);
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(15,76,129,.08);
 }
 
 .showcase-header{
-padding:35px;
+    padding:35px;
 }
 
 .showcase-header h3{
-color:#000052;
-font-size:1.7rem;
-margin-bottom:12px;
+    color:#000052;
+    margin-bottom:10px;
 }
 
 .showcase-header p{
-margin-bottom:20px;
-color:#555;
+    margin-bottom:20px;
 }
 
 .showcase-actions{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
 }
-
-.preview-btn{
-background:#0F4C81;
-color:#fff;
-border:none;
-padding:12px 24px;
-border-radius:50px;
-cursor:pointer;
-font-size:.95rem;
-}
-
-.preview-btn:hover
 
 .preview-panel{
-display:none;
-border-top:1px solid #e5e7eb;
+    display:none;
+    border-top:1px solid #e5e7eb;
 }
 
 .preview-panel.active{
-display:block;
+    display:block;
 }
 
 .preview-panel iframe{
-width:100%;
-height:850px;
-border:none;
-display:block;
+    width:100%;
+    height:850px;
+    border:none;
 }
 
-/* ==================================
-DOCUMENT LIBRARY
-================================== */
+/* ==========================
+   VIDEO
+========================== */
+
+.video-container{
+    position:relative;
+    overflow:hidden;
+    padding-bottom:56.25%;
+    height:0;
+    border-radius:16px;
+}
+
+.video-container iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* ==========================
+   GALLERY
+========================== */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+/* ==========================
+   DOCUMENT LIBRARY
+========================== */
 
 .document-library{
-display:flex;
-flex-direction:column;
-gap:40px;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
 }
 
 .document-viewer{
-background:#fff;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(15,76,129,.08);
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(15,76,129,.08);
 }
 
 .document-header{
-padding:30px;
+    padding:30px;
 }
 
 .document-header h3{
-color:#000052;
-margin-bottom:10px;
+    color:#000052;
+    margin-bottom:10px;
 }
 
 .document-header p{
-margin-bottom:20px;
+    margin-bottom:20px;
 }
 
 .document-frame{
-width:100%;
-height:1100px;
-border:none;
-display:block;
+    width:100%;
+    height:1100px;
+    border:none;
 }
+
+/* ==========================
+   MOBILE
+========================== */
 
 @media(max-width:768px){
 
-```
-.preview-panel iframe{
-    height:600px;
-}
+    .hero h1{
+        font-size:2.5rem;
+    }
 
-.document-frame{
-    height:700px;
-}
-```
+    .preview-panel iframe{
+        height:500px;
+    }
 
-}
+    .document-frame{
+        height:700px;
+    }
 
-</style>
+    nav{
+        gap:15px;
+    }
+}
 
 </head>
 
@@ -187,61 +324,109 @@ display:block;
         
         <!-- Learning Object -->
 
-    <section class="section">
+    
+           <section class="section">
 
-       
-        <h2>Interactive Learning Experiences</h2>
+<h2>Featured Learning Experiences</h2>
 
-        <div class="skills-grid">
+<div class="learning-showcase">
 
-            <div class="skill-card">
+    <!-- iSpring -->
 
-                <h3>iSpring Learning Module</h3>
+    <div class="showcase-item">
 
-                <p>
-                    Interactive learning experience developed in iSpring.
-                </p>
+        <div class="showcase-header">
 
-                <a href="learning/ispring-project.html" class="cta-btn">
-                    Launch Project
-                </a>
+            <h3>iSpring Learning Module</h3>
 
+            <p>
+                Interactive learning experience developed in iSpring featuring multimedia content and learner engagement activities.
+            </p>
+
+            <div class="showcase-actions">
+                <button class="preview-btn">Preview Project</button>
             </div>
 
+        </div>
 
-            <div class="skill-card">
+        <div class="preview-panel">
 
-                <h3>Articulate Storyline Scenario</h3>
+            <iframe
+            src="https://new-acc-space-2588.ispring.com/app/embed-player/eeaed4de-5b92-11f1-8caf-36a0ac412e08">
+            </iframe>
 
-                <p>
-                    Branching scenario-based learning experience.
-                </p>
+        </div>
 
-                <a href="learning/storyline-project/story.html" class="cta-btn">
-                    Launch Project
-                </a>
+    </div>
 
+    <!-- Glossary -->
+
+    <div class="showcase-item">
+
+        <div class="showcase-header">
+
+            <h3>Interactive Glossary of Terms</h3>
+
+            <p>
+                Performance support tool providing searchable terminology and just-in-time learning support.
+            </p>
+
+            <div class="showcase-actions">
+                <button class="preview-btn">Preview Project</button>
             </div>
 
-            <div class="skill-card">
+        </div>
 
-                <h3>HTML Learning Object</h3>
+        <div class="preview-panel">
 
-                <p>
-                    Custom HTML, CSS, and JavaScript interaction.
-                </p>
+            <iframe
+            src="https://new-acc-space-2588.ispring.com/app/embed-player/b560e858-5dc6-11f1-bb61-3a21a236d552">
+            </iframe>
 
-                <a href="HTML_LO" class="cta-btn">
-                    Launch Project
+        </div>
+
+    </div>
+
+    <!-- Captivate -->
+
+    <div class="showcase-item">
+
+        <div class="showcase-header">
+
+            <h3>Adobe Captivate Ethics Lesson</h3>
+
+            <p>
+                Scenario-based learning experience focused on ethical decision making and critical thinking.
+            </p>
+
+            <div class="showcase-actions">
+
+                <button class="preview-btn">Preview Project</button>
+
+                <a
+                    href="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
+                    target="_blank"
+                    class="cta-btn">
+                    Open Full Experience
                 </a>
 
             </div>
 
         </div>
 
-    </section>
+        <div class="preview-panel">
 
-        
+            <iframe
+                src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html">
+            </iframe>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>        
   <section class="section">
 
 ```
