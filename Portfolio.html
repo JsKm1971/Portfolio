@@ -384,61 +384,86 @@ footer{
    Interactive Learning
 ========================== */
 
-.interactive-learning {
-    padding: 80px 40px;
-    background: #f8f9fc;
+.interactive-learning{
+    padding:80px 40px;
+    background:#f8f9fc;
 }
 
-.section-header {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto 50px;
+.learning-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(600px,1fr));
+    gap:30px;
+    max-width:1600px;
+    margin:0 auto;
 }
 
-.section-header h2 {
-    font-size: 2.5rem;
-    color: #000052;
-    margin-bottom: 15px;
+.learning-card{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
-.section-header p {
-    color: #6b7280;
-    line-height: 1.7;
-    font-size: 1.05rem;
+.learning-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 24px;
+    cursor:pointer;
+    background:#fff;
 }
 
-.learning-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
+.learning-header h3{
+    margin:0;
+    color:#000052;
 }
 
-.learning-card {
-    display: flex;
-    flex-direction: column;
+.expand-btn{
+    background:#0F4C81;
+    color:white;
+    border:none;
+    padding:8px 16px;
+    border-radius:30px;
+    cursor:pointer;
 }
 
-.learning-card iframe {
-    width: 100%;
-    height: 500px;
-    border: none;
+.learning-content{
+    display:none;
 }
 
-.learning-card h3 {
-    padding: 18px 20px;
-    margin: 0;
-    background: #ffffff;
-    color: #000052;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 1.1rem;
+.learning-content.active{
+    display:block;
 }
 
-.learning-card iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: none;
+.learning-card iframe{
+    width:100%;
+    height:700px;
+    border:none;
+    display:block;
+}
+
+/* Fullscreen-style expanded view */
+
+.learning-card.expanded{
+    position:fixed;
+    inset:20px;
+    z-index:9999;
+    background:#fff;
+}
+
+.learning-card.expanded iframe{
+    height:calc(100vh - 100px);
+}
+
+@media(max-width:768px){
+
+    .learning-grid{
+        grid-template-columns:1fr;
+    }
+
+    .learning-card iframe{
+        height:500px;
+    }
 }
 
 /* Tablet */
@@ -601,20 +626,28 @@ footer{
         </div>
 
         <!-- Learning Experience 3 -->
-        <div class="learning-card">
-            <h3>Adobe Captivate Lesson Example</h3>
-            <iframe
-    src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
-    title="Weekly Lesson: The Ethical Imperative"
-    loading="lazy"
-    allowfullscreen
-    style="max-width:500px; border:none; display:block; margin:0 auto;">
-</iframe>
-        </div>
+       <div class="learning-card">
 
-        
+    <div class="learning-header">
+        <h3>Adobe Captivate Lesson Example</h3>
+
+        <button class="expand-btn">
+            Open
+        </button>
+    </div>
+
+    <div class="learning-content">
+
+        <iframe
+            src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
+            title="Weekly Lesson: The Ethical Imperative"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
 
     </div>
+
+</div>
 </section>
 
 
@@ -749,4 +782,43 @@ footer{
 
     </script>
 
+    <script>
+
+document.querySelectorAll(".expand-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const card =
+            button.closest(".learning-card");
+
+        const content =
+            card.querySelector(".learning-content");
+
+        content.classList.toggle("active");
+
+        if(content.classList.contains("active")){
+            button.textContent = "Expand";
+        } else {
+            button.textContent = "Open";
+            card.classList.remove("expanded");
+        }
+
+    });
+
+});
+
+document.querySelectorAll(".learning-content").forEach(content => {
+
+    content.addEventListener("dblclick", () => {
+
+        const card =
+            content.closest(".learning-card");
+
+        card.classList.toggle("expanded");
+
+    });
+
+});
+
+</script>
 </body>
