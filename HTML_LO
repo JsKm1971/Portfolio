@@ -1,1 +1,78 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Column Layout</title>
+    <style>
+        body {
+            font-family: open sans;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           
+            background-color: #f4f4f4;
+        }
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 20px;
+        }
+        .box {
+            width: 550px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: #4F3674;
+            color: white;
+            padding: 10px;
+            font-size: 25px;
+            text-align: center;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .content {
+            padding: 15px;
+          font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Agenda Using CSS not created by Brett</div>
+    <div class="container">
+        <div class="box">
+            <div class="header">Weekly Agenda</div>
+            <div class="content"><ul>
+                     <li>Syllabus & Institutional Acknowledgment.</li>
+                    <li>Weekly Introduction.</li>
+                    <li>Weekly Readings & Course Materials.</li>
+   <li>Week 1 Discussion Board - .</li>
+                    <li>Week 1 Discussion Board - .</li>
+                    <li>Week 1 Individual Assignment - .</li>
+  
+                </ul></div>
+        </div>
+        <div class="box">
+            <div class="header">Action Oriented Learning Objectives</div>
+            <div class="content"><p>Study the objectives below and reflect on the skills you will be able to demonstrate after executing the work this week!</p>
+           
+              <ul>
+                        <li>Insert.</li>
+<li>Insert.</li>
+<li>Insert.</li>
+                    </ul></div>
+        </div>
+        
+    </div>
+</body>
+</html>
