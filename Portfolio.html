@@ -12,488 +12,130 @@
 
 /* ALL OF YOUR CSS GOES HERE */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Roboto',sans-serif;
-    background:#f7f9fc;
-    color:#333;
-    line-height:1.6;
-}
-/* =====================
-   GLOBAL STYLES
-===================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Roboto', sans-serif;
-    background:#ffffff;
-    color:#333;
-    line-height:1.6;
-}
-
-/* =====================
-   HEADER
-===================== */
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:#fff;
-    box-shadow:0 2px 15px rgba(0,0,0,.05);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo img{
-    height:200px;
-    width:auto;
-    display:block;
-}
-
-   nav{
-    display:flex;
-    gap:30px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#444;
-    font-weight:500;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#0F4C81;
-}
-
-
-
-
 /* ==================================
-   MAIN CONTAINER
+FEATURED LEARNING SHOWCASE
 ================================== */
 
-.about-container{
-    max-width:1400px;
-    margin:auto;
+.learning-showcase{
+display:flex;
+flex-direction:column;
+gap:40px;
+max-width:1400px;
+margin:0 auto;
+}
+
+.showcase-item{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(15,76,129,.08);
+transition:.3s ease;
+}
+
+.showcase-item:hover{
+transform:translateY(-3px);
+}
+
+.showcase-header{
+padding:35px;
+}
+
+.showcase-header h3{
+color:#000052;
+font-size:1.7rem;
+margin-bottom:12px;
+}
+
+.showcase-header p{
+margin-bottom:20px;
+color:#555;
+}
+
+.showcase-actions{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.preview-btn{
+background:#0F4C81;
+color:#fff;
+border:none;
+padding:12px 24px;
+border-radius:50px;
+cursor:pointer;
+font-size:.95rem;
+}
+
+.preview-btn:hover
+
+.preview-panel{
+display:none;
+border-top:1px solid #e5e7eb;
+}
+
+.preview-panel.active{
+display:block;
+}
+
+.preview-panel iframe{
+width:100%;
+height:850px;
+border:none;
+display:block;
 }
 
 /* ==================================
-   HERO
+DOCUMENT LIBRARY
 ================================== */
 
-.hero{
-    text-align:center;
-    padding:100px 40px;
-    background:white;
-    margin:40px auto;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(15,76,129,.08);
+.document-library{
+display:flex;
+flex-direction:column;
+gap:40px;
 }
 
-.hero-content{
-    max-width:900px;
-    margin:auto;
+.document-viewer{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(15,76,129,.08);
 }
 
-.hero h1{
-    font-size:4rem;
-    color:#000052;
-    margin-bottom:15px;
+.document-header{
+padding:30px;
 }
 
-.hero h2{
-    font-size:1.4rem;
-    font-weight:300;
-    color:#000052;
-    margin-bottom:25px;
+.document-header h3{
+color:#000052;
+margin-bottom:10px;
 }
 
-.hero p{
-    font-size:1.1rem;
-    max-width:750px;
-    margin:auto;
+.document-header p{
+margin-bottom:20px;
 }
 
-/* ==================================
-   SECTION STYLING
-================================== */
-
-.section{
-    max-width:1400px;
-    margin:40px auto;
-    padding:50px;
-    background:white;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(15,76,129,.08);
-}
-
-.section h2{
-    color:#000052;
-    margin-bottom:30px;
-    text-align:center;
-    font-size:2rem;
-}
-
-/* ==================================
-   PROJECT CARDS
-================================== */
-
-.skills-grid{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-.skill-card{
-    background:#fff;
-    padding:30px;
-    border-radius:16px;
-
-    border-left:5px solid #0F4C81;
-
-    box-shadow:
-        0 5px 20px rgba(0,0,0,.05);
-
-    transition:.3s ease;
-}
-
-.skill-card:hover{
-    transform:translateY(-5px);
-
-    box-shadow:
-        0 15px 35px rgba(15,76,129,.12);
-}
-
-.skill-card h3{
-    color:#0F4C81;
-    margin-bottom:15px;
-}
-
-.skill-card p{
-    margin-bottom:25px;
-}
-
-
-.iframe-container {
-    width: 50%;
-    max-width: 1200px; /* Adjust as needed */
-    margin: 0 auto;    /* Centers the iframe */
-}
-
-.iframe-container iframe {
-    width: 50%;
-    height: 700px;     /* Adjust as needed */
-    border: none;
-}
-
-
-
-    
-/* ==================================
-   BUTTONS
-================================== */
-
-.cta-btn{
-    display:inline-block;
-
-    padding:12px 24px;
-
-    background:#0F4C81;
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:50px;
-
-    transition:.3s ease;
-}
-
-.cta-btn:hover{
-    background:#1c629f;
-    transform:translateY(-2px);
-}
-
-/* ==================================
-   LEARNING OBJECT IFRAME
-================================== */
-
-.section iframe{
-    width:100%;
-    border:none;
-    border-radius:12px;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.12);
-}
-   .learning-object{
-    width:100%;
-    border:none;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
-}
-
-/* ==================================
-   VIDEO
-================================== */
-
-.video-container{
-    position:relative;
-    padding-bottom:56.25%;
-    height:0;
-    overflow:hidden;
-
-    border-radius:16px;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.12);
-}
-
-.video-container iframe{
-    position:absolute;
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-}
-
-/* ==================================
-   GALLERY
-================================== */
-
-.gallery{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(250px,1fr));
-
-    gap:20px;
-}
-
-.gallery img{
-    width:100%;
-    height:250px;
-
-    object-fit:cover;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    transition:.3s ease;
-}
-
-.gallery img:hover{
-    transform:scale(1.03);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.15);
-}
-
-/* ==================================
-   LIGHTBOX
-================================== */
-
-.lightbox{
-    display:none;
-
-    position:fixed;
-    inset:0;
-
-    background:rgba(0,0,0,.9);
-
-    justify-content:center;
-    align-items:center;
-
-    z-index:9999;
-}
-
-.lightbox img{
-    max-width:90%;
-    max-height:90%;
-
-    border-radius:12px;
-}
-
-/* ==================================
-   DOCUMENT SECTION
-================================== */
-
-.document-card{
-    background:#F7F9FC;
-    border-left:5px solid #0F4C81;
-}
-
-/* ==================================
-   FOOTER (OPTIONAL)
-================================== */
-
-footer{
-    text-align:center;
-    padding:40px;
-
-    color:#666;
-}
-
-/* ==================================
-   MOBILE
-================================== */
-
-@media (max-width:768px){
-
-    .hero{
-        padding:60px 25px;
-    }
-
-    .hero h1{
-        font-size:2.5rem;
-    }
-
-    .hero h2{
-        font-size:1.1rem;
-    }
-
-    .section{
-        padding:30px 20px;
-    }
-
-    .navbar{
-        gap:10px;
-    }
-
-    .nav-btn{
-        padding:10px 18px;
-    }
-}
-
-/* ==========================
-   Interactive Learning
-========================== */
-
-.interactive-learning{
-    padding:80px 40px;
-    background:#f8f9fc;
-}
-
-.learning-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(600px,1fr));
-    gap:30px;
-    max-width:1600px;
-    margin:0 auto;
-}
-
-.learning-card{
-    background:#fff;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-}
-
-.learning-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 24px;
-    cursor:pointer;
-    background:#fff;
-}
-
-.learning-header h3{
-    margin:0;
-    color:#000052;
-}
-
-.expand-btn{
-    background:#0F4C81;
-    color:white;
-    border:none;
-    padding:8px 16px;
-    border-radius:30px;
-    cursor:pointer;
-}
-
-.learning-content{
-    display:none;
-}
-
-.learning-content.active{
-    display:block;
-}
-
-.learning-card iframe{
-    width:100%;
-    height:700px;
-    border:none;
-    display:block;
-}
-
-/* Fullscreen-style expanded view */
-
-.learning-card.expanded{
-    position:fixed;
-    inset:20px;
-    z-index:9999;
-    background:#fff;
-}
-
-.learning-card.expanded iframe{
-    height:calc(100vh - 100px);
+.document-frame{
+width:100%;
+height:1100px;
+border:none;
+display:block;
 }
 
 @media(max-width:768px){
 
-    .learning-grid{
-        grid-template-columns:1fr;
-    }
-
-    .learning-card iframe{
-        height:500px;
-    }
+```
+.preview-panel iframe{
+    height:600px;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
-    .learning-grid {
-        grid-template-columns: 1fr;
-    }
+.document-frame{
+    height:700px;
+}
+```
 
-    .learning-card iframe {
-        height: 500px;
-    }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .interactive-learning {
-        padding: 60px 20px;
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-    }
-
-    .learning-card iframe {
-        height: 400px;
-    }
-}
-
-
-    
 </style>
 
 </head>
@@ -600,54 +242,122 @@ footer{
     </section>
 
         
-   <!-- Interactive Learning Experiences -->
-<section class="interactive-learning">
-    <div class="section-header">
-        <h2>Interactive Learning Experiences</h2>
-        <p>
-            Explore a collection of interactive learning solutions designed to
-            engage learners through scenario-based learning, multimedia content,
-            knowledge checks, and immersive instructional experiences.
-        </p>
-    </div>
+  <section class="section">
 
-    <div class="learning-grid">
+```
+<h2>Featured Learning Experiences</h2>
 
-        <!-- Learning Experience 1 -->
-        <div class="learning-card">
-            <h3>iSpring Learning Example</h3>
-            <iframe src="https://new-acc-space-2588.ispring.com/app/embed-player/eeaed4de-5b92-11f1-8caf-36a0ac412e08" width="560" height="315" frameborder="0" border="0" scrolling="auto" allowtransparency="true" allowfullscreen="1" style="border: none; background-color: transparent;"></iframe>
+<div class="learning-showcase">
+
+    <!-- iSpring Module -->
+
+    <div class="showcase-item">
+
+        <div class="showcase-header">
+
+            <h3>iSpring Learning Module</h3>
+
+            <p>
+                Interactive learning experience developed in iSpring,
+                featuring multimedia content, learner engagement activities,
+                and knowledge checks.
+            </p>
+
+            <div class="showcase-actions">
+
+                <button class="preview-btn">
+                    Preview Project
+                </button>
+
+            </div>
+
         </div>
 
-        <!-- Learning Experience 2 -->
-        <div class="learning-card">
-            <h3>iSpring Interactive Glossary of Terms Example</h3>
-            <iframe src="https://new-acc-space-2588.ispring.com/app/embed-player/b560e858-5dc6-11f1-bb61-3a21a236d552" width="560" height="315" frameborder="0" border="0" scrolling="auto" allowtransparency="true" allowfullscreen="1" style="border: none; background-color: transparent;"></iframe>
+        <div class="preview-panel">
+
+            <iframe
+            src="https://new-acc-space-2588.ispring.com/app/embed-player/eeaed4de-5b92-11f1-8caf-36a0ac412e08">
+            </iframe>
+
         </div>
 
-        <!-- Learning Experience 3 -->
-       <div class="learning-card">
-
-    <div class="learning-header">
-        <h3>Adobe Captivate Lesson Example</h3>
-
-        <button class="expand-btn">
-            Open
-        </button>
     </div>
 
-    <div class="learning-content">
+    <!-- Glossary -->
 
-        <iframe
-            src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
-            title="Weekly Lesson: The Ethical Imperative"
-            loading="lazy"
-            allowfullscreen>
-        </iframe>
+    <div class="showcase-item">
+
+        <div class="showcase-header">
+
+            <h3>Interactive Glossary of Terms</h3>
+
+            <p>
+                Interactive performance support tool providing
+                searchable terminology and just-in-time learning support.
+            </p>
+
+            <div class="showcase-actions">
+
+                <button class="preview-btn">
+                    Preview Project
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="preview-panel">
+
+            <iframe
+            src="https://new-acc-space-2588.ispring.com/app/embed-player/b560e858-5dc6-11f1-bb61-3a21a236d552">
+            </iframe>
+
+        </div>
+
+    </div>
+
+    <!-- Captivate -->
+
+    <div class="showcase-item">
+
+        <div class="showcase-header">
+
+            <h3>Adobe Captivate Ethics Lesson</h3>
+
+            <p>
+                Scenario-based learning experience focused on
+                ethical decision-making and critical thinking.
+            </p>
+
+            <div class="showcase-actions">
+
+                <button class="preview-btn">
+                    Preview Project
+                </button>
+
+                <a href="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
+                   target="_blank"
+                   class="cta-btn">
+                    Open Full Experience
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="preview-panel">
+
+            <iframe
+            src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html">
+            </iframe>
+
+        </div>
 
     </div>
 
 </div>
+```
+
 </section>
 
 
@@ -691,57 +401,99 @@ footer{
     </section>
     <!-- Documents -->
 
-    <section class="section">
+   <section class="section">
 
-        <h2>Project Documentation</h2>
+```
+<h2>Project Documentation</h2>
 
-        <div class="skills-grid">
+<div class="document-library">
 
-            <div class="skill-card">
+    <!-- Training Manual -->
 
-                <h3>Hardware and Systems Training Manual Artifact</h3>
+    <div class="document-viewer">
 
-                <p>
-                   Example of content created for Training Course.
-                </p>
+        <div class="document-header">
 
-                <a href="https://github.com/JsKm1971/Portfolio/blob/a7c6782528cd034356a84bf3907c8d33a2398ea1/Documents/Hardware%20and%20Systems%20Training%20Manual%20Final.pdf" target="_blank" class="cta-btn">
-                    View PDF
-                </a>
+            <h3>Hardware and Systems Training Manual</h3>
 
-            </div>
+            <p>
+                Comprehensive onboarding and technical training manual.
+            </p>
 
-            <div class="skill-card">
-
-                <h3>AI 600 Storyboard Artifact</h3>
-
-                <p>
-                    Example of AI 600 Storyboard.
-                </p>
-
-                <a href="https://github.com/JsKm1971/Portfolio/blob/381f20835afbbeabf537b09404da891d8690c495/Documents/Foundations%20of%20Artificial%20Intelligence%20AI%20600%20Storyboard.pdf" target="_blank" class="cta-btn">
-                    View PDF
-                </a>
-
-            </div>
-
-            <div class="skill-card">
-
-                <h3>Accessibility Review</h3>
-
-                <p>
-                    WCAG and Section 508 compliance report.
-                </p>
-
-                <a href="documents/accessibility-review.pdf" target="_blank" class="cta-btn">
-                    View PDF
-                </a>
-
-            </div>
+            <a href="Documents/Hardware-and-Systems-Training-Manual.pdf"
+               target="_blank"
+               class="cta-btn">
+                Open PDF
+            </a>
 
         </div>
+
+        <iframe
+            class="document-frame"
+            src="Documents/Hardware-and-Systems-Training-Manual.pdf">
+        </iframe>
+
+    </div>
+
+    <!-- Storyboard -->
+
+    <div class="document-viewer">
+
+        <div class="document-header">
+
+            <h3>Foundations of Artificial Intelligence Storyboard</h3>
+
+            <p>
+                Instructional design storyboard used during project planning.
+            </p>
+
+            <a href="Documents/Foundations-of-Artificial-Intelligence-AI600-Storyboard.pdf"
+               target="_blank"
+               class="cta-btn">
+                Open PDF
+            </a>
+
+        </div>
+
+        <iframe
+            class="document-frame"
+            src="Documents/Foundations-of-Artificial-Intelligence-AI600-Storyboard.pdf">
+        </iframe>
+
+    </div>
+
+    <!-- Accessibility -->
+
+    <div class="document-viewer">
+
+        <div class="document-header">
+
+            <h3>Accessibility Review</h3>
+
+            <p>
+                WCAG and Section 508 accessibility evaluation report.
+            </p>
+
+            <a href="Documents/Accessibility-Review.pdf"
+               target="_blank"
+               class="cta-btn">
+                Open PDF
+            </a>
+
+        </div>
+
+        <iframe
+            class="document-frame"
+            src="Documents/Accessibility-Review.pdf">
+        </iframe>
+
+    </div>
+
 </div>
-    </section>
+```
+
+</section>
+
 
 
     <!-- LIGHTBOX -->
@@ -752,69 +504,20 @@ footer{
 
     <script>
 
-        /* IMAGE LIGHTBOX */
+document.querySelectorAll(".preview-btn").forEach(button=>{
 
-        const galleryImages =
-            document.querySelectorAll(".gallery img");
+    button.addEventListener("click",()=>{
 
-        const lightbox =
-            document.getElementById("lightbox");
+        const panel =
+            button.closest(".showcase-item")
+            .querySelector(".preview-panel");
 
-        const lightboxImg =
-            document.getElementById("lightboxImg");
+        panel.classList.toggle("active");
 
-        galleryImages.forEach(img => {
-
-            img.addEventListener("click", () => {
-
-                lightbox.style.display = "flex";
-                lightboxImg.src = img.src;
-
-            });
-
-        });
-
-        lightbox.addEventListener("click", () => {
-
-            lightbox.style.display = "none";
-
-        });
-
-    </script>
-
-    <script>
-
-document.querySelectorAll(".expand-btn").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const card =
-            button.closest(".learning-card");
-
-        const content =
-            card.querySelector(".learning-content");
-
-        content.classList.toggle("active");
-
-        if(content.classList.contains("active")){
-            button.textContent = "Expand";
-        } else {
-            button.textContent = "Open";
-            card.classList.remove("expanded");
-        }
-
-    });
-
-});
-
-document.querySelectorAll(".learning-content").forEach(content => {
-
-    content.addEventListener("dblclick", () => {
-
-        const card =
-            content.closest(".learning-card");
-
-        card.classList.toggle("expanded");
+        button.textContent =
+            panel.classList.contains("active")
+            ? "Hide Preview"
+            : "Preview Project";
 
     });
 
