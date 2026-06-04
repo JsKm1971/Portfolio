@@ -495,7 +495,50 @@ footer{
     }
 }
 
+/* ==========================
+   PROJECT DETAILS SECTION
+========================== */
 
+.project-details-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project-detail-card{
+    background:#fff;
+    padding:30px;
+    border-radius:16px;
+    border-left:5px solid #0F4C81;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+
+    transition:.3s ease;
+}
+
+.project-detail-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(15,76,129,.12);
+}
+
+.project-detail-card h3{
+    color:#0F4C81;
+    margin-bottom:20px;
+}
+
+.project-detail-card ul{
+    list-style:none;
+    padding:0;
+}
+
+.project-detail-card li{
+    margin-bottom:12px;
+    line-height:1.6;
+}
     
 </style>
 
@@ -594,7 +637,73 @@ footer{
     </div>
 </section>
 
+<!-- Project Detail card -->
 
+<section class="section">
+
+    <h2>Project Details</h2>
+
+    <div class="project-details-grid">
+
+        <div class="project-detail-card">
+
+            <h3>iSpring Learning Example</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> iSpring Suite, PowerPoint</li>
+                <li><strong>Audience:</strong> Adult Learners</li>
+                <li><strong>Deliverables:</strong> Interactive eLearning Module</li>
+                <li><strong>Instructional Strategy:</strong> Scenario-Based Learning</li>
+                <li><strong>Outcomes:</strong> Knowledge Application & Retention</li>
+            </ul>
+
+        </div>
+
+        <div class="project-detail-card">
+
+            <h3>Interactive Glossary of Terms</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> iSpring Suite</li>
+                <li><strong>Audience:</strong> Higher Education Learners</li>
+                <li><strong>Deliverables:</strong> Interactive Reference Tool</li>
+                <li><strong>Instructional Strategy:</strong> Performance Support</li>
+                <li><strong>Outcomes:</strong> Improved Concept Recall</li>
+            </ul>
+
+        </div>
+
+        <div class="project-detail-card">
+
+            <h3>Articulate Storyline Scenario</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> Articulate Storyline 360</li>
+                <li><strong>Audience:</strong> Corporate Employees</li>
+                <li><strong>Deliverables:</strong> Branching Scenario</li>
+                <li><strong>Instructional Strategy:</strong> Decision-Based Learning</li>
+                <li><strong>Outcomes:</strong> Behavioral Change & Skill Practice</li>
+            </ul>
+
+        </div>
+
+        <div class="project-detail-card">
+
+            <h3>HTML Learning Object</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Audience:</strong> Online Learners</li>
+                <li><strong>Deliverables:</strong> Interactive Web-Based Activity</li>
+                <li><strong>Instructional Strategy:</strong> Active Learning</li>
+                <li><strong>Outcomes:</strong> Increased Engagement</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
   
         
     <!-- VIDEO -->
