@@ -276,32 +276,28 @@ nav a:hover{
    GALLERY
 ================================== */
 
-.gallery{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(250px,1fr));
-
-    gap:20px;
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.gallery img{
-    width:100%;
-    height:250px;
-
-    object-fit:cover;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    transition:.3s ease;
+.gallery-item {
+    text-align: center;
 }
 
-.gallery img:hover{
-    transform:scale(1.03);
+.gallery-item h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
 
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.15);
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* ==================================
@@ -755,13 +751,32 @@ footer{
 
         <div class="gallery">
 
-            <img src="images/CSS_Image.png" alt="CSS Code Example">
-            <img src="images/JPEG_Image.png" alt="JPEG Code Example">
-            <img src="images/JS_Image.png" alt="JS Code Example">
-            <img src="images/Rendered_View_Image.png" alt="Rendered View Example">
-            <img src="Flip_Card_Example.png" alt="Flip Card Example">
-        </div>
+    <div class="gallery-item">
+        <h3>CSS Code</h3>
+        <img src="images/CSS_Image.png" alt="CSS Code Example">
+    </div>
 
+    <div class="gallery-item">
+        <h3>JPEG Image</h3>
+        <img src="images/JPEG_Image.png" alt="JPEG Code Example">
+    </div>
+
+    <div class="gallery-item">
+        <h3>JavaScript Code</h3>
+        <img src="images/JS_Image.png" alt="JS Code Example">
+    </div>
+
+    <div class="gallery-item">
+        <h3>Rendered View</h3>
+        <img src="images/Rendered_View_Image.png" alt="Rendered View Example">
+    </div>
+
+    <div class="gallery-item">
+        <h3>Flip Card Example</h3>
+        <img src="images/Flip_Card_Example.png" alt="Flip Card Example">
+    </div>
+
+</div>
 
 
 
