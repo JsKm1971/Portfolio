@@ -1,1 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Portfolio Showcase</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ALL OF YOUR CSS GOES HERE */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Roboto',sans-serif;
+    background:#f7f9fc;
+    color:#333;
+    line-height:1.6;
+}
+/* =====================
+   GLOBAL STYLES
+===================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Roboto', sans-serif;
+    background:#ffffff;
+    color:#333;
+    line-height:1.6;
+}
+
+/* =====================
+   HEADER
+===================== */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#fff;
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo img{
+    height:200px;
+    width:auto;
+    display:block;
+}
+
+   nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#0F4C81;
+}
+
+
+
+
+/* ==================================
+   MAIN CONTAINER
+================================== */
+
+.about-container{
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ==================================
+   HERO
+================================== */
+
+.hero{
+    text-align:center;
+    padding:100px 40px;
+    background:white;
+    margin:40px auto;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(15,76,129,.08);
+}
+
+.hero-content{
+    max-width:900px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size:4rem;
+    color:#000052;
+    margin-bottom:15px;
+}
+
+.hero h2{
+    font-size:1.4rem;
+    font-weight:300;
+    color:#000052;
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    max-width:750px;
+    margin:auto;
+}
+
+/* ==================================
+   SECTION STYLING
+================================== */
+
+.section{
+    max-width:1400px;
+    margin:40px auto;
+    padding:50px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(15,76,129,.08);
+}
+
+.section h2{
+    color:#000052;
+    margin-bottom:30px;
+    text-align:center;
+    font-size:2rem;
+}
+
+/* ==================================
+   PROJECT CARDS
+================================== */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.skill-card{
+    background:#fff;
+    padding:30px;
+    border-radius:16px;
+
+    border-left:5px solid #0F4C81;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+
+    transition:.3s ease;
+}
+
+.skill-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(15,76,129,.12);
+}
+
+.skill-card h3{
+    color:#0F4C81;
+    margin-bottom:15px;
+}
+
+.skill-card p{
+    margin-bottom:25px;
+}
+
+
+.iframe-container {
+    width: 50%;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;    /* Centers the iframe */
+}
+
+.iframe-container iframe {
+    width: 50%;
+    height: 700px;     /* Adjust as needed */
+    border: none;
+}
+
+
+
+    
+/* ==================================
+   BUTTONS
+================================== */
+
+.cta-btn{
+    display:inline-block;
+
+    padding:12px 24px;
+
+    background:#0F4C81;
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    transition:.3s ease;
+}
+
+.cta-btn:hover{
+    background:#1c629f;
+    transform:translateY(-2px);
+}
+
+/* ==================================
+   LEARNING OBJECT IFRAME
+================================== */
+
+.section iframe{
+    width:100%;
+    border:none;
+    border-radius:12px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.12);
+}
+   .learning-object{
+    width:100%;
+    border:none;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+/* ==================================
+   VIDEO
+================================== */
+
+.video-container{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.12);
+}
+
+.video-container iframe{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+}
+
+/* ==================================
+   GALLERY
+================================== */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-item h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.gallery-item img {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==================================
+   LIGHTBOX
+================================== */
+
+.lightbox{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.9);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+
+    border-radius:12px;
+}
+
+/* ==================================
+   DOCUMENT SECTION
+================================== */
+
+.document-card{
+    background:#F7F9FC;
+    border-left:5px solid #0F4C81;
+}
+
+/* ==================================
+   FOOTER (OPTIONAL)
+================================== */
+
+footer{
+    text-align:center;
+    padding:40px;
+
+    color:#666;
+}
+
+/* ==================================
+   MOBILE
+================================== */
+
+@media (max-width:768px){
+
+    .hero{
+        padding:60px 25px;
+    }
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .hero h2{
+        font-size:1.1rem;
+    }
+
+    .section{
+        padding:30px 20px;
+    }
+
+    .navbar{
+        gap:10px;
+    }
+
+    .nav-btn{
+        padding:10px 18px;
+    }
+}
+
+/* ==========================
+   Interactive Learning
+========================== */
+
+.interactive-learning {
+    padding: 80px 40px;
+    background: #f8f9fc;
+    margin-bottom: 80px;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #000052;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    color: #6b7280;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+    .section {
+    margin-top: 80px;
+}
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.learning-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.learning-card iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.learning-card h3 {
+    padding: 18px 20px;
+    margin: 0;
+    background: #ffffff;
+    color: #000052;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 1.1rem;
+}
+
+.learning-card iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+}
+
+.captivate-showcase {
+    text-align: left;
+    margin-bottom: 10px;
+    grid-column: 1 / -1;
+}
+
+.captivate-frame-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.captivate-frame-container iframe {
+    width: 100%;
+    height: 85%;
+    border: none;
+    
+}
+
+
+
+
+    
+/* Tablet */
+@media (max-width: 992px) {
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-card iframe {
+        height: 500px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .interactive-learning {
+        padding: 60px 20px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .learning-card iframe {
+        height: 400px;
+    }
+}
+
+/* ==========================
+   PROJECT DETAILS SECTION
+========================== */
+
+.project-details-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project-detail-card{
+    background:#fff;
+    padding:30px;
+    border-radius:16px;
+    border-left:5px solid #0F4C81;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+
+    transition:.3s ease;
+}
+
+.project-detail-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(15,76,129,.12);
+}
+
+.project-detail-card h3{
+    color:#0F4C81;
+    margin-bottom:20px;
+}
+
+.project-detail-card ul{
+    list-style:none;
+    padding:0;
+}
+
+.project-detail-card li{
+    margin-bottom:12px;
+    line-height:1.6;
+}
+
+.case-study{
+    display:grid;
+    grid-template-columns:1fr 1.5fr;
+    gap:40px;
+    align-items:center;
+}
+
+.case-study iframe{
+    width:100%;
+    height:450px;
+    border-radius:16px;
+}
+
+.case-text ul{
+    margin:20px 0;
+    padding-left:20px;
+}
+.case-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.case-card{
+    padding:30px;
+    border-radius:16px;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.case-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(15,76,129,.15);
+}
+
+.tagline{
+    color:#555;
+    margin:10px 0 20px;
+}
+
+.meta span{
+    display:inline-block;
+    background:#f0f4f8;
+    padding:6px 12px;
+    border-radius:20px;
+    margin-right:10px;
+    font-size:.85rem;
+}
+
+
+  
+</style>
+
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+
+   <header>
+
+    <div class="logo">
+    <img src="images/Corporate Logo.png"
+         alt="Jeremy L. Haecker Logo">
+</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+       <a href="About.html">About</a>
+        <a href="Portfolio.html">Portfolio</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
+
+</header>
+    <div class="about-container">
+
+        <!-- HERO -->
+
+       <section class="hero">
+
+  <div class="hero-content">
+
+    <h1>Designing Learning That Drives Performance</h1>
+
+    <h2>
+      Instructional Designer & Learning Experience Designer
+    </h2>
+
+    <p>
+      I create interactive, scenario-based learning solutions that improve
+      engagement, retention, and real-world application for adult learners.
+    </p>
+
+    <a href="#featured" class="cta-btn">View Case Studies</a>
+
+  </div>
+
+</section>
+    
+  <section id="featured" class="section">
+
+  <h2>Featured Case Study</h2>
+
+  <div class="case-study">
+
+    <div class="case-text">
+      <h3>Scenario-Based Ethics Training</h3>
+
+      <p>
+        Designed an interactive learning experience to improve ethical
+        decision-making among graduate-level learners.
+      </p>
+
+      <ul>
+        <li><strong>Problem:</strong> Low engagement in theory-heavy content</li>
+        <li><strong>Solution:</strong> Scenario-based branching experience</li>
+        <li><strong>Impact:</strong> Increased learner completion & engagement</li>
+      </ul>
+
+      <a href="#" class="cta-btn">View Full Case Study</a>
+    </div>
+
+    <iframe src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"></iframe>
+
+  </div>
+
+</section>      
+        
+        
+        <!-- Learning Object -->
+
+          
+  <!-- Interactive Learning Experiences -->
+<section class="interactive-learning">
+    <div class="section-header">
+        <h2>Interactive Learning Solutions</h2>
+        <p>
+            Explore a collection of interactive learning solutions designed to
+            engage learners through scenario-based learning, multimedia content,
+            knowledge checks, and immersive instructional experiences.
+        </p>
+    </div>
+
+    <div class="learning-grid">
+
+        <!-- Learning Experience 1 -->
+       <div class="case-grid">
+
+  <div class="case-card">
+    <h3>iSpring Learning Module</h3>
+
+    <p class="tagline">
+      Interactive proof-of-concept for scenario-based learning
+    </p>
+
+    <div class="meta">
+      <span>Scenario-Based</span>
+      <span>Adult Learning</span>
+    </div>
+
+    <a href="#" class="cta-btn">View Details</a>
+  </div>
+
+</div>
+
+        <!-- Learning Experience 3 -->
+        <div class="captivate-showcase">
+            <h3>Adobe Captivate Lesson Example - Created for PH Program</h3>
+
+            <div class="captivate-frame-container">
+                <iframe src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
+                    title="Weekly Lesson: The Ethical Imperative" loading="lazy" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+<!-- Project Detail card -->
+
+<section class="section">
+
+    <h2>Project Details</h2>
+
+    <div class="project-details-grid">
+
+        <div class="project-detail-card">
+
+            <h3>iSpring Learning Example</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> iSpring Suite, PowerPoint</li>
+                <li><strong>Audience:</strong> Adult Learners</li>
+                <li><strong>Deliverables:</strong> Interactive eLearning Module</li>
+                <li><strong>Instructional Strategy:</strong> Scenario-Based Learning</li>
+                <li><strong>Outcomes:</strong> Knowledge Application & Retention</li>
+            </ul>
+
+        </div>
+
+        <div class="project-detail-card">
+
+            <h3>Interactive Glossary of Terms</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> iSpring Suite</li>
+                <li><strong>Audience:</strong> Higher Education Learners</li>
+                <li><strong>Deliverables:</strong> Interactive Reference Tool</li>
+                <li><strong>Instructional Strategy:</strong> Performance Support</li>
+                <li><strong>Outcomes:</strong> Improved Concept Recall</li>
+            </ul>
+
+        </div>
+
+        <div class="project-detail-card">
+
+            <h3>Articulate Storyline Scenario</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> Articulate Storyline 360</li>
+                <li><strong>Audience:</strong> Corporate Employees</li>
+                <li><strong>Deliverables:</strong> Branching Scenario</li>
+                <li><strong>Instructional Strategy:</strong> Decision-Based Learning</li>
+                <li><strong>Outcomes:</strong> Behavioral Change & Skill Practice</li>
+            </ul>
+
+        </div>
+
+        <div class="project-detail-card">
+
+            <h3>HTML Learning Object</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Audience:</strong> Online Learners</li>
+                <li><strong>Deliverables:</strong> Interactive Web-Based Activity</li>
+                <li><strong>Instructional Strategy:</strong> Active Learning</li>
+                <li><strong>Outcomes:</strong> Increased Engagement</li>
+            </ul>
+
+        </div>
+
+        <div class="project-detail-card">
+
+            <h3>HTML Learning Object</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Audience:</strong> Online Learners</li>
+                <li><strong>Deliverables:</strong> Interactive Web-Based Activity</li>
+                <li><strong>Instructional Strategy:</strong> Active Learning</li>
+                <li><strong>Outcomes:</strong> Increased Engagement</li>
+            </ul>
+
+        </div>
+        <div class="project-detail-card">
+
+            <h3>HTML Learning Object</h3>
+
+            <ul>
+                <li><strong>Tools:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Audience:</strong> Online Learners</li>
+                <li><strong>Deliverables:</strong> Interactive Web-Based Activity</li>
+                <li><strong>Instructional Strategy:</strong> Active Learning</li>
+                <li><strong>Outcomes:</strong> Increased Engagement</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+  
+        
+    <!-- VIDEO -->
+
+    <section class="section">
+
+        <h2>Featured Project Video</h2>
+
+        <div class="video-container">
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ztRvHyBkIJs?si=0QYJ75IrLxTV9FrP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        </div>
+
+    </section>
+
+    <!-- GALLERY -->
+
+    <section class="section">
+
+        <h2>Project Gallery</h2>
+
+        <div class="gallery">
+
+    <div class="gallery-item">
+        <h3>CSS Code Example</h3>
+        <img src="images/CSS_Image.png" alt="CSS Code Example">
+    </div>
+
+    <div class="gallery-item">
+        <h3>HTML Code Example</h3>
+        <img src="images/JPEG_Image.png" alt="JPEG Code Example">
+    </div>
+
+    <div class="gallery-item">
+        <h3>JavaScript Code Example</h3>
+        <img src="images/JS_Image.png" alt="JS Code Example">
+    </div>
+
+    <div class="gallery-item">
+        <h3>Rendered View Example</h3>
+        <img src="images/Rendered_View_Image.png" alt="Rendered View Example">
+    </div>
+
+    <div class="gallery-item">
+        <h3>Flip Card Example</h3>
+        <img src="images/Flip_Card_Example.png" alt="Flip Card Example">
+    </div>
+
+</div>
+
+
+
+
+    </section>
+    <!-- Documents -->
+
+    <section class="section">
+
+        <h2>Project Documentation</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <h3>Hardware and Systems Training Manual Artifact</h3>
+
+                <p>
+                   Example of content created for Training Course.
+                </p>
+
+                <a href="https://raw.githubusercontent.com/JsKm1971/Portfolio/main/Documents/Hardware%20and%20Systems%20Training%20Manual%20Final.pdf"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="cta-btn">
+    View PDF
+</a>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>AI 600 Storyboard Artifact</h3>
+
+                <p>
+                    Example of AI 600 Storyboard.
+                </p>
+
+                <a href="https://github.com/JsKm1971/Portfolio/blob/381f20835afbbeabf537b09404da891d8690c495/Documents/Foundations%20of%20Artificial%20Intelligence%20AI%20600%20Storyboard.pdf" target="_blank" class="cta-btn">
+                    View PDF
+                </a>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>Accessibility Review</h3>
+
+                <p>
+                    WCAG and Section 508 compliance report.
+                </p>
+
+                <a href="documents/accessibility-review.pdf" target="_blank" class="cta-btn">
+                    View PDF
+                </a>
+
+            </div>
+
+        </div>
+</div>
+    </section>
+  <section class="section">
+
+
+        <h2>Interactive Learning Experiences</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <h3>iSpring Learning Module</h3>
+
+                <p>
+                    Interactive learning experience developed in iSpring.
+                </p>
+
+                <a href="learning/ispring-project.html" class="cta-btn">
+                    Launch Project
+                </a>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Articulate Storyline Scenario</h3>
+
+                <p>
+                    Branching scenario-based learning experience.
+                </p>
+
+                <a href="learning/storyline-project/story.html" class="cta-btn">
+                    Launch Project
+                </a>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>HTML Learning Object</h3>
+
+                <p>
+                    Custom HTML, CSS, and JavaScript interaction.
+                </p>
+
+                <a href="HTML_LO" class="cta-btn">
+                    Launch Project
+                </a>
+
+            </div>
+
+        </div>
+
+  
+</section>
+
+    <!-- LIGHTBOX -->
+
+    <div class="lightbox" id="lightbox">
+        <img id="lightboxImg">
+    </div>
+
+    <script>
+
+        /* IMAGE LIGHTBOX */
+
+        const galleryImages =
+            document.querySelectorAll(".gallery img");
+
+        const lightbox =
+            document.getElementById("lightbox");
+
+        const lightboxImg =
+            document.getElementById("lightboxImg");
+
+        galleryImages.forEach(img => {
+
+            img.addEventListener("click", () => {
+
+                lightbox.style.display = "flex";
+                lightboxImg.src = img.src;
+
+            });
+
+        });
+
+        lightbox.addEventListener("click", () => {
+
+            lightbox.style.display = "none";
+
+        });
+
+    </script>
+
+</body>
