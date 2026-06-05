@@ -254,15 +254,15 @@ main{
 
 .gallery-item img{
     width:100%;
-    height:auto;
     border-radius:12px;
     display:block;
     cursor:pointer;
-    transition:.3s;
+    transition:transform .4s ease, box-shadow .4s ease;
 }
 
-.gallery-item img:hover{
-    transform:scale(1.03);
+.gallery-item:hover img{
+    transform:scale(1.05);
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
 }
    .gallery-item h3{
     font-size:1rem;
@@ -413,22 +413,47 @@ main{
 
   <div class="gallery">
 
-    <div class="gallery-item">
-      <h3>Wireframe → Build</h3>
-      <img src="images/Rendered_View_Image.png" alt="Wireframe to final build">
+    
+<div class="gallery-item">
+  <div class="img-wrapper">
+    <img src="images/Rendered_View_Image.png" alt="">
+    
+    <div class="overlay">
+      <p>Wireframe to final build showing layout evolution</p>
     </div>
-
-    <div class="gallery-item">
-      <h3>Interaction Design</h3>
-      <img src="images/JS_Image.png" alt="JavaScript interaction example">
-    </div>
-
-    <div class="gallery-item">
-      <h3>Frontend Build</h3>
-      <img src="images/CSS_Image.png" alt="CSS layout example">
-    </div>
-
   </div>
+
+  <h3>Wireframe → Build</h3>
+</div>
+
+
+   
+<div class="gallery-item">
+  <div class="img-wrapper">
+    <img src="images/Rendered_View_Image.png" alt="">
+    
+    <div class="overlay">
+      <p>Wireframe to final build showing layout evolution</p>
+    </div>
+  </div>
+
+  <h3>Wireframe → Build</h3>
+</div>
+
+
+   
+<div class="gallery-item">
+  <div class="img-wrapper">
+    <img src="images/Rendered_View_Image.png" alt="">
+    
+    <div class="overlay">
+      <p>Wireframe to final build showing layout evolution</p>
+    </div>
+  </div>
+
+  <h3>Wireframe → Build</h3>
+</div>
+
 </section>
 
 </main>
