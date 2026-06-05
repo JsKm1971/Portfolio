@@ -10,10 +10,8 @@
 
 <style>
 
-/* ALL OF YOUR CSS GOES HERE */
-
 /* =====================
-   GLOBAL RESET
+   GLOBAL
 ===================== */
 *{
     margin:0;
@@ -23,7 +21,7 @@
 
 body{
     font-family:'Roboto', sans-serif;
-    background:#ffffff;
+    background:#fff;
     color:#333;
     line-height:1.6;
 }
@@ -45,7 +43,6 @@ header{
 
 .logo img{
     height:200px;
-    width:auto;
 }
 
 nav{
@@ -65,9 +62,9 @@ nav a:hover{
 }
 
 /* =====================
-   LAYOUT CONTAINERS
+   LAYOUT
 ===================== */
-.about-container{
+main{
     max-width:1400px;
     margin:auto;
 }
@@ -78,27 +75,24 @@ nav a:hover{
 .hero{
     text-align:center;
     padding:100px 40px;
-    background:white;
-    margin:40px auto;
+    margin:40px 0;
     border-radius:20px;
     box-shadow:0 10px 30px rgba(15,76,129,.08);
 }
 
 .hero h1{
-    font-size:4rem;
+    font-size:3.5rem;
     color:#000052;
-    margin-bottom:15px;
 }
 
 .hero h2{
-    font-size:1.4rem;
+    font-size:1.3rem;
     font-weight:300;
-    color:#000052;
-    margin-bottom:25px;
+    margin:20px 0;
 }
 
 .hero p{
-    max-width:750px;
+    max-width:700px;
     margin:auto;
 }
 
@@ -106,10 +100,8 @@ nav a:hover{
    SECTION
 ===================== */
 .section{
-    max-width:1400px;
-    margin:60px auto;
+    margin:60px 0;
     padding:50px;
-    background:white;
     border-radius:20px;
     box-shadow:0 10px 30px rgba(15,76,129,.08);
     transition:.3s;
@@ -132,86 +124,71 @@ nav a:hover{
 .cta-btn{
     display:inline-block;
     padding:12px 24px;
+    margin-top:20px;
     background:#0F4C81;
     color:white;
-    text-decoration:none;
+    border:none;
     border-radius:50px;
-    transition:.3s;
-}
-
-.cta-btn:hover{
-    background:#1c629f;
-    transform:translateY(-2px);
+    cursor:pointer;
+    text-decoration:none;
 }
 
 /* =====================
-   GRID SYSTEMS
+   CASE STUDY
 ===================== */
-.skills-grid,
-.project-details-grid{
+.case-study{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:1fr 1.5fr;
+    gap:40px;
+    align-items:center;
+}
+
+.case-study iframe{
+    width:100%;
+    height:450px;
+    border:none;
+    border-radius:16px;
+}
+
+.case-text ul{
+    margin-top:20px;
+    padding-left:20px;
+}
+
+/* =====================
+   GRIDS
+===================== */
+.learning-grid,
+.case-grid,
+.gallery{
+    display:grid;
     gap:25px;
 }
 
 .learning-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+}
+
+.case-grid{
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+}
+
+.gallery{
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 }
 
 /* =====================
    CARDS
 ===================== */
-.skill-card,
-.project-detail-card{
+.learning-card,
+.case-card{
     background:#fff;
-    padding:30px;
     border-radius:16px;
-    border-left:5px solid #0F4C81;
     box-shadow:0 5px 20px rgba(0,0,0,.05);
-    transition:.3s;
 }
 
-.skill-card:hover,
-.project-detail-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(15,76,129,.12);
-}
-
-.skill-card h3,
-.project-detail-card h3{
-    color:#0F4C81;
-    margin-bottom:15px;
-}
-
-/* =====================
-   INTERACTIVE LEARNING
-===================== */
-.interactive-learning{
-    padding:80px 40px;
-    background:#f8f9fc;
-}
-
-.section-header{
-    text-align:center;
-    max-width:900px;
-    margin:0 auto 50px;
-}
-
-.section-header h2{
-    font-size:2.5rem;
-    color:#000052;
-}
-
-.section-header p{
-    color:#6b7280;
-    font-size:1.05rem;
-}
-
-.learning-card{
-    display:flex;
-    flex-direction:column;
+.learning-card h3{
+    padding:15px;
 }
 
 .learning-card iframe{
@@ -220,27 +197,30 @@ nav a:hover{
     border:none;
 }
 
-.learning-card h3{
-    padding:18px;
-    background:#fff;
-    border-bottom:1px solid #e5e7eb;
-    color:#000052;
+.case-card{
+    padding:30px;
+}
+
+.meta span{
+    display:inline-block;
+    background:#f0f4f8;
+    padding:5px 10px;
+    margin-right:10px;
+    border-radius:20px;
 }
 
 /* =====================
-   CAPTIVATE FRAME
+   DETAILS TOGGLE
 ===================== */
-.captivate-frame-container{
-    width:100%;
-    max-width:1200px;
-    height:800px;
-    margin:auto;
+.details-content{
+    max-height:0;
+    overflow:hidden;
+    transition:.3s;
 }
 
-.captivate-frame-container iframe{
-    width:100%;
-    height:85%;
-    border:none;
+.details-content.open{
+    max-height:200px;
+    margin-top:15px;
 }
 
 /* =====================
@@ -250,42 +230,22 @@ nav a:hover{
     position:relative;
     padding-bottom:56.25%;
     height:0;
-    overflow:hidden;
-    border-radius:16px;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
 
 .video-container iframe{
     position:absolute;
-    inset:0;
     width:100%;
     height:100%;
+    border:none;
 }
 
 /* =====================
    GALLERY
 ===================== */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    max-width:1200px;
-    margin:auto;
-}
-
-.gallery-item{
-    text-align:center;
-}
-
-.gallery-item h3{
-    font-size:1.1rem;
-    margin-bottom:10px;
-}
-
 .gallery-item img{
-    width:250px;
-    margin:auto;
-    display:block;
+    width:100%;
+    border-radius:12px;
+    cursor:pointer;
 }
 
 /* =====================
@@ -298,288 +258,17 @@ nav a:hover{
     background:rgba(0,0,0,.9);
     justify-content:center;
     align-items:center;
-    z-index:9999;
 }
 
 .lightbox img{
     max-width:90%;
-    max-height:90%;
-    border-radius:12px;
-}
-
-/* =====================
-   TIMELINE (UX UPGRADE)
-===================== */
-.timeline{
-    border-left:3px solid #0F4C81;
-    padding-left:30px;
-}
-
-.timeline-item{
-    margin-bottom:30px;
-    position:relative;
-}
-
-.timeline-item::before{
-    content:"";
-    width:12px;
-    height:12px;
-    background:#0F4C81;
-    border-radius:50%;
-    position:absolute;
-    left:-38px;
-    top:5px;
 }
 
 /* =====================
    MOBILE
 ===================== */
-@media (max-width:992px){
-    .learning-grid{
-        grid-template-columns:1fr;
-    }
-}
-
 @media (max-width:768px){
-    .hero{
-        padding:60px 25px;
-    }
-
     .hero h1{
-        font-size:2.5rem;
+        font-size:2.3rem;
     }
 
-    .section{
-        padding:30px 20px;
-    }
-
-    .gallery{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media (max-width:480px){
-    .gallery{
-        grid-template-columns:1fr;
-    }
-}
-
-  
-</style>
-
-</head>
-
-<body>
-
-<!-- =====================
-     HEADER
-===================== -->
-<header>
-  <div class="logo">
-    <img src="images/Corporate Logo.png" alt="Jeremy L. Haecker Logo">
-  </div>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="About.html">About</a>
-    <a href="Portfolio.html">Portfolio</a>
-    <a href="Contact.html">Contact</a>
-  </nav>
-</header>
-
-<div class="about-container">
-
-<!-- =====================
-     HERO
-===================== -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Designing Learning That Drives Performance</h1>
-    <h2>Instructional Designer • Learning Experience Designer</h2>
-    <p>
-      I create interactive, scenario-based learning solutions that improve
-      engagement, retention, and real-world application.
-    </p>
-    <a href="#featured" class="cta-btn">View Case Studies</a>
-  </div>
-</section>
-
-<!-- =====================
-     FEATURED CASE STUDY
-===================== -->
-<section id="featured" class="section">
-  <h2>Featured Case Study</h2>
-
-  <div class="case-study">
-    <div class="case-text">
-      <h3>Scenario-Based Ethics Training</h3>
-      <p>
-        Interactive experience designed to improve decision-making in
-        graduate-level learners.
-      </p>
-
-      <ul>
-        <li><strong>Problem:</strong> Low engagement in theory-heavy content</li>
-        <li><strong>Solution:</strong> Scenario-based interaction</li>
-        <li><strong>Impact:</strong> Higher engagement & completion</li>
-      </ul>
-
-      <a href="#" class="cta-btn">View Full Case Study</a>
-    </div>
-
-    <iframe src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"></iframe>
-  </div>
-</section>
-
-<!-- =====================
-     LEARNING PROJECTS
-===================== -->
-<section class="interactive-learning">
-
-  <div class="section-header">
-    <h2>Interactive Learning Solutions</h2>
-    <p>Scenario-based and interactive learning experiences</p>
-  </div>
-
-  <div class="learning-grid">
-
-    <div class="learning-card">
-      <h3>iSpring Learning Example</h3>
-      <iframe src="https://new-acc-space-2588.ispring.com/app/embed-player/eeaed4de-5b92-11f1-8caf-36a0ac412e08"></iframe>
-    </div>
-
-    <div class="learning-card">
-      <h3>Interactive Glossary</h3>
-      <iframe src="https://new-acc-space-2588.ispring.com/app/embed-player/b560e858-5dc6-11f1-bb61-3a21a236d552"></iframe>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =====================
-     PROJECT GRID (UX STYLE)
-===================== -->
-<section class="section">
-  <h2>More Case Studies</h2>
-
-  <div class="case-grid">
-
-    <div class="case-card">
-      <h3>iSpring Module</h3>
-      <p class="tagline">Scenario-based proof of concept</p>
-      <div class="meta">
-        <span>Adult Learning</span>
-        <span>Scenario-Based</span>
-      </div>
-      <button class="cta-btn toggle-btn">View Details</button>
-      <div class="details-content">
-        <ul>
-          <li><strong>Tools:</strong> iSpring</li>
-          <li><strong>Outcome:</strong> Increased engagement</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="case-card">
-      <h3>Storyline Scenario</h3>
-      <p class="tagline">Branching decision experience</p>
-      <div class="meta">
-        <span>Corporate</span>
-        <span>Decision-Based</span>
-      </div>
-      <button class="cta-btn toggle-btn">View Details</button>
-      <div class="details-content">
-        <ul>
-          <li><strong>Tools:</strong> Storyline 360</li>
-          <li><strong>Outcome:</strong> Behavior change</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- =====================
-     VIDEO
-===================== -->
-<section class="section">
-  <h2>Featured Video</h2>
-
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/ztRvHyBkIJs"></iframe>
-  </div>
-</section>
-
-<!-- =====================
-     GALLERY (PROCESS)
-===================== -->
-<section class="section">
-  <h2>Design Process</h2>
-
-  <div class="gallery">
-
-    <div class="gallery-item">
-      <h3>Wireframe → Build</h3>
-      <img src="images/Rendered_View_Image.png">
-    </div>
-
-    <div class="gallery-item">
-      <h3>Interaction Design</h3>
-      <img src="images/JS_Image.png">
-    </div>
-
-    <div class="gallery-item">
-      <h3>Frontend Build</h3>
-      <img src="images/CSS_Image.png">
-    </div>
-
-  </div>
-</section>
-
-</div>
-
-<!-- =====================
-     LIGHTBOX
-===================== -->
-<div class="lightbox" id="lightbox">
-  <img id="lightboxImg">
-</div>
-
-<!-- =====================
-     CONSOLIDATED JS
-===================== -->
-<script>
-
-/* =====================
-   LIGHTBOX
-===================== */
-const images = document.querySelectorAll(".gallery img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
-
-images.forEach(img => {
-    img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-    });
-});
-
-lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-});
-
-/* =====================
-   COLLAPSIBLE DETAILS
-===================== */
-const toggleButtons = document.querySelectorAll(".toggle-btn");
-
-toggleButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        btn.nextElementSibling.classList.toggle("open");
-    });
-});
-
-</script>
-
-</body>
