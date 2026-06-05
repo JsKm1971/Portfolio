@@ -10,75 +10,47 @@
 
 <style>
 
-/* ===================== GLOBAL ===================== */
+/* ===== GLOBAL ===== */
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-    font-family:'Roboto',sans-serif;
-    color:#333;
-    line-height:1.6;
-    background:#fff;
-}
+body{font-family:'Roboto',sans-serif;color:#333;line-height:1.6;}
+main{max-width:1400px;margin:auto;}
 
-/* ===================== HEADER ===================== */
+/* ===== HEADER ===== */
 header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:#fff;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px 8%;background:#fff;
     box-shadow:0 2px 15px rgba(0,0,0,.05);
-    position:sticky;
-    top:0;
-    z-index:1000;
 }
-
-.logo img{height:120px;}
-
-nav{display:flex;gap:30px;}
+.logo img{height:110px;}
+nav{display:flex;gap:25px;}
 nav a{text-decoration:none;color:#444;font-weight:500;}
 nav a:hover{color:#0F4C81;}
 
-/* ===================== LAYOUT ===================== */
-main{max-width:1400px;margin:auto;}
-
-/* ===================== HERO ===================== */
-.hero{
-    text-align:center;
-    padding:80px 20px;
-    margin:40px 0;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(15,76,129,.08);
-}
-
+/* ===== HERO ===== */
+.hero{text-align:center;padding:80px 20px;}
 .hero h1{font-size:3rem;color:#000052;}
-.hero h2{font-size:1.2rem;font-weight:300;margin:15px 0;}
-.hero p{max-width:700px;margin:auto;}
+.hero h2{font-weight:300;margin:10px 0;}
+.hero p{max-width:650px;margin:auto;}
 
-/* ===================== SECTION ===================== */
+/* ===== SECTION ===== */
 .section{
-    margin:60px 0;
-    padding:40px;
+    margin:60px 0;padding:40px;
     border-radius:20px;
     box-shadow:0 10px 30px rgba(15,76,129,.08);
 }
+.section h2{text-align:center;color:#000052;margin-bottom:30px;}
 
-.section h2{
-    text-align:center;
-    color:#000052;
-    margin-bottom:30px;
-}
-
-/* ===================== BUTTON ===================== */
+/* ===== BUTTON ===== */
 .cta-btn{
     display:inline-block;
     padding:10px 20px;
     background:#0F4C81;
-    color:white;
+    color:#fff;
     border-radius:30px;
     text-decoration:none;
 }
 
-/* ===================== CASE STUDY ===================== */
+/* ===== CASE STUDY ===== */
 .case-study{
     display:grid;
     grid-template-columns:1fr 1.4fr;
@@ -86,12 +58,7 @@ main{max-width:1400px;margin:auto;}
     align-items:center;
 }
 
-.case-text ul{
-    margin-top:15px;
-    padding-left:20px;
-}
-
-/* ===================== CAPTIVATE ===================== */
+/* ===== CAPTIVATE ===== */
 .project-media{position:relative;}
 
 .captivate-cover{
@@ -99,33 +66,28 @@ main{max-width:1400px;margin:auto;}
     cursor:pointer;
     border-radius:16px;
     overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
-.captivate-cover img{width:100%;}
+.captivate-cover img{width:100%;display:block;}
 
 .captivate-overlay{
-    position:absolute;
-    inset:0;
+    position:absolute;inset:0;
     background:rgba(15,76,129,.85);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    opacity:0;
-    transition:.3s;
+    display:flex;justify-content:center;align-items:center;
+    color:#fff;font-size:1.2rem;
+    opacity:0;transition:.3s;
 }
-
 .captivate-cover:hover .captivate-overlay{opacity:1;}
 
 .captivate-frame{
     width:100%;
     height:600px;
     border:none;
-    border-radius:16px;
     display:none;
+    border-radius:16px;
 }
 
-/* ===================== PROJECT ROW ===================== */
+/* ===== PROJECT ROW ===== */
 .project-row{
     display:grid;
     grid-template-columns:1.4fr 1fr;
@@ -136,59 +98,53 @@ main{max-width:1400px;margin:auto;}
 
 .project-media iframe{
     width:100%;
-    height:320px;
+    height:340px;
     border:none;
     border-radius:16px;
 }
 
 .project-info{
-    padding:20px;
+    padding:25px;
     border-left:5px solid #0F4C81;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
     border-radius:12px;
+    background:#fff;
 }
 
-/* ===================== VIDEO ===================== */
+/* ===== VIDEO ===== */
 .video-container{
     position:relative;
     padding-bottom:56.25%;
 }
-
 .video-container iframe{
-    position:absolute;
-    width:100%;
-    height:100%;
+    position:absolute;width:100%;height:100%;border:none;
 }
 
-/* ===================== GALLERY ===================== */
+/* ===== GALLERY ===== */
 .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
 
-.gallery-img{
+.gallery img{
     width:100%;
     border-radius:12px;
     cursor:pointer;
 }
 
-/* ===================== LIGHTBOX ===================== */
+/* ===== LIGHTBOX ===== */
 .lightbox{
     display:none;
-    position:fixed;
-    inset:0;
+    position:fixed;inset:0;
     background:rgba(0,0,0,.9);
     justify-content:center;
     align-items:center;
 }
-
 .lightbox img{max-width:90%;}
 
-/* ===================== MOBILE ===================== */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
-    .case-study,
-    .project-row{grid-template-columns:1fr;}
+    .case-study,.project-row{grid-template-columns:1fr;}
 }
 
 </style>
@@ -198,9 +154,8 @@ main{max-width:1400px;margin:auto;}
 
 <header>
   <div class="logo">
-    <img src="images/Corporate Logo.png" alt="Logo">
+    images/Corporate Logo.png
   </div>
-
   <nav>
     Home
     About
@@ -215,7 +170,7 @@ main{max-width:1400px;margin:auto;}
 <section class="hero">
   <h1>Designing Learning That Drives Performance</h1>
   <h2>Instructional Designer • Learning Experience Designer</h2>
-  <p>Interactive, scenario-based learning focused on real-world performance.</p>
+  <p>I create interactive, scenario-based learning solutions that improve engagement and real-world performance.</p>
 </section>
 
 <!-- CAPTIVATE -->
@@ -224,10 +179,9 @@ main{max-width:1400px;margin:auto;}
 
   <div class="case-study">
 
-    <div class="case-text">
+    <div>
       <h3>Scenario-Based Ethics Training</h3>
-      <p>Interactive decision-making experience.</p>
-
+      <p>Interactive learning experience designed to improve ethical decision-making.</p>
       <ul>
         <li><strong>Problem:</strong> Low engagement</li>
         <li><strong>Solution:</strong> Scenario-based design</li>
@@ -238,29 +192,31 @@ main{max-width:1400px;margin:auto;}
     <div class="project-media">
 
       <div class="captivate-cover" id="cover">
-        images/captivate-thumbnail.png
-        <div class="captivate-overlay">
-          Launch
-        </div>
+        <img src="images/captivate-thumbnail.png" alt="Captivate preview">
+        <div class="captivate-overlay">Launch Experience</div>
       </div>
 
       <iframe id="frame"
-        data-src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
-        class="capt Studies</h2>
+        data-src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lessonion class="section">
+  <h2>iSpring Case Studies</h2>
 
   <div class="project-row">
-    <iframe src="https://new-acc-space-2588.ispring.com/app/embed-player/eeaed4de-5b92-11f1-8caf-36a0ac412e08"></iframe>
+    <div class="project-media">
+      <iframe src="https://new-acc-space-2588.ispring.com/app/embed-player/eeaed4de-5b92-11f1-8caf-36a0ac412e08"></iframe>
+    </div>
     <div class="project-info">
       <h3>Learning Module</h3>
-      <p>Scenario-based training module.</p>
+      <p>Scenario-based training module designed to increase engagement and retention.</p>
     </div>
   </div>
 
   <div class="project-row">
-    858-5dc6-11f1-bb61-3a21a236d552"></iframe>
+    <div class="project-media">
+      <iframe src="https://new-acc-space-2588.ispring.com/app/embed-player/b560e858-5dc6-11f1-bb61-3a21a236d552"></iframe>
+    </div>
     <div class="project-info">
       <h3>Glossary Tool</h3>
-      <p>Performance support reference tool.</p>
+      <p>Interactive reference tool designed for quick concept recall.</p>
     </div>
   </div>
 
@@ -271,7 +227,7 @@ main{max-width:1400px;margin:auto;}
   <h2>Featured Video</h2>
 
   <div class="video-container">
-    https://www.youtube.com/embed/ztRvHyBkIJs"></iframe>
+    <iframe src="https://www.youtube.com/embed/ztRvHyBkIJs"></iframe>
   </div>
 </section>
 
@@ -280,14 +236,15 @@ main{max-width:1400px;margin:auto;}
   <h2>Design Process</h2>
 
   <div class="gallery">
-    images/Rendered_View_Image.png" class="gallery-img">
-    images/JS_Image.png" class="gallery-img">
-    images/CSS_Image.png" class="gallery-img">
+    <img src="images/Rendered_View_Image.png">
+    <img src="images/JS_Image.png">
+    <img src="images/CSS_Image.png">
   </div>
 </section>
 
 </main>
 
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <img id="lightboxImg">
 </div>
@@ -295,7 +252,11 @@ main{max-width:1400px;margin:auto;}
 <script>
 
 /* LIGHTBOX */
-document.querySelectorAll(".gallery-img").forEach(img=>{
+const imgs=document.querySelectorAll(".gallery img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightboxImg");
+
+imgs.forEach(img=>{
   img.onclick=()=>{
     lightbox.style.display="flex";
     lightboxImg.src=img.src;
@@ -303,14 +264,14 @@ document.querySelectorAll(".gallery-img").forEach(img=>{
 });
 lightbox.onclick=()=>lightbox.style.display="none";
 
-/* CAPTIVATE LOAD */
+/* CAPTIVATE LAUNCH */
 const cover=document.getElementById("cover");
 const frame=document.getElementById("frame");
 
 cover.onclick=()=>{
-  frame.src=frame.dataset.src;
-  frame.style.display="block";
-  cover.style.display="none";
+    frame.src=frame.dataset.src;
+    frame.style.display="block";
+    cover.style.display="none";
 };
 
 </script>
