@@ -156,6 +156,30 @@ main{
 }
 
 /* =====================
+   CAPTIVATE FULL VIEW
+===================== */
+.captivate-full{
+    margin-top:40px;
+}
+
+.captivate-frame{
+    width:100%;
+    height:800px; /* increase visibility */
+    border:none;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* Responsive tweak */
+@media (max-width:768px){
+    .captivate-frame{
+        height:500px;
+    }
+}
+
+
+   
+/* =====================
    GRIDS
 ===================== */
 .learning-grid,
@@ -412,23 +436,30 @@ main{
 <section id="featured" class="section">
   <h2>Adobe Captivate Case Study</h2>
 
-  <div class="case-study">
-    <div class="case-text">
-      <h3>Scenario-Based Ethics Training Example</h3>
-      <p>Interactive experience for improving decision-making.</p>
+  <!-- CASE STUDY TEXT -->
+  <div class="case-text">
+    <h3>Scenario-Based Ethics Training Example</h3>
+    <p>Interactive experience for improving decision-making.</p>
 
-      <ul>
-        <li><strong>Problem:</strong> Low engagement</li>
-        <li><strong>Solution:</strong> Scenario-based design</li>
-        <li><strong>Impact:</strong> Higher completion</li>
-      </ul>
+    <ul>
+      <li><strong>Problem:</strong> Low engagement</li>
+      <li><strong>Solution:</strong> Scenario-based design</li>
+      <li><strong>Impact:</strong> Higher completion</li>
+    </ul>
 
-      <a href="#" class="cta-btn">View Case Study</a>
-    </div>
-
-    <iframe src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
-            title="Ethics Training Module"></iframe>
+    <a href="#" class="cta-btn">View Case Study</a>
   </div>
+
+  <!-- FULL WIDTH CAPTIVATE FRAME -->
+  <div class="captivate-full">
+    <iframe
+      class="captivate-frame"
+      src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
+      title="Ethics Training Module"
+      loading="lazy">
+    </iframe>
+  </div>
+
 </section>
 
 <section class="section">
