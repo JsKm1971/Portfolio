@@ -160,33 +160,13 @@ main{
 /* =====================
    CAPTIVATE FULL VIEW
 ===================== */
-.captivate-full{
-    margin-top:40px;
-}
 
-.captivate-frame{
-    width:80%; /* reduced from 100% */
-    height:680px; /* reduced from 800px */
-    border:none;
-    border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-}
-
-/* Responsive tweak */
-@media (max-width:768px){
-    .captivate-frame{
-        height:500px;
-    }
-}
-
-/* =====================
-   CAPTIVATE COVER
-===================== */
-.captivate-wrapper{
+/* RIGHT SIDE MEDIA */
+.project-media{
     position:relative;
-    width:100%;
 }
 
+/* COVER */
 .captivate-cover{
     position:relative;
     cursor:pointer;
@@ -204,12 +184,10 @@ main{
 .captivate-overlay{
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,.5);
-
+    background:rgba(15,76,129,.85);
     display:flex;
     align-items:center;
     justify-content:center;
-
     opacity:0;
     transition:.3s;
 }
@@ -218,18 +196,23 @@ main{
     opacity:1;
 }
 
-/* iframe hidden initially */
+/* iframe (hidden initially) */
 .captivate-frame{
     width:100%;
     height:650px;
     border:none;
     border-radius:16px;
     display:none;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
+/* mobile */
+@media (max-width:768px){
+    .case-study{
+        grid-template-columns:1fr;
+    }
+}
 
-
-   
    
 /* =====================
    GRIDS
@@ -503,37 +486,45 @@ main{
   </div>
 
   <!-- FULL WIDTH CAPTIVATE FRAME -->
- <div class="captivate-wrapper">
+<section id="featured" class="section">
+  <h2>Adobe Captivate Case Study</h2>
 
-  <!-- COVER -->
-  <div class="captivate-cover" id="captivateCover">
+  <div class="case-study">
 
-    <img src="images/captivate-thumbnail.png" alt="Captivate Preview">
+    <!-- LEFT: TEXT -->
+    <div class="case-text">
+      <h3>Scenario-Based Ethics Training Example</h3>
+      <p>Interactive experience for improving decision-making.</p>
 
-    <div class="captivate-overlay">
-      <button class="cta-btn">Launch Experience</button>
+      <ul>
+        <li><strong>Problem:</strong> Low engagement</li>
+        <li><strong>Solution:</strong> Scenario-based design</li>
+        <li><strong>Impact:</strong> Higher completion</li>
+      </ul>
+
+      <a href="#" class="cta-btn">View Case Study</a>
     </div>
 
-  </div>
+    <!-- RIGHT: COVER + IFRAME -->
+    <div class="project-media">
 
-  <!-- HIDDEN IFRAME -->
-  <iframe
-    id="captivateFrame"
-    class="captivate-frame"
-    src=""
-    data-src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
-    title="Captivate Module"
-  ></iframe>
+      <!-- COVER -->
+      <div class="captivate-cover" id="captivateCover">
 
-</div>
-``
+        <img src="images/captivate-thumbnail.png" alt="Captivate Project Preview">
 
+        <div class="captivate-overlay">
+          <span class="cta-btn">Launch Experience</span>
+        </div>
 
+      </div>
 
-
-
-
-   
+      <!-- HIDDEN IFRAME -->
+      <iframe
+        id="captivateFrame"
+        data-src="https://content.bellevue.edu/test/id/Jeremy/LO/AI630_Project/Lesson_1/index.html"
+        class="captivate-frame"
+        title="Ethics
 
 </section>
 
