@@ -123,10 +123,23 @@ nav a:hover{color:#0F4C81;}
 /* ===== PROJECT ROW ===== */
 .project-row{
     display:grid;
-    grid-template-columns:1fr 2fr;
+    grid-template-columns:300px 1fr;
     gap:30px;
-    margin-bottom:40px;
-    align-items:center;
+    margin-bottom:50px;
+    align-items:start;
+}
+
+/* Reverse layout for alternating projects */
+.project-row.reverse{
+    grid-template-columns:1fr 300px;
+}
+
+.project-info{
+    padding:25px;
+    border-left:5px solid #0F4C81;
+    border-radius:12px;
+    background:#f8f9fa;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
 .project-media iframe{
@@ -136,18 +149,7 @@ nav a:hover{color:#0F4C81;}
     border-radius:16px;
     display:block;
 }
-
-.captivate-frame{
-    display:block;
-    width:100%; /* only captivate */
-}
-.project-info{
-    padding:25px;
-    border-left:5px solid #0F4C81;
-    border-radius:12px;
-    background:#fff;
-}
-
+    
 /* ===== VIDEO ===== */
 .video-container{
     position:relative;
@@ -267,42 +269,64 @@ nav a:hover{color:#0F4C81;}
 
 
   <!-- ISPRING -->
-        <section class="section">
-            <h2>iSpring Case Studies</h2>
+<section class="section">
+    <h2>iSpring Case Studies</h2>
 
-            <div class="project-row">
-                <div class="project-info">
-                    <h3>Learning Module</h3>
-                    <p>Scenario-based training module designed to increase engagement and retention.</p>
-                </div>
-                
-                <div class="project-media">
-                    <iframe src="https://new-acc-space-2588.ispring.com/app/embed-player/eeaed4de-5b92-11f1-8caf-36a0ac412e08" width="560" height="315" frameborder="0" border="0" scrolling="auto" allowtransparency="true" allowfullscreen="1" style="border: none; background-color: transparent;"></iframe>
-                </div>
+    <!-- Learning Module -->
+    <div class="project-row">
 
-                
+        <div class="project-info">
+            <h3>Learning Module</h3>
+            <p>
+                Scenario-based training module designed to increase
+                engagement and retention.
+            </p>
 
-            </div>
- <!-- ISPRING -->
-            <div class="project-row">
-                <div class="project-media">
-                    <iframe
-                        src="https://new-acc-space-2588.ispring.com/app/embed-player/b560e858-5dc6-11f1-bb61-3a21a236d552"
-                        width="560" height="315" frameborder="0" border="0" scrolling="auto" allowtransparency="true"
-                        allowfullscreen="1" style="border: none; background-color: transparent;"></iframe>
-                </div>
+            <ul>
+                <li><strong>Tools:</strong> iSpring Suite</li>
+                <li><strong>Audience:</strong> Adult learners</li>
+                <li><strong>Strategy:</strong> Scenario-Based Learning</li>
+                <li><strong>Outcome:</strong> Increased learner engagement</li>
+            </ul>
+        </div>
 
-                <div class="project-info">
-                    <h3>Glossary Tool</h3>
-                    <p>Interactive reference tool designed for quick concept recall.</p>
-                </div>
-            </div>
+        <div class="project-media">
+            <iframe
+                src="https://new-acc-space-2588.ispring.com/app/embed-player/eeaed4de-5b92-11f1-8caf-36a0ac412e08"
+                allowfullscreen>
+            </iframe>
+        </div>
 
+    </div>
 
+    <!-- Glossary Tool -->
+    <div class="project-row reverse">
 
+        <div class="project-media">
+            <iframe
+                src="https://new-acc-space-2588.ispring.com/app/embed-player/b560e858-5dc6-11f1-bb61-3a21a236d552"
+                allowfullscreen>
+            </iframe>
+        </div>
 
+        <div class="project-info">
+            <h3>Glossary Tool</h3>
+            <p>
+                Interactive reference tool designed to provide quick
+                access to key concepts and terminology.
+            </p>
 
-        </section>
+            <ul>
+                <li><strong>Tools:</strong> iSpring Suite</li>
+                <li><strong>Audience:</strong> Adult learners</li>
+                <li><strong>Strategy:</strong> Performance Support</li>
+                <li><strong>Outcome:</strong> Improved knowledge recall</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
 
         <!-- VIDEO -->
         <section class="section">
