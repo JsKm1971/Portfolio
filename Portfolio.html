@@ -18,39 +18,35 @@ main{max-width:1400px;margin:auto;}
  HEADER
 ===================== */
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: #fff;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, .05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+       header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0,0,0,.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        .logo img {
-            height: 80px;
-            width: auto;
-            display: block;
-        }
+.logo {
+    flex-shrink: 0;
+}
 
-        nav {
-            display: flex;
-            gap: 30px;
-        }
+.logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #444;
-            font-weight: 500;
-            transition: .3s;
-        }
-
-        nav a:hover {
-            color: #0F4C81;
-        }
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
 
 /* ===== HERO ===== */
 .hero{text-align:center;padding:80px 20px;}
