@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html l <meta charset="UTF-8">
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
@@ -25,52 +28,20 @@
             line-height: 1.6;
         }
 
-        /* ==========================
-   NAVIGATION
-========================== */
-
-        .navbar {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            z-index: 1000;
-        }
-
-        .nav-btn {
-            padding: 12px 24px;
-            background: white;
-            color: #000052;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: .3s;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .nav-btn.active {
-            background: #7ab8ff;
-        }
-
+      
+  
         /* ==========================
    MAIN CONTAINER
 ========================== */
 
-        .about-container {
-            max-width: 98%;
-            margin: auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
-        }
+       .about-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,.15);
+}
 
 
 
@@ -79,40 +50,47 @@
    HEADER
 ===================== */
 
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:#fff;
-    box-shadow:0 2px 15px rgba(0,0,0,.05);
-    position:sticky;
-    top:0;
-    z-index:1000;
+header {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0,0,0,.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo img{
-    height:200px;
-    width:auto;
-    display:block;
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-   nav{
-    display:flex;
-    gap:30px;
+.logo img {
+    height: 90px;
+    width: auto;
+    display: block;
 }
 
-nav a{
-    text-decoration:none;
-    color:#444;
-    font-weight:500;
-    transition:.3s;
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 
-nav a:hover{
-    color:#0F4C81;
+nav a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    transition: .3s;
 }
 
+nav a:hover {
+    color: #0F4C81;
+}
 
         /* ==========================
    HERO SECTION
@@ -350,24 +328,25 @@ nav a:hover{
 </head>
 
 <body>
-<div>
 <header>
 
-    <div class="logo">
-    <img src="images/Corporate Logo.png"
-         alt="Jeremy L. Haecker Logo">
-</div>
+    <div class="header-container">
 
-    <nav>
-        <a href="index.html">Home</a>
-       <a href="About.html">About</a>
-        <a href="Portfolio.html">Portfolio</a>
-        <a href="Contact.html">Contact</a>
-    </nav>
+        <div class="logo">
+            <img src="images/Corporate Logo.png"
+                 alt="Jeremy L. Haecker Logo">
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Portfolio.html">Portfolio</a>
+            <a href="Contact.html">Contact</a>
+        </nav>
+
+    </div>
 
 </header>
-
-</div>
         <div class="about-container">
 
             <!-- HERO -->
