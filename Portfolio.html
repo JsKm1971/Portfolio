@@ -15,16 +15,42 @@
 body{font-family:'Roboto',sans-serif;color:#333;line-height:1.6;}
 main{max-width:1400px;margin:auto;}
 
-/* ===== HEADER ===== */
-header{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:20px 8%;background:#fff;
-    box-shadow:0 2px 15px rgba(0,0,0,.05);
-}
-.logo img{height:110px;}
-nav{display:flex;gap:25px;}
-nav a{text-decoration:none;color:#444;font-weight:500;}
-nav a:hover{color:#0F4C81;}
+ HEADER
+===================== */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, .05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 200px;
+            width: auto;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #0F4C81;
+        }
 
 /* ===== HERO ===== */
 .hero{text-align:center;padding:80px 20px;}
