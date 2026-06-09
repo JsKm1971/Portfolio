@@ -284,8 +284,56 @@ nav a:hover{
             flex-wrap: wrap;
         }
 
+<!-- Call Out Boxes -->
+/* ========== CALLOUT BOXES ========== */
+.callout {
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 14px 0;
+    border-left: 6px solid;
+}
 
+.callout strong {
+    display: block;
+    margin-bottom: 4px;
+}
 
+/* Important */
+.callout-important {
+    background-color: #f3e5f5;
+    border-left-color: #6a1b9a;
+}
+
+.callout-important strong {
+    color: #6a1b9a;
+}
+
+/* Warning */
+.callout-warning {
+    background-color: #fdecea;
+    border-left-color: #c62828;
+}
+
+.callout-warning strong {
+    color: #c62828;
+}
+
+/* Tip */
+.callout-tip {
+    background-color: #e8f5e9;
+    border-left-color: #2e7d32;
+}
+
+.callout-tip strong {
+    color: #2e7d32;
+}
+
+/* Mobile friendly */
+@media (max-width: 800px) {
+    .box-container {
+        flex-direction: column;
+    }
+}
 
 
 
@@ -519,9 +567,53 @@ nav a:hover{
 </section>
 
 
+<!-- SAMPLE FLIP CARD -->
 
+<div class="box-container">
 
+    <!-- Box 1 -->
+    <div class="content-box">
+        <h2>Important/Tip Boxes</h2>
+        <div class="header-divider"></div>
 
+        <p>Understand the fundamentals of the topic.</p>
+        <p>Apply concepts to real-world scenarios.</p>
+
+        <div class="callout callout-important">
+            <strong>Important</strong>
+            Be sure to read all instructions before starting the assignment.
+        </div>
+
+        <p>Demonstrate mastery through assessments.</p>
+
+        <div class="callout callout-tip">
+            <strong>Tip</strong>
+            Review the rubric before submitting your work.
+        </div>
+    </div>
+
+    <!-- Box 2 -->
+    <div class="content-box">
+        <h2>Warning/Tip Boxes</h2>
+        <div class="header-divider"></div>
+
+        <p>Read assigned chapter.</p>
+        <p>Watch lecture video.</p>
+
+        <div class="callout callout-warning">
+            <strong>Warning</strong>
+            Late submissions may receive a grade penalty.
+        </div>
+
+        <p>Submit discussion post.</p>
+
+        <div class="callout callout-tip">
+            <strong>Tip</strong>
+            Draft your discussion post in Word first to avoid losing your work.
+        </div>
+    </div>
+
+</div>
 
 
 
