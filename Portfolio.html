@@ -284,8 +284,53 @@ nav a:hover{
             flex-wrap: wrap;
         }
 
-<!-- Call Out Boxes -->
+
 /* ========== CALLOUT BOXES ========== */
+ {
+    font-family: "Open Sans", Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 30px;
+}
+
+/* Container for side-by-side layout */
+.box-container {
+    display: flex;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual content box */
+.content-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    flex: 1;
+    padding: 20px 24px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+/* Header */
+.content-box h2 {
+    color: #4f3674; /* BU Purple */
+    margin: 0;
+}
+
+/* Divider bar under header */
+.header-divider {
+    height: 3px;
+    width: 90%;
+    background: linear-gradient(to right, #D6a800, #4f3674); /* Soft gold → soft purple */
+    border-radius: 2px;
+    position: center;
+}
+
+/* Body text */
+.content-box p {
+    color: #000000;
+    line-height: 1.6;
+    margin: 8px 0;
+}
 .callout {
     border-radius: 8px;
     padding: 12px 14px;
