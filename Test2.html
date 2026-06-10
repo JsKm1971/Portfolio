@@ -1,14 +1,364 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First JavaScript Page</title>
-</head>
-<body>
-    <h1>Check the Console!</h1>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Inline JavaScript -->
-    <script>
-        console.log("This runs directly inside the webpage.");
-    </script>
+<title>PHI 106 Ethical Decision Tree</title>
+
+<style>
+
+/* ===========================
+   GLOBAL
+=========================== */
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:40px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#003366;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:25px;
+}
+
+#scenario{
+    font-size:1.1rem;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.choices{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.choice-btn{
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#003366;
+    color:white;
+    cursor:pointer;
+    font-size:1rem;
+    transition:.3s;
+}
+
+.choice-btn:hover{
+    background:#0055aa;
+}
+
+.feedback{
+    margin-top:25px;
+    padding:20px;
+    border-left:5px solid #003366;
+    background:#eef5ff;
+    display:none;
+}
+
+.progress-wrapper{
+    margin-bottom:25px;
+}
+
+progress{
+    width:100%;
+    height:20px;
+}
+
+.scoreboard{
+    margin-top:20px;
+    background:#f7f7f7;
+    padding:15px;
+    border-radius:8px;
+}
+
+.restart-btn{
+    margin-top:20px;
+    padding:12px 20px;
+    border:none;
+    background:#003366;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    display:none;
+}
+
+.restart-btn:hover{
+    background:#0055aa;
+}
+
+.philosopher{
+    font-weight:bold;
+    color:#003366;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>PHI 106: The Ethical Imperative</h1>
+
+<p class="subtitle">
+Apply ethical theories to a real-world dilemma and see how different philosophies guide decision-making.
+</p>
+
+<div class="progress-wrapper">
+<label><strong>Scenario Progress</strong></label>
+<progress id="progressBar" value="1" max="3"></progress>
+</div>
+
+<div id="scenario">
+
+You are a manager at a local company.
+
+One of your top-performing employees has accidentally made a mistake that could cost the company several thousand dollars.
+
+No one else knows about the error.
+
+What should you do?
+
+</div>
+
+<div class="choices" id="choices">
+
+<button class="choice-btn" onclick="choose('report')">
+Report the mistake immediately, regardless of consequences.
+</button>
+
+<button class="choice-btn" onclick="choose('outcome')">
+Evaluate which action creates the best overall outcome.
+</button>
+
+<button class="choice-btn" onclick="choose('character')">
+Consider what a virtuous leader would do.
+</button>
+
+</div>
+
+<div class="feedback" id="feedback"></div>
+
+<button id="restartBtn" class="restart-btn" onclick="restartScenario()">
+Restart Scenario
+</button>
+
+</div>
+
+<script>
+
+let kant = 0;
+let mill = 0;
+let aristotle = 0;
+let step = 1;
+
+function updateProgress(){
+    document.getElementById("progressBar").value = step;
+}
+
+function choose(path){
+
+step = 2;
+updateProgress();
+
+if(path === "report"){
+
+kant += 10;
+
+document.getElementById("scenario").innerHTML = `
+You believe honesty is a duty and decide to report the mistake.
+
+Leadership asks whether the employee's strong performance history should influence the response.
+
+What should happen next?
+`;
+
+document.getElementById("choices").innerHTML = `
+<button class="choice-btn" onclick="finalChoice('kant')">
+Apply the same policy used for everyone.
+</button>
+
+<button class="choice-btn" onclick="finalChoice('aristotle')">
+Consider the employee's character and growth.
+</button>
+`;
+
+}
+
+if(path === "outcome"){
+
+mill += 10;
+
+document.getElementById("scenario").innerHTML = `
+You focus on minimizing harm and maximizing benefit.
+
+Which action creates the greatest overall good?
+`;
+
+document.getElementById("choices").innerHTML = `
+<button class="choice-btn" onclick="finalChoice('mill')">
+Coach the employee and prevent future mistakes.
+</button>
+
+<button class="choice-btn" onclick="finalChoice('kant')">
+Follow company policy regardless of outcomes.
+</button>
+`;
+
+}
+
+if(path === "character"){
+
+aristotle += 10;
+
+document.getElementById("scenario").innerHTML = `
+You ask what a wise and virtuous leader would do.
+
+Which response best reflects integrity, fairness, and wisdom?
+`;
+
+document.getElementById("choices").innerHTML = `
+<button class="choice-btn" onclick="finalChoice('aristotle')">
+Use the mistake as a learning opportunity.
+</button>
+
+<button class="choice-btn" onclick="finalChoice('mill')">
+Choose the option benefiting the largest number of people.
+</button>
+`;
+
+}
+
+}
+
+function finalChoice(type){
+
+step = 3;
+updateProgress();
+
+if(type === "kant"){
+    kant += 15;
+}
+
+if(type === "mill"){
+    mill += 15;
+}
+
+if(type === "aristotle"){
+    aristotle += 15;
+}
+
+showResults();
+
+}
+
+function showResults(){
+
+document.getElementById("choices").style.display = "none";
+
+let philosophy = "";
+let explanation = "";
+
+if(kant >= mill && kant >= aristotle){
+
+philosophy = "Deontology (Kant)";
+explanation = `
+You consistently prioritized duties, rules, and universal principles.
+
+This reflects the ethical theory of Immanuel Kant, who argued that actions should be judged according to moral obligations rather than consequences.
+`;
+
+}
+
+else if(mill >= kant && mill >= aristotle){
+
+philosophy = "Utilitarianism (Mill)";
+explanation = `
+You focused on outcomes and sought the greatest good for the greatest number.
+
+This aligns with the ethical theory of John Stuart Mill and utilitarian moral reasoning.
+`;
+
+}
+
+else{
+
+philosophy = "Virtue Ethics (Aristotle)";
+explanation = `
+You emphasized character, wisdom, and moral excellence.
+
+This reflects Aristotle's belief that ethical behavior grows from cultivating virtuous habits.
+`;
+
+}
+
+document.getElementById("feedback").style.display = "block";
+
+document.getElementById("feedback").innerHTML = `
+
+<h2>Your Ethical Perspective</h2>
+
+<p>
+<strong>${philosophy}</strong>
+</p>
+
+<p>
+${explanation}
+</p>
+
+<div class="scoreboard">
+
+<h3>Philosophy Scores</h3>
+
+<p>
+<span class="philosopher">Kant (Duty Ethics):</span> ${kant}
+</p>
+
+<p>
+<span class="philosopher">Mill (Utilitarianism):</span> ${mill}
+</p>
+
+<p>
+<span class="philosopher">Aristotle (Virtue Ethics):</span> ${aristotle}
+</p>
+
+</div>
+
+<p>
+There is no universally "correct" answer. Philosophers often disagree because ethical reasoning can prioritize duties, outcomes, or character development.
+</p>
+
+`;
+
+document.getElementById("restartBtn").style.display = "inline-block";
+
+}
+
+function restartScenario(){
+
+location.reload();
+
+}
+
+</script>
+
 </body>
 </html>
