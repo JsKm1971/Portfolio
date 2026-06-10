@@ -15,16 +15,44 @@
 body{font-family:'Roboto',sans-serif;color:#333;line-height:1.6;}
 main{max-width:1400px;margin:auto;}
 
-/* ===== HEADER ===== */
+ /* =====================
+   HEADER
+===================== */
+
 header{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:20px 8%;background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#fff;
     box-shadow:0 2px 15px rgba(0,0,0,.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
-.logo img{height:110px;}
-nav{display:flex;gap:25px;}
-nav a{text-decoration:none;color:#444;font-weight:500;}
-nav a:hover{color:#0F4C81;}
+
+.logo img{
+    height:200px;
+    width:auto;
+    display:block;
+}
+
+   nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#0F4C81;
+}
+
 
 /* ===== HERO ===== */
 .hero{text-align:center;padding:80px 20px;}
@@ -257,7 +285,100 @@ nav a:hover{color:#0F4C81;}
         }
 
 
+/* ========== CALLOUT BOXES ========== */
+ {
+    font-family: "Open Sans", Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 30px;
+}
 
+/* Container for side-by-side layout */
+.box-container {
+    display: flex;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual content box */
+.content-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    flex: 1;
+    padding: 20px 24px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+/* Header */
+.content-box h2 {
+    color: #4f3674; /* BU Purple */
+    margin: 0;
+}
+
+/* Divider bar under header */
+.header-divider {
+    height: 3px;
+    width: 90%;
+    background: linear-gradient(to right, #D6a800, #4f3674); /* Soft gold → soft purple */
+    border-radius: 2px;
+    position: center;
+}
+
+/* Body text */
+.content-box p {
+    color: #000000;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+.callout {
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 14px 0;
+    border-left: 6px solid;
+}
+
+.callout strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Important */
+.callout-important {
+    background-color: #f3e5f5;
+    border-left-color: #6a1b9a;
+}
+
+.callout-important strong {
+    color: #6a1b9a;
+}
+
+/* Warning */
+.callout-warning {
+    background-color: #fdecea;
+    border-left-color: #c62828;
+}
+
+.callout-warning strong {
+    color: #c62828;
+}
+
+/* Tip */
+.callout-tip {
+    background-color: #e8f5e9;
+    border-left-color: #2e7d32;
+}
+
+.callout-tip strong {
+    color: #2e7d32;
+}
+
+/* Mobile friendly */
+@media (max-width: 800px) {
+    .box-container {
+        flex-direction: column;
+    }
+}
 
 
 
@@ -280,23 +401,28 @@ nav a:hover{color:#0F4C81;}
 <body>
 
     <header>
-        <div class="logo">
-            <img src="images/Corporate Logo.png" alt="Logo">
-        </div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Portfolio</a>
-            <a href="#">Contact</a>
-        </nav>
 
-    </header>
+    <div class="logo">
+    <img src="images/Corporate Logo.png"
+         alt="Jeremy L. Haecker Logo">
+</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+       <a href="About.html">About</a>
+        <a href="Portfolio.html">Portfolio</a>
+        <a href="Contact.html">Contact</a>
+    
+    </nav>
+
+</header>
+
 
     <main>
 
         <!-- HERO -->
         <section class="hero">
-            <h1>Designing Learning That Drives Performance</h1>
+            <h1>Designing Learning Experiences That Drive Performance</h1>
             <h2>Instructional Designer • Learning Experience Designer</h2>
             <p>I create interactive, scenario-based learning solutions that improve engagement and real-world
                 performance.</p>
@@ -487,11 +613,56 @@ nav a:hover{color:#0F4C81;}
 </section>
 
 
+<!-- SAMPLE FLIP CARD -->
+<section class="section">
+  <h2>HTML/CSS Content Boxes with Callouts</h2>
+  <div class="box-container">
 
+    <!-- Box 1 -->
+    <div class="content-box">
+      <h2>Important/Tip Boxes</h2>
+      <div class="header-divider"></div>
 
+      <p>Understand the fundamentals of the topic.</p>
+      <p>Apply concepts to real-world scenarios.</p>
 
+      <div class="callout callout-important">
+        <strong>Important</strong>
+        Be sure to read all instructions before starting the assignment.
+      </div>
 
+      <p>Demonstrate mastery through assessments.</p>
 
+      <div class="callout callout-tip">
+        <strong>Tip</strong>
+        Review the rubric before submitting your work.
+      </div>
+    </div>
+
+    <!-- Box 2 -->
+    <div class="content-box">
+      <h2>Warning/Tip Boxes</h2>
+      <div class="header-divider"></div>
+
+      <p>Read assigned chapter.</p>
+      <p>Watch lecture video.</p>
+
+      <div class="callout callout-warning">
+        <strong>Warning</strong>
+        Late submissions may receive a grade penalty.
+      </div>
+
+      <p>Submit discussion post.</p>
+
+      <div class="callout callout-tip">
+        <strong>Tip</strong>
+        Draft your discussion post in Word first to avoid losing your work.
+      </div>
+    </div>
+
+  </div>
+</section>
+<div style="clear: both;"><br /> <br /></div>
 
 
 
