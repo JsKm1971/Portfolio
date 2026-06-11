@@ -1,1 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motherboard Matching Activity</title>
 
+<style>
+
+/* ==========================
+   GLOBAL
+========================== */
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:30px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#003366;
+}
+
+.instructions{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* ==========================
+   LAYOUT
+========================== */
+
+.activity-wrapper{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.draggable-panel{
+    width:250px;
+}
+
+.draggable-item{
+    background:white;
+    border:2px solid #003366;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+    cursor:grab;
+    text-align:center;
+    font-weight:bold;
+}
+
+.draggable-item:active{
+    cursor:grabbing;
+}
+
+/* ==========================
+   MOTHERBOARD
+========================== */
+
+.motherboard{
+    position:relative;
+    width:800px;
+    height:600px;
+    background:url("https://upload.wikimedia.org/wikipedia/commons/8/8c/Motherboard_diagram.svg") center/contain no-repeat;
+    border:3px solid #003366;
+    background-color:white;
+}
+
+/* Drop Zones */
+
+.dropzone{
+    position:absolute;
+    width:130px;
+    height:50px;
+    border:3px dashed #666;
+    border-radius:8px;
+    background:rgba(255,255,255,.8);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:.8rem;
+    text-align:center;
+}
+
+.dropzone.correct{
+    background:#d4edda;
+    border-color:green;
+}
+
+.dropzone.incorrect{
+    background:#f8d7da;
+    border-color:red;
+}
+
+/* Motherboard Positions */
+
+.cpu{
+    top:110px;
+    left:250px;
+}
+
+.ram{
+    top:80px;
+    left:500px;
+}
+
+.pcie{
+    top:340px;
+    left:420px;
+}
+
+.power{
+    top:20px;
+    left:300px;
+}
+
+.sata{
+    top:500px;
+    left:600px;
+}
+
+/* ==========================
+   CONTROLS
+========================== */
+
+.controls{
+    text-align:center;
+    margin-top:20px;
+}
+
+button{
+    background:#003366;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0055aa;
+}
+
+.score{
+    font-size:1.2rem;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+/* Accessibility */
+
+.draggable-item:focus{
+    outline:3px solid orange;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Motherboard Component Matching Activity</h1>
+
+<p class="instructions">
+Drag each motherboard component to the correct location.
+</p>
+
+<div class="activity-wrapper">
+
+<!-- Draggable Terms -->
+
+<div class="draggable-panel">
+
+<div class="draggable-item" draggable="true" id="cpuLabel">
+CPU Socket
+</div>
+
+<div class="draggable-item" draggable="true" id="ramLabel">
+RAM Slots
+</div>
+
+<div class="draggable-item" draggable="true" id="pcieLabel">
+PCIe Expansion Slot
+</div>
+
+<div class="draggable-item" draggable="true" id="powerLabel">
+24-Pin Power Connector
+</div>
+
+<div class="draggable-item" draggable="true" id="sataLabel">
+SATA Ports
+</div>
+
+</div>
+
+<!-- Motherboard -->
+
+<div class="motherboard">
+
+<div class="dropzone cpu"
+     data-match="cpuLabel">
+CPU
+</div>
+
+<div class="dropzone ram"
+     data-match="ramLabel">
+RAM
+</div>
+
+<div class="dropzone pcie"
+     data-match="pcieLabel">
+PCIe
+</div>
+
+<div class="dropzone power"
+     data-match="powerLabel">
+Power
+</div>
+
+<div class="dropzone sata"
+     data-match="sataLabel">
+SATA
+</div>
+
+</div>
+
+</div>
+
+<div class="controls">
+
+<button onclick="resetActivity()">
+Reset Activity
+</button>
+
+<div class="score">
+Score:
+<span id="score">0</span>/5
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let score = 0;
+
+const draggables =
+document.querySelectorAll('.draggable-item');
+
+const dropzones =
+document.querySelectorAll('.dropzone');
+
+/* DRAG START */
+
+draggables.forEach(item => {
+
+    item.addEventListener('dragstart', e => {
+        e.dataTransfer.setData(
+            "text",
+            item.id
+        );
+    });
+
+});
+
+/* DROP LOGIC */
+
+dropzones.forEach(zone => {
+
+    zone.addEventListener('dragover', e => {
+        e.preventDefault();
+    });
+
+    zone.addEventListener('drop', e => {
+
+        e.preventDefault();
+
+        const draggedId =
+        e.dataTransfer.getData("text");
+
+        const expected =
+        zone.dataset.match;
+
+        if(draggedId === expected){
+
+            const item =
+            document.getElementById(draggedId);
+
+            zone.textContent =
+            item.textContent;
+
+            zone.classList.add("correct");
+
+            item.style.display="none";
+
+            score++;
+            updateScore();
+
+        } else {
+
+            zone.classList.add("incorrect");
+
+            setTimeout(() => {
+                zone.classList.remove("incorrect");
+            },1000);
+
+        }
+
+    });
+
+});
+
+function updateScore(){
+
+    document.getElementById("score")
+    .textContent = score;
+
+    if(score === 5){
+
+        setTimeout(() => {
+
+            alert(
+              "Excellent! You correctly identified all motherboard components."
+            );
+
+        },300);
+
+    }
+
+}
+
+function resetActivity(){
+
+    location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
