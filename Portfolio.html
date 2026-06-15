@@ -380,8 +380,62 @@ nav a:hover{
     }
 }
 
+ /* =====================
+   ACCORDIONS
+===================== */
+ /* General styling */
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
 
+        /* Style for the accordion container (with box around it) */
+        .accordion-container {
+            border: 1px solid black;
+            /* 1px box around each accordion section */
+            border-radius: 10px;
+            /* Rounded corners for the box */
+            margin-bottom: 10px;
+            /* Space between accordion sections */
+            overflow: hidden;
+            /* Ensure content doesn't overflow the border */
+        }
 
+        /* Style for the accordion buttons */
+        .accordion {
+            background-color: #4F3674;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: background-color 0.2s ease;
+            border: none;
+            /* Remove default border */
+            border-bottom: 1px solid black;
+            /* Adds a line between accordion button and content */
+        }
+
+        /* Add a hover effect */
+        .accordion:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Style the active accordion when it's open */
+        .accordion.active {
+            background-color: #ccc;
+        }
+
+        /* Style for the panel (hidden content) */
+        .panel {
+            padding: 18px;
+            display: none;
+            background-color: white;
+            border-top: none;
+            /* Avoids border overlap with accordion button */
+        }
 
 
 
@@ -665,8 +719,23 @@ nav a:hover{
 </section>
 <div style="clear: both;"><br /> <br /></div>
 
+   <!-- Accordion Code -->
+<p>This is the HTML code for the accordions. </p>
 
+    <h2>
+        <center>Accordion with Collapsible Sections and Rounded Edges</center>
+    </h2>
+    <p>
+        <center>Click On The Box Below to Expand</center>
+    </p>
 
+    <!-- Accordion section 1 -->
+    <div class="accordion-container">
+        <button class="accordion">Section 1</button>
+        <div class="panel">
+            <p>This is the content for Section 1. The accordion will expand and collapse when you click the headers.</p>
+        </div>
+    </div>
 
 
 
@@ -696,7 +765,24 @@ nav a:hover{
         });
         lightbox.onclick = () => lightbox.style.display = "none";
 
-       
+         // Get all elements with class="accordion"
+        const acc = document.getElementsByClassName("accordion");
+
+        // Loop through the elements and add event listeners
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                // Toggle between adding and removing the "active" class
+                this.classList.toggle("active");
+
+                // Toggle between hiding and showing the active panel
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
 
     </script>
 
