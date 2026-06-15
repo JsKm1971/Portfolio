@@ -4,109 +4,182 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PHI 106 Ethical Decision Tree</title>
+<title>Course Home Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===========================
-   GLOBAL
-=========================== */
+/* ====================================
+   GLOBAL STYLES
+==================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-    font-family: Arial, sans-serif;
+    font-family:'Roboto',sans-serif;
     background:#f4f6f9;
-    margin:0;
-    padding:40px;
+    color:#333;
+    line-height:1.6;
 }
 
-.container{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+/* ====================================
+   HERO SECTION
+==================================== */
+
+.hero{
+    background:linear-gradient(135deg,#4f3674,#6a4c93);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
 }
 
-h1{
-    color:#003366;
+.hero h1{
+    font-size:2.5rem;
     margin-bottom:10px;
 }
 
-.subtitle{
-    color:#666;
-    margin-bottom:25px;
-}
-
-#scenario{
+.hero p{
     font-size:1.1rem;
-    line-height:1.7;
-    margin-bottom:25px;
+    max-width:800px;
+    margin:auto;
 }
 
-.choices{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+/* ====================================
+   WELCOME SECTION
+==================================== */
+
+.welcome{
+    max-width:1200px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-.choice-btn{
-    padding:14px;
-    border:none;
-    border-radius:8px;
-    background:#003366;
+.welcome h2{
+    color:#4f3674;
+    margin-bottom:15px;
+}
+
+/* ====================================
+   TILE GRID
+==================================== */
+
+.tile-grid{
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.tile{
+    background:white;
+    border-radius:12px;
+    text-decoration:none;
+    color:inherit;
+
+    padding:25px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    transition:.3s ease;
+}
+
+.tile:hover,
+.tile:focus{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.tile-icon{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+
+.tile h3{
+    color:#4f3674;
+    margin-bottom:10px;
+}
+
+.tile p{
+    font-size:.95rem;
+}
+
+/* ====================================
+   COLOR ACCENTS
+==================================== */
+
+.modules{
+    border-top:6px solid #4f3674;
+}
+
+.syllabus{
+    border-top:6px solid #D6A800;
+}
+
+.announcements{
+    border-top:6px solid #2E8B57;
+}
+
+.grades{
+    border-top:6px solid #1E88E5;
+}
+
+.support{
+    border-top:6px solid #F57C00;
+}
+
+.contact{
+    border-top:6px solid #C62828;
+}
+
+.resources{
+    border-top:6px solid #00838F;
+}
+
+.accessibility{
+    border-top:6px solid #6A1B9A;
+}
+
+/* ====================================
+   FOOTER
+==================================== */
+
+footer{
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+    background:#4f3674;
     color:white;
-    cursor:pointer;
-    font-size:1rem;
-    transition:.3s;
 }
 
-.choice-btn:hover{
-    background:#0055aa;
+footer p{
+    margin:5px 0;
 }
 
-.feedback{
-    margin-top:25px;
-    padding:20px;
-    border-left:5px solid #003366;
-    background:#eef5ff;
-    display:none;
+/* ====================================
+   MOBILE
+==================================== */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2rem;
 }
 
-.progress-wrapper{
-    margin-bottom:25px;
+.welcome{
+    margin:20px;
 }
 
-progress{
-    width:100%;
-    height:20px;
-}
-
-.scoreboard{
-    margin-top:20px;
-    background:#f7f7f7;
-    padding:15px;
-    border-radius:8px;
-}
-
-.restart-btn{
-    margin-top:20px;
-    padding:12px 20px;
-    border:none;
-    background:#003366;
-    color:white;
-    border-radius:6px;
-    cursor:pointer;
-    display:none;
-}
-
-.restart-btn:hover{
-    background:#0055aa;
-}
-
-.philosopher{
-    font-weight:bold;
-    color:#003366;
 }
 
 </style>
@@ -114,251 +187,110 @@ progress{
 
 <body>
 
-<div class="container">
-
-<h1>PHI 106: The Ethical Imperative</h1>
-
-<p class="subtitle">
-Apply ethical theories to a real-world dilemma and see how different philosophies guide decision-making.
-</p>
-
-<div class="progress-wrapper">
-<label><strong>Scenario Progress</strong></label>
-<progress id="progressBar" value="1" max="3"></progress>
-</div>
-
-<div id="scenario">
-
-You are a manager at a local company.
-
-One of your top-performing employees has accidentally made a mistake that could cost the company several thousand dollars.
-
-No one else knows about the error.
-
-What should you do?
-
-</div>
-
-<div class="choices" id="choices">
-
-<button class="choice-btn" onclick="choose('report')">
-Report the mistake immediately, regardless of consequences.
-</button>
-
-<button class="choice-btn" onclick="choose('outcome')">
-Evaluate which action creates the best overall outcome.
-</button>
-
-<button class="choice-btn" onclick="choose('character')">
-Consider what a virtuous leader would do.
-</button>
-
-</div>
-
-<div class="feedback" id="feedback"></div>
-
-<button id="restartBtn" class="restart-btn" onclick="restartScenario()">
-Restart Scenario
-</button>
-
-</div>
-
-<script>
-
-let kant = 0;
-let mill = 0;
-let aristotle = 0;
-let step = 1;
-
-function updateProgress(){
-    document.getElementById("progressBar").value = step;
-}
-
-function choose(path){
-
-step = 2;
-updateProgress();
-
-if(path === "report"){
-
-kant += 10;
-
-document.getElementById("scenario").innerHTML = `
-You believe honesty is a duty and decide to report the mistake.
-
-Leadership asks whether the employee's strong performance history should influence the response.
-
-What should happen next?
-`;
-
-document.getElementById("choices").innerHTML = `
-<button class="choice-btn" onclick="finalChoice('kant')">
-Apply the same policy used for everyone.
-</button>
-
-<button class="choice-btn" onclick="finalChoice('aristotle')">
-Consider the employee's character and growth.
-</button>
-`;
-
-}
-
-if(path === "outcome"){
-
-mill += 10;
-
-document.getElementById("scenario").innerHTML = `
-You focus on minimizing harm and maximizing benefit.
-
-Which action creates the greatest overall good?
-`;
-
-document.getElementById("choices").innerHTML = `
-<button class="choice-btn" onclick="finalChoice('mill')">
-Coach the employee and prevent future mistakes.
-</button>
-
-<button class="choice-btn" onclick="finalChoice('kant')">
-Follow company policy regardless of outcomes.
-</button>
-`;
-
-}
-
-if(path === "character"){
-
-aristotle += 10;
-
-document.getElementById("scenario").innerHTML = `
-You ask what a wise and virtuous leader would do.
-
-Which response best reflects integrity, fairness, and wisdom?
-`;
-
-document.getElementById("choices").innerHTML = `
-<button class="choice-btn" onclick="finalChoice('aristotle')">
-Use the mistake as a learning opportunity.
-</button>
-
-<button class="choice-btn" onclick="finalChoice('mill')">
-Choose the option benefiting the largest number of people.
-</button>
-`;
-
-}
-
-}
-
-function finalChoice(type){
-
-step = 3;
-updateProgress();
-
-if(type === "kant"){
-    kant += 15;
-}
-
-if(type === "mill"){
-    mill += 15;
-}
-
-if(type === "aristotle"){
-    aristotle += 15;
-}
-
-showResults();
-
-}
-
-function showResults(){
-
-document.getElementById("choices").style.display = "none";
-
-let philosophy = "";
-let explanation = "";
-
-if(kant >= mill && kant >= aristotle){
-
-philosophy = "Deontology (Kant)";
-explanation = `
-You consistently prioritized duties, rules, and universal principles.
-
-This reflects the ethical theory of Immanuel Kant, who argued that actions should be judged according to moral obligations rather than consequences.
-`;
-
-}
-
-else if(mill >= kant && mill >= aristotle){
-
-philosophy = "Utilitarianism (Mill)";
-explanation = `
-You focused on outcomes and sought the greatest good for the greatest number.
-
-This aligns with the ethical theory of John Stuart Mill and utilitarian moral reasoning.
-`;
-
-}
-
-else{
-
-philosophy = "Virtue Ethics (Aristotle)";
-explanation = `
-You emphasized character, wisdom, and moral excellence.
-
-This reflects Aristotle's belief that ethical behavior grows from cultivating virtuous habits.
-`;
-
-}
-
-document.getElementById("feedback").style.display = "block";
-
-document.getElementById("feedback").innerHTML = `
-
-<h2>Your Ethical Perspective</h2>
-
-<p>
-<strong>${philosophy}</strong>
-</p>
-
-<p>
-${explanation}
-</p>
-
-<div class="scoreboard">
-
-<h3>Philosophy Scores</h3>
-
-<p>
-<span class="philosopher">Kant (Duty Ethics):</span> ${kant}
-</p>
-
-<p>
-<span class="philosopher">Mill (Utilitarianism):</span> ${mill}
-</p>
-
-<p>
-<span class="philosopher">Aristotle (Virtue Ethics):</span> ${aristotle}
-</p>
-
-</div>
-
-<p>
-There is no universally "correct" answer. Philosophers often disagree because ethical reasoning can prioritize duties, outcomes, or character development.
-</p>
-
-`;
-
-document.getElementById("restartBtn").style.display = "inline-block";
-
-}
-
-function restartScenario(){
-
-location.reload();
-
-}
-
-</script>
+<!-- HERO -->
+
+<section class="hero">
+    <h1>Course Navigation Hub</h1>
+    <p>
+        Welcome to the course. Use the navigation tiles below to access
+        course materials, assignments, support resources, and important information.
+    </p>
+</section>
+
+<!-- WELCOME -->
+
+<section class="welcome">
+    <h2>Welcome to the Course</h2>
+
+    <p>
+        This page serves as your central course dashboard.
+        Select any tile below to quickly navigate to course content,
+        support services, grades, announcements, and learning resources.
+    </p>
+</section>
+
+<!-- TILE GRID -->
+
+<section class="tile-grid">
+
+    <a href="#" class="tile modules">
+        <div class="tile-icon">📚</div>
+        <h3>Course Modules</h3>
+        <p>
+            Access weekly learning modules, activities,
+            assignments, and instructional materials.
+        </p>
+    </a>
+
+    <a href="#" class="tile syllabus">
+        <div class="tile-icon">📄</div>
+        <h3>Syllabus</h3>
+        <p>
+            Review course policies, grading expectations,
+            objectives, and important dates.
+        </p>
+    </a>
+
+    <a href="#" class="tile announcements">
+        <div class="tile-icon">📢</div>
+        <h3>Announcements</h3>
+        <p>
+            Stay informed about updates,
+            reminders, and course communications.
+        </p>
+    </a>
+
+    <a href="#" class="tile grades">
+        <div class="tile-icon">📊</div>
+        <h3>Grades</h3>
+        <p>
+            Check assignment feedback,
+            grade progress, and course performance.
+        </p>
+    </a>
+
+    <a href="#" class="tile support">
+        <div class="tile-icon">🆘</div>
+        <h3>Student Support</h3>
+        <p>
+            Access tutoring, library services,
+            technical support, and academic resources.
+        </p>
+    </a>
+
+    <a href="#" class="tile contact">
+        <div class="tile-icon">✉️</div>
+        <h3>Instructor Contact</h3>
+        <p>
+            View instructor information,
+            office hours, and communication options.
+        </p>
+    </a>
+
+    <a href="#" class="tile resources">
+        <div class="tile-icon">🔗</div>
+        <h3>Course Resources</h3>
+        <p>
+            Access templates, guides,
+            readings, and supplemental materials.
+        </p>
+    </a>
+
+    <a href="#" class="tile accessibility">
+        <div class="tile-icon">♿</div>
+        <h3>Accessibility Services</h3>
+        <p>
+            Find accommodations, accessibility support,
+            and inclusive learning resources.
+        </p>
+    </a>
+
+</section>
+
+<footer>
+    <p><strong>Course Navigation Hub</strong></p>
+    <p>Designed for accessibility, engagement, and easy navigation.</p>
+</footer>
 
 </body>
 </html>
