@@ -27,27 +27,6 @@ body{
     line-height:1.6;
 }
 
-/* ====================================
-   HERO SECTION
-==================================== */
-
-.hero{
-    background:linear-gradient(135deg,#4f3674,#6a4c93);
-    color:white;
-    text-align:center;
-    padding:60px 20px;
-}
-
-.hero h1{
-    font-size:2.5rem;
-    margin-bottom:10px;
-}
-
-.hero p{
-    font-size:1.1rem;
-    max-width:800px;
-    margin:auto;
-}
 
 /* ====================================
    WELCOME SECTION
@@ -67,6 +46,86 @@ body{
     margin-bottom:15px;
 }
 
+/* =====================
+   HEADER
+===================== */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#fff;
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo img{
+    height:120px;
+    width:auto;
+    display:block;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#0F4C81;
+}
+
+/* =====================
+   HERO BANNER
+===================== */
+
+.hero{
+    height:300px;
+
+    background:
+    linear-gradient(
+        rgba(79,54,116,.75),
+        rgba(15,76,129,.75)
+    ),
+    url('images/course-banner.jpg');
+
+    background-size:cover;
+    background-position:center;
+}
+
+/* =====================
+   WELCOME SECTION
+===================== */
+
+.welcome{
+    max-width:1200px;
+    margin:40px auto;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.welcome h1{
+    color:#4f3674;
+    margin-bottom:20px;
+    font-size:2.2rem;
+}
+
+.welcome p{
+    font-size:1.05rem;
+    color:#555;
+}
+   
 /* ====================================
    TILE GRID
 ==================================== */
@@ -172,13 +231,33 @@ footer p{
 
 @media(max-width:768px){
 
-.hero h1{
-    font-size:2rem;
-}
+    header{
+        flex-direction:column;
+        text-align:center;
+    }
 
-.welcome{
-    margin:20px;
-}
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        margin-top:20px;
+    }
+
+    .logo img{
+        height:90px;
+    }
+
+    .hero{
+        height:200px;
+    }
+
+    .welcome{
+        margin:20px;
+        padding:25px;
+    }
+
+    .welcome h1{
+        font-size:1.8rem;
+    }
 
 }
 
@@ -186,28 +265,56 @@ footer p{
 </head>
 
 <body>
+<!-- =====================
+     HEADER
+===================== -->
 
-  <!-- HERO -->
+<header>
 
-  <section class="hero">
-    <h1>Development Navigation Hub</h1>
+    <div class="logo">
+        <img src="images/Corporate Logo.png"
+             alt="Jeremy L. Haecker Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Portfolio.html">Portfolio</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
+
+</header>
+
+<!-- =====================
+     HERO BANNER
+===================== -->
+
+<section class="hero"></section>
+ 
+
+ <!-- =====================
+     WELCOME
+===================== -->
+
+<section class="welcome">
+
+    <h1>Course Navigation Hub</h1>
+
     <p>
-      Welcome to my Development Hub. Use the navigation tiles below to access
-      Training Materials, Learning Objects, Support Resources, and Important Instructional Design Information.
+        Welcome to the course. Use the navigation tiles below to access
+        course materials, assignments, support resources, and important
+        information.
     </p>
-  </section>
 
-  <!-- WELCOME -->
-
-  <section class="welcome">
-    <h2>Welcome to the Dashboard</h2>
+    <br>
 
     <p>
-      This page serves as my design dashboard.
-      Select any tile below to quickly navigate to that specific content and other learning resources.
+        This page serves as your central course dashboard. Select any tile
+        below to quickly navigate to course content, support services,
+        grades, announcements, and learning resources.
     </p>
-  </section>
 
+</section>
   <!-- TILE GRID -->
 
   <section class="tile-grid">
