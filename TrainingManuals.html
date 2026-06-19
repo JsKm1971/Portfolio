@@ -2,150 +2,234 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accordion with Collapsible Sections and Rounded Edges</title>
-    <style>
-        /* General styling */
-        body {
-            font-family: 'Open Sans', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Style for the accordion container (with box around it) */
-        .accordion-container {
-            border: 1px solid black; /* 1px box around each accordion section */
-            border-radius: 10px; /* Rounded corners for the box */
-            margin-bottom: 10px; /* Space between accordion sections */
-            overflow: hidden; /* Ensure content doesn't overflow the border */
-        }
+<title>Accessible Accordion</title>
 
-        /* Style for the accordion buttons */
-        .accordion {
-            background-color: #4F3674;
-            color: white;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            text-align: left;
-            outline: none;
-            font-size: 18px;
-            transition: background-color 0.2s ease;
-            border: none; /* Remove default border */
-            border-bottom: 1px solid black; /* Adds a line between accordion button and content */
-        }
+<style>
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px;
+}
 
-        /* Add a hover effect */
-        .accordion:hover {
-            background-color: #ddd;
-            color: black;
-        }
+/* Centered headings */
+.center-text {
+    text-align: center;
+}
 
-        /* Style the active accordion when it's open */
-        .accordion.active {
-            background-color: #ccc;
-        }
+/* Accordion Container */
+.accordion-container {
+    width: 75%;
+    max-width: 1000px;
+    margin: 0 auto 12px auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-        /* Style for the panel (hidden content) */
-        .panel {
-            padding: 18px;
-            display: none;
-            background-color: white;
-            border-top: none; /* Avoids border overlap with accordion button */
-        }
-    </style>
+/* Accordion Button */
+.accordion {
+    background-color: #4F3674;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    padding: 18px 24px;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: background-color 0.3s ease;
+}
+
+/* Hover State */
+.accordion:hover {
+    background-color: #6b4f96;
+}
+
+/* Focus State (WCAG) */
+.accordion:focus {
+    outline: 3px solid #D6A800;
+    outline-offset: -3px;
+}
+
+/* Active State */
+.accordion.active {
+    background-color: #3d295a;
+}
+
+/* Plus/Minus Symbol */
+.icon {
+    font-size: 24px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+/* Accordion Panel */
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    background-color: white;
+    transition: max-height 0.4s ease;
+}
+
+.panel-content {
+    padding: 18px 24px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .accordion-container {
+        width: 95%;
+    }
+
+    .accordion {
+        font-size: 16px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <p>This is the HTML code for the accordions. </p>
+<h2 class="center-text">
+    Accessible Accordion Example
+</h2>
 
-    <h2>
-        <center>Accordion with Collapsible Sections and Rounded Edges</center>
-    </h2>
-    <p>
-        <center>Click On The Box Below to Expand</center>
-    </p>
+<p class="center-text">
+    Click or press Enter/Space to expand sections.
+</p>
 
-    <!-- Accordion section 1 -->
-    <div class="accordion-container">
-        <button class="accordion">Section 1</button>
-        <div class="panel">
-            <p>This is the content for Section 1. The accordion will expand and collapse when you click the headers.</p>
+<!-- Section 1 -->
+<div class="accordion-container">
+    <button class="accordion"
+            aria-expanded="false"
+            aria-controls="panel1"
+            id="accordion1">
+        Section 1
+        <span class="icon">+</span>
+    </button>
+
+    <div id="panel1"
+         class="panel"
+         role="region"
+         aria-labelledby="accordion1">
+
+        <div class="panel-content">
+            <p>
+                This is the content for Section 1.
+            </p>
         </div>
     </div>
+</div>
 
-    <!-- Accordion section 2 -->
-    <div class="accordion-container">
-        <button class="accordion">Section 2</button>
-        <div class="panel">
-            <p>This is the content for Section 2. The accordion will expand and collapse when you click the headers.</p>
+<!-- Section 2 -->
+<div class="accordion-container">
+    <button class="accordion"
+            aria-expanded="false"
+            aria-controls="panel2"
+            id="accordion2">
+        Section 2
+        <span class="icon">+</span>
+    </button>
+
+    <div id="panel2"
+         class="panel"
+         role="region"
+         aria-labelledby="accordion2">
+
+        <div class="panel-content">
+            <p>
+                This is the content for Section 2.
+            </p>
         </div>
     </div>
+</div>
 
-    <!-- Accordion section 3 -->
-    <div class="accordion-container">
-        <button class="accordion">Section 3</button>
-        <div class="panel">
-            <p>This is the content for Section 3. Accordion sections can help organize large amounts of information in a compact way.</p>
+<!-- Section 3 -->
+<div class="accordion-container">
+    <button class="accordion"
+            aria-expanded="false"
+            aria-controls="panel3"
+            id="accordion3">
+        Section 3
+        <span class="icon">+</span>
+    </button>
+
+    <div id="panel3"
+         class="panel"
+         role="region"
+         aria-labelledby="accordion3">
+
+        <div class="panel-content">
+            <p>
+                This is the content for Section 3.
+            </p>
         </div>
     </div>
+</div>
 
-    <!-- Accordion section 4 -->
-    <div class="accordion-container">
-        <button class="accordion">Section 4</button>
-        <div class="panel">
-            <p>This is the content for Section 4. Accordion sections can help organize large amounts of information in a compact way.</p>
-        </div>
-    </div>
+<script>
 
-    <!-- Accordion section 5 -->
-    <div class="accordion-container">
-        <button class="accordion">Section 5</button>
-        <div class="panel">
-            <p>This is the content for Section 5. Accordion sections can help organize large amounts of information in a compact way.</p>
-        </div>
-    </div>
+const accordions = document.querySelectorAll(".accordion");
 
-    <!-- Accordion section 6 -->
-    <div class="accordion-container">
-        <button class="accordion">Section 6</button>
-        <div class="panel">
-            <p>This is the content for Section 6. Accordion sections can help organize large amounts of information in a compact way.</p>
-        </div>
-    </div>
+accordions.forEach(button => {
 
-    <!-- Accordion section 7 -->
-    <div class="accordion-container">
-        <button class="accordion">Section 7</button>
-        <div class="panel">
-            <p>This is the content for Section 7. Accordion sections can help organize large amounts of information in a compact way.</p>
-        </div>
-    </div>
+    button.addEventListener("click", toggleAccordion);
 
-    <script>
-        // Get all elements with class="accordion"
-        const acc = document.getElementsByClassName("accordion");
+    button.addEventListener("keydown", function(event) {
 
-        // Loop through the elements and add event listeners
-        for (let i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                // Toggle between adding and removing the "active" class
-                this.classList.toggle("active");
+        if (event.key === "Enter" || event.key === " ") {
 
-                // Toggle between hiding and showing the active panel
-                const panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
+            event.preventDefault();
+
+            toggleAccordion.call(this);
+
         }
-    </script>
 
-    <p>Remove if needed. </p>
+    });
+
+});
+
+function toggleAccordion() {
+
+    const panel = this.nextElementSibling;
+
+    const expanded =
+        this.getAttribute("aria-expanded") === "true";
+
+    this.setAttribute(
+        "aria-expanded",
+        !expanded
+    );
+
+    this.classList.toggle("active");
+
+    const icon =
+        this.querySelector(".icon");
+
+    if (!expanded) {
+
+        panel.style.maxHeight =
+            panel.scrollHeight + "px";
+
+        icon.textContent = "−";
+
+    } else {
+
+        panel.style.maxHeight = null;
+
+        icon.textContent = "+";
+
+    }
+
+}
+</script>
 
 </body>
-
 </html>
-
