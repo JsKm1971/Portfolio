@@ -1,1 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Portfolio Showcase</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Roboto',sans-serif;color:#333;line-height:1.6;}
+main{max-width:1400px;margin:auto;}
+
+ /* =====================
+   HEADER
+===================== */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#fff;
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo img{
+    height:200px;
+    width:auto;
+    display:block;
+}
+
+   nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#0F4C81;
+}
+
+
+/* ===== HERO ===== */
+.hero{text-align:center;padding:80px 20px;}
+.hero h1{font-size:3rem;color:#000052;}
+.hero h2{font-weight:300;margin:10px 0;}
+.hero p{max-width:650px;margin:auto;}
+
+/* ===== SECTION ===== */
+.section{
+    margin:60px 0;padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(15,76,129,.08);
+}
+.section h2{text-align:center;color:#000052;margin-bottom:30px;}
+
+/* ===== BUTTON ===== */
+.cta-btn{
+    display:inline-block;
+    padding:10px 20px;
+    background:#0F4C81;
+    color:#fff;
+    border-radius:30px;
+    text-decoration:none;
+}
+
+/* ===== CASE STUDY ===== */
+.case-study{
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    gap:40px;
+    align-items:center;
+}
+
+.case-study{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:30px;
+    align-items:start;
+}
+
+.project-details{
+    background:#f8f9fa;
+    padding:20px;
+    border-radius:16px;
+    border-left:5px solid #0f4c81;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.project-details h3{
+    margin-top:0;
+    color:#0f4c81;
+}
+
+.project-details ul{
+    list-style:none;
+    padding:0;
+    margin-top:20px;
+}
+
+.project-details li{
+    margin-bottom:12px;
+    line-height:1.5;
+}
+
+.project-media{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.captivate-frame{
+    display:block;
+    width:100%;
+}
+
+.captivate-frame iframe{
+    width:100%;
+    height:1000px;
+    border:none;
+    display:block;
+}
+
+/* Mobile Layout */
+@media (max-width: 900px){
+
+    .case-study{
+        grid-template-columns:1fr;
+    }
+
+    .captivate-frame iframe{
+        height:1000px;
+    }
+}
+
+/* ===== PROJECT ROW ===== */
+.project-row{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:30px;
+    margin-bottom:50px;
+    align-items:start;
+}
+
+/* Reverse layout for alternating projects */
+.project-row.reverse{
+    grid-template-columns:1fr 300px;
+}
+
+.project-info{
+    padding:25px;
+    border-left:5px solid #0F4C81;
+    border-radius:12px;
+    background:#f8f9fa;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.project-media iframe{
+    width:100%;
+    height:700px;
+    border:none;
+    border-radius:16px;
+    display:block;
+}
+    
+/* ===== VIDEO ===== */
+.video-container{
+    position:relative;
+    padding-bottom:56.25%;
+}
+.video-container iframe{
+    position:absolute;width:100%;height:100%;border:none;
+}
+
+/* ===== GALLERY ===== */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+    display:none;
+    position:fixed;inset:0;
+    background:rgba(0,0,0,.9);
+    justify-content:center;
+    align-items:center;
+}
+.lightbox img{max-width:90%;}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+    .case-study,.project-row{grid-template-columns:1fr;}
+}
+
+/* ===== Flip Card ===== */
+        body {
+            font-family: sans-serif;
+        }
+
+        /* Container for the flip card */
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            perspective: 1000px; /* Perspective gives the 3D effect */
+            margin: 20px;
+        }
+
+        /* Flip card inner container */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d; /* Required for 3D flipping */
+        }
+
+        /* Flip the card when hovering */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Front and back sides of the card */
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Hide back when flipped */
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Front of the card */
+        .flip-card-front {
+            background-color: #107D11; /* Green background */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Back of the card */
+        .flip-card-back {
+            background-color: #f1f1f1;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            transform: rotateY(180deg); /* Initially hidden with rotation */
+        }
+
+        /* Container for multiple cards */
+        .flip-card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+
+/* ========== CALLOUT BOXES ========== */
+ {
+    font-family: "Open Sans", Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 30px;
+}
+
+/* Container for side-by-side layout */
+.box-container {
+    display: flex;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual content box */
+.content-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    flex: 1;
+    padding: 20px 24px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+/* Header */
+.content-box h2 {
+    color: #4f3674; /* BU Purple */
+    margin: 0;
+}
+
+/* Divider bar under header */
+.header-divider {
+    height: 3px;
+    width: 90%;
+    background: linear-gradient(to right, #D6a800, #4f3674); /* Soft gold → soft purple */
+    border-radius: 2px;
+    position: center;
+}
+
+/* Body text */
+.content-box p {
+    color: #000000;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+.callout {
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 14px 0;
+    border-left: 6px solid;
+}
+
+.callout strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Important */
+.callout-important {
+    background-color: #f3e5f5;
+    border-left-color: #6a1b9a;
+}
+
+.callout-important strong {
+    color: #6a1b9a;
+}
+
+/* Warning */
+.callout-warning {
+    background-color: #fdecea;
+    border-left-color: #c62828;
+}
+
+.callout-warning strong {
+    color: #c62828;
+}
+
+/* Tip */
+.callout-tip {
+    background-color: #e8f5e9;
+    border-left-color: #2e7d32;
+}
+
+.callout-tip strong {
+    color: #2e7d32;
+}
+
+/* Mobile friendly */
+@media (max-width: 800px) {
+    .box-container {
+        flex-direction: column;
+    }
+}
+
+ /* =====================
+   ACCORDIONS
+===================== */
+ /* General styling */
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Style for the accordion container (with box around it) */
+        .accordion-container {
+            border: 1px solid black;
+            /* 1px box around each accordion section */
+            border-radius: 10px;
+            /* Rounded corners for the box */
+            margin-bottom: 10px;
+            /* Space between accordion sections */
+            overflow: hidden;
+            /* Ensure content doesn't overflow the border */
+        }
+
+        /* Style for the accordion buttons */
+        .accordion {
+            background-color: #4F3674;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: background-color 0.2s ease;
+            border: none;
+            /* Remove default border */
+            border-bottom: 1px solid black;
+            /* Adds a line between accordion button and content */
+        }
+
+        /* Add a hover effect */
+        .accordion:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Style the active accordion when it's open */
+        .accordion.active {
+            background-color: #ccc;
+        }
+
+        /* Style for the panel (hidden content) */
+        .panel {
+            padding: 18px;
+            display: none;
+            background-color: white;
+            border-top: none;
+            /* Avoids border overlap with accordion button */
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+    <header>
+
+    <div class="logo">
+    <img src="images/Corporate Logo.png"
+         alt="Jeremy L. Haecker Logo">
+</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+       <a href="About.html">About</a>
+        <a href="Portfolio.html">Portfolio</a>
+        <a href="Contact.html">Contact</a>
+     <a href="LO.html">Learning Object</a>
+         <a href="Test2.html">Test 2</a>
+    </nav>
+
+</header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <h1>Designing Learning Experiences That Drive Performance</h1>
+            <h2>Instructional Designer • Learning Experience Designer</h2>
+            <p>I create interactive, scenario-based learning solutions that improve engagement and real-world
+                performance.</p>
+        </section>
+
+
+        
+
+  <!-- ISPRING -->
+<section class="section">
+    <h2>iSpring Case Studies</h2>
+
+    <!-- Learning Module -->
+    <div class="project-row">
+
+        <div class="project-info">
+            <h3>Learning Module</h3>
+            <p>
+                Scenario-based training module designed to increase
+                engagement and retention.
+            </p>
+
+            <ul>
+                <li><strong>Tools:</strong> iSpring Suite</li>
+                <li><strong>Audience:</strong> Adult learners</li>
+                <li><strong>Strategy:</strong> Scenario-Based Learning</li>
+                <li><strong>Outcome:</strong> Increased learner engagement</li>
+            </ul>
+        </div>
+
+        <div class="project-media">
+            <iframe
+                src="https://new-acc-space-2588.ispring.com/app/embed-player/eeaed4de-5b92-11f1-8caf-36a0ac412e08"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+
+    <!-- Glossary Tool -->
+    <div class="project-row reverse">
+
+        <div class="project-media">
+            <iframe
+                src="https://new-acc-space-2588.ispring.com/app/embed-player/b560e858-5dc6-11f1-bb61-3a21a236d552"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="project-info">
+            <h3>Glossary Tool</h3>
+            <p>
+                Interactive reference tool designed to provide quick
+                access to key concepts and terminology.
+            </p>
+
+            <ul>
+                <li><strong>Tools:</strong> iSpring Suite</li>
+                <li><strong>Audience:</strong> Adult learners</li>
+                <li><strong>Strategy:</strong> Performance Support</li>
+                <li><strong>Outcome:</strong> Improved knowledge recall</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+       
+<br /> <br /></div>
+
+        
+
+        <!-- LIGHTBOX -->
+        <div class="lightbox" id="lightbox">
+            <img id="lightboxImg">
+        </div>
+
+
+
+    </main>
+
+    <script>
+
+        /* LIGHTBOX */
+        const imgs = document.querySelectorAll(".gallery img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+
+        imgs.forEach(img => {
+            img.onclick = () => {
+                lightbox.style.display = "flex";
+                lightboxImg.src = img.src;
+            }
+        });
+        lightbox.onclick = () => lightbox.style.display = "none";
+
+         // Get all elements with class="accordion"
+        const acc = document.getElementsByClassName("accordion");
+
+        // Loop through the elements and add event listeners
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                // Toggle between adding and removing the "active" class
+                this.classList.toggle("active");
+
+                // Toggle between hiding and showing the active panel
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+
+    </script>
+
+</body>
+</html>
