@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leadership Grid</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f5f5f3;
+      color: #1a1a18;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 3rem 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: #1a1a18;
+    }
+
+    /* --- Grid --- */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* --- Cards --- */
+    .card {
+      border-radius: 12px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      min-height: 180px;
+      border: 0.5px solid rgba(0,0,0,0.12);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 12px;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .card-back { opacity: 0; transform: translateY(6px); }
+    .card:hover .card-front { opacity: 0; transform: translateY(-6px); }
+    .card:hover .card-back  { opacity: 1; transform: translateY(0); }
+
+    .card-icon { font-size: 28px; margin-bottom: 10px; }
+    .card-title { font-size: 15px; font-weight: 500; margin: 0 0 4px; }
+    .card-sub   { font-size: 12px; margin: 0; }
+    .card-answer       { font-size: 13px; line-height: 1.55; font-weight: 400; }
+    .card-answer-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+
+    /* Visionary — blue */
+    .card-1 .card-front, .card-1 .card-back { background: #E6F1FB; }
+    .card-1 .card-title, .card-1 .card-answer { color: #0C447C; }
+    .card-1 .card-sub, .card-1 .card-answer-label { color: #185FA5; }
+    .card-1 .card-icon { color: #185FA5; }
+
+    /* Coaching — teal */
+    .card-2 .card-front, .card-2 .card-back { background: #E1F5EE; }
+    .card-2 .card-title, .card-2 .card-answer { color: #085041; }
+    .card-2 .card-sub, .card-2 .card-answer-label { color: #0F6E56; }
+    .card-2 .card-icon { color: #0F6E56; }
+
+    /* Democratic — amber */
+    .card-3 .card-front, .card-3 .card-back { background: #FAEEDA; }
+    .card-3 .card-title, .card-3 .card-answer { color: #633806; }
+    .card-3 .card-sub, .card-3 .card-answer-label { color: #854F0B; }
+    .card-3 .card-icon { color: #854F0B; }
+
+    /* Pacesetting — purple */
+    .card-4 .card-front, .card-4 .card-back { background: #EEEDFE; }
+    .card-4 .card-title, .card-4 .card-answer { color: #26215C; }
+    .card-4 .card-sub, .card-4 .card-answer-label { color: #534AB7; }
+    .card-4 .card-icon { color: #534AB7; }
+
+    /* --- Detail box --- */
+    .detail-box {
+      background: #ebebea;
+      border: 0.5px solid rgba(0,0,0,0.12);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      min-height: 80px;
+      transition: all 0.3s;
+    }
+
+    .detail-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 8px; }
+    .detail-body  { font-size: 14px; color: #5f5e5a; line-height: 1.65; margin: 0; }
+    .detail-empty { font-size: 14px; color: #888780; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Leadership styles</h1>
+
+    <div class="grid">
+
+      <!-- Visionary -->
+      <div class="card card-1" data-index="0" tabindex="0" role="button" aria-label="Visionary leadership style">
+        <div class="card-front">
+          <i class="ti ti-telescope card-icon" aria-hidden="true"></i>
+          <p class="card-title">Visionary</p>
+          <p class="card-sub">Long-term direction</p>
+        </div>
+        <div class="card-back">
+          <p class="card-answer-label">Core principle</p>
+          <p class="card-answer">"Come with me." Mobilises people toward a shared vision, giving freedom on how to get there.</p>
+        </div>
+      </div>
+
+      <!-- Coaching -->
+      <div class="card card-2" data-index="1" tabindex="0" role="button" aria-label="Coaching leadership style">
+        <div class="card-front">
+          <i class="ti ti-heart-handshake card-icon" aria-hidden="true"></i>
+          <p class="card-title">Coaching</p>
+          <p class="card-sub">People development</p>
+        </div>
+        <div class="card-back">
+          <p class="card-answer-label">Core principle</p>
+          <p class="card-answer">"Try this." Connects daily work to long-term goals, fostering growth and capability over time.</p>
+        </div>
+      </div>
+
+      <!-- Democratic -->
+      <div class="card card-3" data-index="2" tabindex="0" role="button" aria-label="Democratic leadership style">
+        <div class="card-front">
+          <i class="ti ti-users card-icon" aria-hidden="true"></i>
+          <p class="card-title">Democratic</p>
+          <p class="card-sub">Collaborative input</p>
+        </div>
+        <div class="card-back">
+          <p class="card-answer-label">Core principle</p>
+          <p class="card-answer">"What do you think?" Builds consensus and commitment by involving the team in decisions.</p>
+        </div>
+      </div>
+
+      <!-- Pacesetting -->
+      <div class="card card-4" data-index="3" tabindex="0" role="button" aria-label="Pacesetting leadership style">
+        <div class="card-front">
+          <i class="ti ti-rocket card-icon" aria-hidden="true"></i>
+          <p class="card-title">Pacesetting</p>
+          <p class="card-sub">High performance</p>
+        </div>
+        <div class="card-back">
+          <p class="card-answer-label">Core principle</p>
+          <p class="card-answer">"Do as I do." Sets a high bar by example — most effective with motivated, skilled teams.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Detail panel -->
+    <div class="detail-box" id="detail-box">
+      <p class="detail-empty">Hover a card above, then click to see further details here.</p>
+    </div>
+  </div>
+
+  <script>
+    const details = [
+      {
+        title: "Visionary leadership",
+        color: "#185FA5",
+        icon: "ti-telescope",
+        body: "Best used when a team needs a new direction or a clear sense of purpose. The leader articulates where the group is going but trusts individuals to find their own path. This style has the strongest positive impact on team climate and motivation. Avoid it when the leader lacks credibility or the team has more expertise than the leader.",
+        when: "Useful during: organisational change, strategy pivots, new team formation."
+      },
+      {
+        title: "Coaching leadership",
+        color: "#0F6E56",
+        icon: "ti-heart-handshake",
+        body: "Focuses on individual growth rather than immediate task completion. Leaders invest time in one-on-one conversations to understand each person's ambitions and help them connect those to their work. It builds loyalty and long-term capability but requires patience — it's less effective when employees are resistant to change or in crisis situations.",
+        when: "Useful during: onboarding, performance reviews, talent development programmes."
+      },
+      {
+        title: "Democratic leadership",
+        color: "#854F0B",
+        icon: "ti-users",
+        body: "Creates buy-in by giving everyone a voice before decisions are made. Teams feel respected and heard, which raises commitment and surfaces ideas. However, endless consensus-seeking can slow progress — this style loses effectiveness in genuine crises or when quick, decisive action is required.",
+        when: "Useful during: strategy planning, team restructuring, policy or process design."
+      },
+      {
+        title: "Pacesetting leadership",
+        color: "#534AB7",
+        icon: "ti-rocket",
+        body: "The leader models excellence and expects others to follow suit. Works brilliantly with highly skilled, self-motivated teams who need little direction. Overused, it can overwhelm people, kill initiative, and create a culture of fear. Use sparingly and always pair it with clarity about standards and expectations.",
+        when: "Useful during: sprint cycles, expert-led projects, scaling proven processes."
+      }
+    ];
+
+    const box = document.getElementById('detail-box');
+
+    document.querySelectorAll('.card').forEach((card, i) => {
+      card.addEventListener('click', () => {
+        const d = details[i];
+        box.innerHTML = `
+          <p class="detail-label" style="color:${d.color}">
+            <i class="ti ${d.icon}" style="font-size:14px;vertical-align:-1px;margin-right:5px;" aria-hidden="true"></i>
+            ${d.title}
+          </p>
+          <p class="detail-body">${d.body}</p>
+          <p class="detail-body" style="margin-top:8px;font-size:13px;font-style:italic;">${d.when}</p>
+        `;
+      });
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') card.click();
+      });
+    });
+  </script>
+</body>
+</html>
