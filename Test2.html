@@ -1,397 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leadership — Styles &amp; Motivation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,sans-serif;background:#f5f5f3;color:#1a1a18;padding:2rem 1rem;min-height:100vh}
+    .wrapper{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1100px;margin:0 auto;align-items:start}
+    .panel{background:#fff;border:0.5px solid rgba(0,0,0,0.12);border-radius:12px;overflow:hidden}
+    .panel-title{font-size:15px;font-weight:500;padding:14px 16px 10px;color:#1a1a18;border-bottom:0.5px solid rgba(0,0,0,0.12)}
 
-<title>Course Home Page</title>
+    /* --- Leadership Grid --- */
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+    .card{border-radius:10px;cursor:pointer;position:relative;overflow:hidden;min-height:140px;border:0.5px solid rgba(0,0,0,0.10)}
+    .card-front,.card-back{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1rem;text-align:center;border-radius:10px;transition:opacity 0.3s,transform 0.3s}
+    .card-back{opacity:0;transform:translateY(6px)}
+    .card:hover .card-front{opacity:0;transform:translateY(-6px)}
+    .card:hover .card-back{opacity:1;transform:translateY(0)}
+    .card-icon{font-size:22px;margin-bottom:8px}
+    .card-title{font-size:13px;font-weight:500;margin:0 0 3px}
+    .card-sub{font-size:11px;margin:0}
+    .card-answer{font-size:11px;line-height:1.5;font-weight:400}
+    .card-answer-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px}
+    .card-1 .card-front,.card-1 .card-back{background:#E6F1FB}
+    .card-1 .card-title,.card-1 .card-answer{color:#0C447C}
+    .card-1 .card-sub,.card-1 .card-answer-label,.card-1 .card-icon{color:#185FA5}
+    .card-2 .card-front,.card-2 .card-back{background:#E1F5EE}
+    .card-2 .card-title,.card-2 .card-answer{color:#085041}
+    .card-2 .card-sub,.card-2 .card-answer-label,.card-2 .card-icon{color:#0F6E56}
+    .card-3 .card-front,.card-3 .card-back{background:#FAEEDA}
+    .card-3 .card-title,.card-3 .card-answer{color:#633806}
+    .card-3 .card-sub,.card-3 .card-answer-label,.card-3 .card-icon{color:#854F0B}
+    .card-4 .card-front,.card-4 .card-back{background:#EEEDFE}
+    .card-4 .card-title,.card-4 .card-answer{color:#26215C}
+    .card-4 .card-sub,.card-4 .card-answer-label,.card-4 .card-icon{color:#534AB7}
+    .detail-box{margin:0 12px 12px;background:#ebebea;border:0.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:10px 12px;min-height:60px}
+    .detail-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 6px}
+    .detail-body{font-size:12px;color:#5f5e5a;line-height:1.6;margin:0}
+    .detail-empty{font-size:12px;color:#888780;font-style:italic}
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    /* --- Motivation Table --- */
+    .instr-pane{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:#f5f5f0;border-bottom:0.5px solid rgba(0,0,0,0.12)}
+    .instr-icon{font-size:18px;color:#888780;margin-top:1px;flex-shrink:0}
+    .instr-title{font-size:12px;font-weight:500;color:#1a1a18;margin:0 0 2px}
+    .instr-body{font-size:11px;color:#5f5e5a;margin:0;line-height:1.5}
+    .mot-table{width:100%;border-collapse:collapse;font-size:12px}
+    .mot-table th{padding:8px 12px;text-align:left;font-size:10px;font-weight:500;color:#5f5e5a;border-bottom:0.5px solid rgba(0,0,0,0.12);letter-spacing:0.04em;text-transform:lowercase;background:#f5f5f0}
+    .mot-table td{padding:0;border-bottom:0.5px solid rgba(0,0,0,0.12);vertical-align:top}
+    .mot-table tbody tr:last-child td{border-bottom:none}
+    .td-inner{padding:8px 12px}
+    .idea-btn{display:flex;align-items:center;gap:6px;width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:8px 12px;font-size:12px;font-weight:500;color:#1a1a18;font-family:inherit}
+    .idea-btn:hover{background:#f5f5f0}
+    .idea-btn .chevron{font-size:12px;color:#888780;transition:transform 0.2s;flex-shrink:0}
+    .idea-btn.open .chevron{transform:rotate(180deg)}
+    .expand-area{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+    .expand-area.open{max-height:160px}
+    .expand-content{font-size:11px;color:#5f5e5a;line-height:1.6;border-top:0.5px solid rgba(0,0,0,0.12);padding:8px 12px 10px 28px}
+    .tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:999px;font-weight:500}
+    .tag-purple{background:#EEEDFE;color:#3C3489}
+    .tag-teal{background:#E1F5EE;color:#085041}
+    .tag-coral{background:#FAECE7;color:#712B13}
+    .cell-sub{font-size:11px;color:#888780;margin-top:4px;display:block}
+    .cell-action{font-size:11px;color:#5f5e5a}
 
-<style>
-
-/* ====================================
-   GLOBAL STYLES
-==================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Roboto',sans-serif;
-    background:#f4f6f9;
-    color:#333;
-    line-height:1.6;
-}
-
-
-/* ====================================
-   WELCOME SECTION
-==================================== */
-
-.welcome{
-    max-width:1200px;
-    margin:40px auto;
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.welcome h2{
-    color:#4f3674;
-    margin-bottom:15px;
-}
-
-/* =====================
-   HEADER
-===================== */
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:#fff;
-    box-shadow:0 2px 15px rgba(0,0,0,.05);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo img{
-    height:120px;
-    width:auto;
-    display:block;
-}
-
-nav{
-    display:flex;
-    gap:30px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#444;
-    font-weight:500;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#0F4C81;
-}
-
-/* =====================
-   HERO BANNER
-===================== */
-
-.hero{
-    height:300px;
-
-    background:
-    linear-gradient(
-        rgba(79,54,116,.75),
-        rgba(15,76,129,.75)
-    ),
-    url('images/course-banner.jpg');
-
-    background-size:cover;
-    background-position:center;
-}
-
-/* =====================
-   WELCOME SECTION
-===================== */
-
-.welcome{
-    max-width:1200px;
-    margin:40px auto;
-    background:white;
-    padding:40px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.welcome h1{
-    color:#4f3674;
-    margin-bottom:20px;
-    font-size:2.2rem;
-}
-
-.welcome p{
-    font-size:1.05rem;
-    color:#555;
-}
-   
-/* ====================================
-   TILE GRID
-==================================== */
-
-.tile-grid{
-    max-width:1200px;
-    margin:40px auto;
-    padding:0 20px;
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.tile{
-    background:white;
-    border-radius:12px;
-    text-decoration:none;
-    color:inherit;
-
-    padding:25px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-    transition:.3s ease;
-}
-
-.tile:hover,
-.tile:focus{
-    transform:translateY(-5px);
-    box-shadow:0 10px 20px rgba(0,0,0,.15);
-}
-
-.tile-icon{
-    font-size:2.5rem;
-    margin-bottom:15px;
-}
-
-.tile h3{
-    color:#4f3674;
-    margin-bottom:10px;
-}
-
-.tile p{
-    font-size:.95rem;
-}
-
-/* ====================================
-   COLOR ACCENTS
-==================================== */
-
-.modules{
-    border-top:6px solid #4f3674;
-}
-
-.syllabus{
-    border-top:6px solid #D6A800;
-}
-
-.announcements{
-    border-top:6px solid #2E8B57;
-}
-
-.grades{
-    border-top:6px solid #1E88E5;
-}
-
-.support{
-    border-top:6px solid #F57C00;
-}
-
-.contact{
-    border-top:6px solid #C62828;
-}
-
-.resources{
-    border-top:6px solid #00838F;
-}
-
-.accessibility{
-    border-top:6px solid #6A1B9A;
-}
-
-/* ====================================
-   FOOTER
-==================================== */
-
-footer{
-    text-align:center;
-    padding:30px;
-    margin-top:40px;
-    background:#4f3674;
-    color:white;
-}
-
-footer p{
-    margin:5px 0;
-}
-
-/* ====================================
-   MOBILE
-==================================== */
-
-@media(max-width:768px){
-
-    header{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        margin-top:20px;
-    }
-
-    .logo img{
-        height:90px;
-    }
-
-    .hero{
-        height:200px;
-    }
-
-    .welcome{
-        margin:20px;
-        padding:25px;
-    }
-
-    .welcome h1{
-        font-size:1.8rem;
-    }
-
-}
-
-</style>
+    @media(max-width:680px){.wrapper{grid-template-columns:1fr}}
+  </style>
 </head>
-
 <body>
-<!-- =====================
-     HEADER
-===================== -->
+<div class="wrapper">
 
-<header>
-
-    <div class="logo">
-        <img src="images/Corporate Logo.png"
-             alt="Jeremy L. Haecker Logo">
+  <!-- Panel 1: Leadership Styles -->
+  <div class="panel">
+    <p class="panel-title">Leadership styles</p>
+    <div class="grid">
+      <div class="card card-1" data-index="0" tabindex="0" role="button" aria-label="Visionary">
+        <div class="card-front">
+          <i class="ti ti-telescope card-icon" aria-hidden="true"></i>
+          <p class="card-title">Visionary</p>
+          <p class="card-sub">Long-term direction</p>
+        </div>
+        <div class="card-back">
+          <p class="card-answer-label">Core principle</p>
+          <p class="card-answer">"Come with me." Mobilises people toward a shared vision.</p>
+        </div>
+      </div>
+      <div class="card card-2" data-index="1" tabindex="0" role="button" aria-label="Coaching">
+        <div class="card-front">
+          <i class="ti ti-heart-handshake card-icon" aria-hidden="true"></i>
+          <p class="card-title">Coaching</p>
+          <p class="card-sub">People development</p>
+        </div>
+        <div class="card-back">
+          <p class="card-answer-label">Core principle</p>
+          <p class="card-answer">"Try this." Connects daily work to long-term goals.</p>
+        </div>
+      </div>
+      <div class="card card-3" data-index="2" tabindex="0" role="button" aria-label="Democratic">
+        <div class="card-front">
+          <i class="ti ti-users card-icon" aria-hidden="true"></i>
+          <p class="card-title">Democratic</p>
+          <p class="card-sub">Collaborative input</p>
+        </div>
+        <div class="card-back">
+          <p class="card-answer-label">Core principle</p>
+          <p class="card-answer">"What do you think?" Builds consensus by involving the team.</p>
+        </div>
+      </div>
+      <div class="card card-4" data-index="3" tabindex="0" role="button" aria-label="Pacesetting">
+        <div class="card-front">
+          <i class="ti ti-rocket card-icon" aria-hidden="true"></i>
+          <p class="card-title">Pacesetting</p>
+          <p class="card-sub">High performance</p>
+        </div>
+        <div class="card-back">
+          <p class="card-answer-label">Core principle</p>
+          <p class="card-answer">"Do as I do." Sets a high bar — best with skilled teams.</p>
+        </div>
+      </div>
     </div>
+    <div class="detail-box" id="detail-box">
+      <p class="detail-empty">Hover a card, then click for details.</p>
+    </div>
+  </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="About.html">About</a>
-        <a href="Portfolio.html">Portfolio</a>
-        <a href="Contact.html">Contact</a>
-    </nav>
+  <!-- Panel 2: Motivation Ideas -->
+  <div class="panel">
+    <p class="panel-title">Leadership ideas — motivation</p>
+    <div class="instr-pane">
+      <i class="ti ti-info-circle instr-icon" aria-hidden="true"></i>
+      <div>
+        <p class="instr-title">How to use</p>
+        <p class="instr-body">Click any idea to expand a deeper explanation, key benefit, and practical action.</p>
+      </div>
+    </div>
+    <table class="mot-table">
+      <thead>
+        <tr>
+          <th style="width:40%">leadership idea</th>
+          <th style="width:28%">key benefit</th>
+          <th>practical action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
+              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+              Autonomy &amp; ownership
+            </button>
+            <div class="expand-area">
+              <div class="expand-content">When people feel genuine ownership over their work — not just tasks handed down — intrinsic motivation surges. Trust your team to choose the <em>how</em>, even when you define the <em>what</em>.</div>
+            </div>
+          </td>
+          <td>
+            <div class="td-inner">
+              <span class="tag tag-purple">Intrinsic drive</span>
+              <span class="cell-sub">Reduces burnout, boosts accountability</span>
+            </div>
+          </td>
+          <td><div class="td-inner cell-action">Assign a project with a clear outcome but let the team define the approach.</div></td>
+        </tr>
+        <tr>
+          <td>
+            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
+              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+              Meaningful recognition
+            </button>
+            <div class="expand-area">
+              <div class="expand-content">Recognition is most powerful when it's specific, timely, and personal. Name exactly what someone did and why it mattered — to the team, the customer, or the mission.</div>
+            </div>
+          </td>
+          <td>
+            <div class="td-inner">
+              <span class="tag tag-teal">Engagement</span>
+              <span class="cell-sub">Reinforces desired behaviors</span>
+            </div>
+          </td>
+          <td><div class="td-inner cell-action">Open each team meeting by calling out one specific contribution.</div></td>
+        </tr>
+        <tr>
+          <td>
+            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
+              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+              Growth &amp; mastery
+            </button>
+            <div class="expand-area">
+              <div class="expand-content">People are energized by progress. Build a culture where learning is expected — stretch assignments, mentorship, and skill-building conversations signal that you're invested in your people's future.</div>
+            </div>
+          </td>
+          <td>
+            <div class="td-inner">
+              <span class="tag tag-coral">Retention</span>
+              <span class="cell-sub">Keeps talent engaged long-term</span>
+            </div>
+          </td>
+          <td><div class="td-inner cell-action">Hold a quarterly 1-on-1 focused solely on career goals — not project status.</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-</header>
+</div>
 
+<script>
+  const details = [
+    {title:"Visionary leadership",color:"#185FA5",icon:"ti-telescope",body:"Best used when a team needs a new direction or a clear sense of purpose. The leader articulates where the group is going but trusts individuals to find their own path. Strongest positive impact on team climate and motivation.",when:"Useful during: organisational change, strategy pivots, new team formation."},
+    {title:"Coaching leadership",color:"#0F6E56",icon:"ti-heart-handshake",body:"Focuses on individual growth rather than immediate task completion. Leaders invest time in one-on-one conversations to understand each person's ambitions and connect those to their work. Builds loyalty and long-term capability.",when:"Useful during: onboarding, performance reviews, talent development programmes."},
+    {title:"Democratic leadership",color:"#854F0B",icon:"ti-users",body:"Creates buy-in by giving everyone a voice before decisions are made. Teams feel respected and heard, which raises commitment and surfaces ideas. Can slow progress if overused — less effective in genuine crises.",when:"Useful during: strategy planning, team restructuring, policy or process design."},
+    {title:"Pacesetting leadership",color:"#534AB7",icon:"ti-rocket",body:"The leader models excellence and expects others to follow suit. Works brilliantly with highly skilled, self-motivated teams who need little direction. Overused, it can overwhelm people and kill initiative.",when:"Useful during: sprint cycles, expert-led projects, scaling proven processes."}
+  ];
 
+  const box = document.getElementById('detail-box');
 
- <!-- =====================
-     WELCOME
-===================== -->
+  document.querySelectorAll('.card').forEach((card, i) => {
+    card.addEventListener('click', () => {
+      const d = details[i];
+      box.innerHTML = `
+        <p class="detail-label" style="color:${d.color}">
+          <i class="ti ${d.icon}" style="font-size:12px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>
+          ${d.title}
+        </p>
+        <p class="detail-body">${d.body}</p>
+        <p class="detail-body" style="margin-top:6px;font-size:11px;font-style:italic">${d.when}</p>
+      `;
+    });
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') card.click(); });
+  });
 
-<section class="welcome">
-
-    <h1>Course Navigation Hub</h1>
-
-    <p>
-        Welcome to the course. Use the navigation tiles below to access
-        course materials, assignments, support resources, and important
-        information.
-    </p>
-
-    <br>
-
-    <p>
-        This page serves as your central course dashboard. Select any tile
-        below to quickly navigate to course content, support services,
-        grades, announcements, and learning resources.
-    </p>
-
-</section>
-  <!-- TILE GRID -->
-
-  <section class="tile-grid">
-
-    <a href="#" class="tile modules">
-      <div class="tile-icon">📚</div>
-      <h3>Course Modules</h3>
-      <p>
-        Access weekly learning modules, activities,
-        assignments, and instructional materials.
-      </p>
-    </a>
-
-    <a href="#" class="tile syllabus">
-      <div class="tile-icon">📄</div>
-      <h3>Syllabus</h3>
-      <p>
-        Review course policies, grading expectations,
-        objectives, and important dates.
-      </p>
-    </a>
-
-    <a href="#" class="tile announcements">
-      <div class="tile-icon">📢</div>
-      <h3>Announcements</h3>
-      <p>
-        Stay informed about updates,
-        reminders, and course communications.
-      </p>
-    </a>
-
-    <a href="#" class="tile grades">
-      <div class="tile-icon">📊</div>
-      <h3>Grades</h3>
-      <p>
-        Check assignment feedback,
-        grade progress, and course performance.
-      </p>
-    </a>
-
-    <a href="#" class="tile support">
-      <div class="tile-icon">🆘</div>
-      <h3>Student Support</h3>
-      <p>
-        Access tutoring, library services,
-        technical support, and academic resources.
-      </p>
-    </a>
-
-    <a href="#" class="tile contact">
-      <div class="tile-icon">✉️</div>
-      <h3>Instructor Contact</h3>
-      <p>
-        View instructor information,
-        office hours, and communication options.
-      </p>
-    </a>
-
-    <a href="#" class="tile resources">
-      <div class="tile-icon">🔗</div>
-      <h3>Course Resources</h3>
-      <p>
-        Access templates, guides,
-        readings, and supplemental materials.
-      </p>
-    </a>
-
-    <a href="#" class="tile accessibility">
-      <div class="tile-icon">♿</div>
-      <h3>Accessibility Requirements</h3>
-      <p>
-        Learn more about specific accommodations, accessibility support,
-        and inclusive learning resources utilized daily.
-      </p>
-    </a>
-
-  </section>
-
-  <footer>
-    <p><strong>Development Navigation Hub</strong></p>
-    <p>Jeremy Haecker | Instructional Design Portfolio</p>
-  </footer>
-
+  function toggle(btn) {
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.idea-btn').forEach(b => {
+      b.classList.remove('open');
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.nextElementSibling.classList.add('open');
+    }
+  }
+</script>
 </body>
 </html>
