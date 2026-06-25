@@ -1,123 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leadership Grid</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leadership — Styles &amp; Motivation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,sans-serif;background:#f5f5f3;color:#1a1a18;padding:2rem 1rem;min-height:100vh}
+    .wrapper{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1100px;margin:0 auto;align-items:start}
+    .panel{background:#fff;border:0.5px solid rgba(0,0,0,0.12);border-radius:12px;overflow:hidden}
+    .panel-title{font-size:15px;font-weight:500;padding:14px 16px 10px;color:#1a1a18;border-bottom:0.5px solid rgba(0,0,0,0.12)}
 
-    body {
-      font-family: system-ui, sans-serif;
-      background: #f5f5f3;
-      color: #1a1a18;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 3rem 1rem;
-    }
+    /* --- Leadership Grid --- */
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+    .card{border-radius:10px;cursor:pointer;position:relative;overflow:hidden;min-height:140px;border:0.5px solid rgba(0,0,0,0.10)}
+    .card-front,.card-back{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1rem;text-align:center;border-radius:10px;transition:opacity 0.3s,transform 0.3s}
+    .card-back{opacity:0;transform:translateY(6px)}
+    .card:hover .card-front{opacity:0;transform:translateY(-6px)}
+    .card:hover .card-back{opacity:1;transform:translateY(0)}
+    .card-icon{font-size:22px;margin-bottom:8px}
+    .card-title{font-size:13px;font-weight:500;margin:0 0 3px}
+    .card-sub{font-size:11px;margin:0}
+    .card-answer{font-size:11px;line-height:1.5;font-weight:400}
+    .card-answer-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px}
+    .card-1 .card-front,.card-1 .card-back{background:#E6F1FB}
+    .card-1 .card-title,.card-1 .card-answer{color:#0C447C}
+    .card-1 .card-sub,.card-1 .card-answer-label,.card-1 .card-icon{color:#185FA5}
+    .card-2 .card-front,.card-2 .card-back{background:#E1F5EE}
+    .card-2 .card-title,.card-2 .card-answer{color:#085041}
+    .card-2 .card-sub,.card-2 .card-answer-label,.card-2 .card-icon{color:#0F6E56}
+    .card-3 .card-front,.card-3 .card-back{background:#FAEEDA}
+    .card-3 .card-title,.card-3 .card-answer{color:#633806}
+    .card-3 .card-sub,.card-3 .card-answer-label,.card-3 .card-icon{color:#854F0B}
+    .card-4 .card-front,.card-4 .card-back{background:#EEEDFE}
+    .card-4 .card-title,.card-4 .card-answer{color:#26215C}
+    .card-4 .card-sub,.card-4 .card-answer-label,.card-4 .card-icon{color:#534AB7}
+    .detail-box{margin:0 12px 12px;background:#ebebea;border:0.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:10px 12px;min-height:60px}
+    .detail-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 6px}
+    .detail-body{font-size:12px;color:#5f5e5a;line-height:1.6;margin:0}
+    .detail-empty{font-size:12px;color:#888780;font-style:italic}
 
-    .container {
-      width: 100%;
-      max-width: 680px;
-    }
+    /* --- Motivation Table --- */
+    .instr-pane{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:#f5f5f0;border-bottom:0.5px solid rgba(0,0,0,0.12)}
+    .instr-icon{font-size:18px;color:#888780;margin-top:1px;flex-shrink:0}
+    .instr-title{font-size:12px;font-weight:500;color:#1a1a18;margin:0 0 2px}
+    .instr-body{font-size:11px;color:#5f5e5a;margin:0;line-height:1.5}
+    .mot-table{width:100%;border-collapse:collapse;font-size:12px}
+    .mot-table th{padding:8px 12px;text-align:left;font-size:10px;font-weight:500;color:#5f5e5a;border-bottom:0.5px solid rgba(0,0,0,0.12);letter-spacing:0.04em;text-transform:lowercase;background:#f5f5f0}
+    .mot-table td{padding:0;border-bottom:0.5px solid rgba(0,0,0,0.12);vertical-align:top}
+    .mot-table tbody tr:last-child td{border-bottom:none}
+    .td-inner{padding:8px 12px}
+    .idea-btn{display:flex;align-items:center;gap:6px;width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:8px 12px;font-size:12px;font-weight:500;color:#1a1a18;font-family:inherit}
+    .idea-btn:hover{background:#f5f5f0}
+    .idea-btn .chevron{font-size:12px;color:#888780;transition:transform 0.2s;flex-shrink:0}
+    .idea-btn.open .chevron{transform:rotate(180deg)}
+    .expand-area{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+    .expand-area.open{max-height:160px}
+    .expand-content{font-size:11px;color:#5f5e5a;line-height:1.6;border-top:0.5px solid rgba(0,0,0,0.12);padding:8px 12px 10px 28px}
+    .tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:999px;font-weight:500}
+    .tag-purple{background:#EEEDFE;color:#3C3489}
+    .tag-teal{background:#E1F5EE;color:#085041}
+    .tag-coral{background:#FAECE7;color:#712B13}
+    .cell-sub{font-size:11px;color:#888780;margin-top:4px;display:block}
+    .cell-action{font-size:11px;color:#5f5e5a}
 
-    h1 {
-      font-size: 22px;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      color: #1a1a18;
-    }
-
-    /* --- Grid --- */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    /* --- Cards --- */
-    .card {
-      border-radius: 12px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      min-height: 180px;
-      border: 0.5px solid rgba(0,0,0,0.12);
-    }
-
-    .card-front, .card-back {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 1.5rem;
-      text-align: center;
-      border-radius: 12px;
-      transition: opacity 0.3s, transform 0.3s;
-    }
-
-    .card-back { opacity: 0; transform: translateY(6px); }
-    .card:hover .card-front { opacity: 0; transform: translateY(-6px); }
-    .card:hover .card-back  { opacity: 1; transform: translateY(0); }
-
-    .card-icon { font-size: 28px; margin-bottom: 10px; }
-    .card-title { font-size: 15px; font-weight: 500; margin: 0 0 4px; }
-    .card-sub   { font-size: 12px; margin: 0; }
-    .card-answer       { font-size: 13px; line-height: 1.55; font-weight: 400; }
-    .card-answer-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
-
-    /* Visionary — blue */
-    .card-1 .card-front, .card-1 .card-back { background: #E6F1FB; }
-    .card-1 .card-title, .card-1 .card-answer { color: #0C447C; }
-    .card-1 .card-sub, .card-1 .card-answer-label { color: #185FA5; }
-    .card-1 .card-icon { color: #185FA5; }
-
-    /* Coaching — teal */
-    .card-2 .card-front, .card-2 .card-back { background: #E1F5EE; }
-    .card-2 .card-title, .card-2 .card-answer { color: #085041; }
-    .card-2 .card-sub, .card-2 .card-answer-label { color: #0F6E56; }
-    .card-2 .card-icon { color: #0F6E56; }
-
-    /* Democratic — amber */
-    .card-3 .card-front, .card-3 .card-back { background: #FAEEDA; }
-    .card-3 .card-title, .card-3 .card-answer { color: #633806; }
-    .card-3 .card-sub, .card-3 .card-answer-label { color: #854F0B; }
-    .card-3 .card-icon { color: #854F0B; }
-
-    /* Pacesetting — purple */
-    .card-4 .card-front, .card-4 .card-back { background: #EEEDFE; }
-    .card-4 .card-title, .card-4 .card-answer { color: #26215C; }
-    .card-4 .card-sub, .card-4 .card-answer-label { color: #534AB7; }
-    .card-4 .card-icon { color: #534AB7; }
-
-    /* --- Detail box --- */
-    .detail-box {
-      background: #ebebea;
-      border: 0.5px solid rgba(0,0,0,0.12);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      min-height: 80px;
-      transition: all 0.3s;
-    }
-
-    .detail-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 8px; }
-    .detail-body  { font-size: 14px; color: #5f5e5a; line-height: 1.65; margin: 0; }
-    .detail-empty { font-size: 14px; color: #888780; font-style: italic; }
+    @media(max-width:680px){.wrapper{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Leadership styles</h1>
+<div class="wrapper">
 
+  <!-- Panel 1: Leadership Styles -->
+  <div class="panel">
+    <p class="panel-title">Leadership styles</p>
     <div class="grid">
-
-      <!-- Visionary -->
-      <div class="card card-1" data-index="0" tabindex="0" role="button" aria-label="Visionary leadership style">
+      <div class="card card-1" data-index="0" tabindex="0" role="button" aria-label="Visionary">
         <div class="card-front">
           <i class="ti ti-telescope card-icon" aria-hidden="true"></i>
           <p class="card-title">Visionary</p>
@@ -125,12 +83,10 @@
         </div>
         <div class="card-back">
           <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"Come with me." Mobilises people toward a shared vision, giving freedom on how to get there.</p>
+          <p class="card-answer">"Come with me." Mobilises people toward a shared vision.</p>
         </div>
       </div>
-
-      <!-- Coaching -->
-      <div class="card card-2" data-index="1" tabindex="0" role="button" aria-label="Coaching leadership style">
+      <div class="card card-2" data-index="1" tabindex="0" role="button" aria-label="Coaching">
         <div class="card-front">
           <i class="ti ti-heart-handshake card-icon" aria-hidden="true"></i>
           <p class="card-title">Coaching</p>
@@ -138,12 +94,10 @@
         </div>
         <div class="card-back">
           <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"Try this." Connects daily work to long-term goals, fostering growth and capability over time.</p>
+          <p class="card-answer">"Try this." Connects daily work to long-term goals.</p>
         </div>
       </div>
-
-      <!-- Democratic -->
-      <div class="card card-3" data-index="2" tabindex="0" role="button" aria-label="Democratic leadership style">
+      <div class="card card-3" data-index="2" tabindex="0" role="button" aria-label="Democratic">
         <div class="card-front">
           <i class="ti ti-users card-icon" aria-hidden="true"></i>
           <p class="card-title">Democratic</p>
@@ -151,12 +105,10 @@
         </div>
         <div class="card-back">
           <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"What do you think?" Builds consensus and commitment by involving the team in decisions.</p>
+          <p class="card-answer">"What do you think?" Builds consensus by involving the team.</p>
         </div>
       </div>
-
-      <!-- Pacesetting -->
-      <div class="card card-4" data-index="3" tabindex="0" role="button" aria-label="Pacesetting leadership style">
+      <div class="card card-4" data-index="3" tabindex="0" role="button" aria-label="Pacesetting">
         <div class="card-front">
           <i class="ti ti-rocket card-icon" aria-hidden="true"></i>
           <p class="card-title">Pacesetting</p>
@@ -164,68 +116,132 @@
         </div>
         <div class="card-back">
           <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"Do as I do." Sets a high bar by example — most effective with motivated, skilled teams.</p>
+          <p class="card-answer">"Do as I do." Sets a high bar — best with skilled teams.</p>
         </div>
       </div>
-
     </div>
-
-    <!-- Detail panel -->
     <div class="detail-box" id="detail-box">
-      <p class="detail-empty">Hover a card above, then click to see further details here.</p>
+      <p class="detail-empty">Hover a card, then click for details.</p>
     </div>
   </div>
 
-  <script>
-    const details = [
-      {
-        title: "Visionary leadership",
-        color: "#185FA5",
-        icon: "ti-telescope",
-        body: "Best used when a team needs a new direction or a clear sense of purpose. The leader articulates where the group is going but trusts individuals to find their own path. This style has the strongest positive impact on team climate and motivation. Avoid it when the leader lacks credibility or the team has more expertise than the leader.",
-        when: "Useful during: organisational change, strategy pivots, new team formation."
-      },
-      {
-        title: "Coaching leadership",
-        color: "#0F6E56",
-        icon: "ti-heart-handshake",
-        body: "Focuses on individual growth rather than immediate task completion. Leaders invest time in one-on-one conversations to understand each person's ambitions and help them connect those to their work. It builds loyalty and long-term capability but requires patience — it's less effective when employees are resistant to change or in crisis situations.",
-        when: "Useful during: onboarding, performance reviews, talent development programmes."
-      },
-      {
-        title: "Democratic leadership",
-        color: "#854F0B",
-        icon: "ti-users",
-        body: "Creates buy-in by giving everyone a voice before decisions are made. Teams feel respected and heard, which raises commitment and surfaces ideas. However, endless consensus-seeking can slow progress — this style loses effectiveness in genuine crises or when quick, decisive action is required.",
-        when: "Useful during: strategy planning, team restructuring, policy or process design."
-      },
-      {
-        title: "Pacesetting leadership",
-        color: "#534AB7",
-        icon: "ti-rocket",
-        body: "The leader models excellence and expects others to follow suit. Works brilliantly with highly skilled, self-motivated teams who need little direction. Overused, it can overwhelm people, kill initiative, and create a culture of fear. Use sparingly and always pair it with clarity about standards and expectations.",
-        when: "Useful during: sprint cycles, expert-led projects, scaling proven processes."
-      }
-    ];
+  <!-- Panel 2: Motivation Ideas -->
+  <div class="panel">
+    <p class="panel-title">Leadership ideas — motivation</p>
+    <div class="instr-pane">
+      <i class="ti ti-info-circle instr-icon" aria-hidden="true"></i>
+      <div>
+        <p class="instr-title">How to use</p>
+        <p class="instr-body">Click any idea to expand a deeper explanation, key benefit, and practical action.</p>
+      </div>
+    </div>
+    <table class="mot-table">
+      <thead>
+        <tr>
+          <th style="width:40%">leadership idea</th>
+          <th style="width:28%">key benefit</th>
+          <th>practical action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
+              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+              Autonomy &amp; ownership
+            </button>
+            <div class="expand-area">
+              <div class="expand-content">When people feel genuine ownership over their work — not just tasks handed down — intrinsic motivation surges. Trust your team to choose the <em>how</em>, even when you define the <em>what</em>.</div>
+            </div>
+          </td>
+          <td>
+            <div class="td-inner">
+              <span class="tag tag-purple">Intrinsic drive</span>
+              <span class="cell-sub">Reduces burnout, boosts accountability</span>
+            </div>
+          </td>
+          <td><div class="td-inner cell-action">Assign a project with a clear outcome but let the team define the approach.</div></td>
+        </tr>
+        <tr>
+          <td>
+            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
+              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+              Meaningful recognition
+            </button>
+            <div class="expand-area">
+              <div class="expand-content">Recognition is most powerful when it's specific, timely, and personal. Name exactly what someone did and why it mattered — to the team, the customer, or the mission.</div>
+            </div>
+          </td>
+          <td>
+            <div class="td-inner">
+              <span class="tag tag-teal">Engagement</span>
+              <span class="cell-sub">Reinforces desired behaviors</span>
+            </div>
+          </td>
+          <td><div class="td-inner cell-action">Open each team meeting by calling out one specific contribution.</div></td>
+        </tr>
+        <tr>
+          <td>
+            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
+              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+              Growth &amp; mastery
+            </button>
+            <div class="expand-area">
+              <div class="expand-content">People are energized by progress. Build a culture where learning is expected — stretch assignments, mentorship, and skill-building conversations signal that you're invested in your people's future.</div>
+            </div>
+          </td>
+          <td>
+            <div class="td-inner">
+              <span class="tag tag-coral">Retention</span>
+              <span class="cell-sub">Keeps talent engaged long-term</span>
+            </div>
+          </td>
+          <td><div class="td-inner cell-action">Hold a quarterly 1-on-1 focused solely on career goals — not project status.</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    const box = document.getElementById('detail-box');
+</div>
 
-    document.querySelectorAll('.card').forEach((card, i) => {
-      card.addEventListener('click', () => {
-        const d = details[i];
-        box.innerHTML = `
-          <p class="detail-label" style="color:${d.color}">
-            <i class="ti ${d.icon}" style="font-size:14px;vertical-align:-1px;margin-right:5px;" aria-hidden="true"></i>
-            ${d.title}
-          </p>
-          <p class="detail-body">${d.body}</p>
-          <p class="detail-body" style="margin-top:8px;font-size:13px;font-style:italic;">${d.when}</p>
-        `;
-      });
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') card.click();
-      });
+<script>
+  const details = [
+    {title:"Visionary leadership",color:"#185FA5",icon:"ti-telescope",body:"Best used when a team needs a new direction or a clear sense of purpose. The leader articulates where the group is going but trusts individuals to find their own path. Strongest positive impact on team climate and motivation.",when:"Useful during: organisational change, strategy pivots, new team formation."},
+    {title:"Coaching leadership",color:"#0F6E56",icon:"ti-heart-handshake",body:"Focuses on individual growth rather than immediate task completion. Leaders invest time in one-on-one conversations to understand each person's ambitions and connect those to their work. Builds loyalty and long-term capability.",when:"Useful during: onboarding, performance reviews, talent development programmes."},
+    {title:"Democratic leadership",color:"#854F0B",icon:"ti-users",body:"Creates buy-in by giving everyone a voice before decisions are made. Teams feel respected and heard, which raises commitment and surfaces ideas. Can slow progress if overused — less effective in genuine crises.",when:"Useful during: strategy planning, team restructuring, policy or process design."},
+    {title:"Pacesetting leadership",color:"#534AB7",icon:"ti-rocket",body:"The leader models excellence and expects others to follow suit. Works brilliantly with highly skilled, self-motivated teams who need little direction. Overused, it can overwhelm people and kill initiative.",when:"Useful during: sprint cycles, expert-led projects, scaling proven processes."}
+  ];
+
+  const box = document.getElementById('detail-box');
+
+  document.querySelectorAll('.card').forEach((card, i) => {
+    card.addEventListener('click', () => {
+      const d = details[i];
+      box.innerHTML = `
+        <p class="detail-label" style="color:${d.color}">
+          <i class="ti ${d.icon}" style="font-size:12px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>
+          ${d.title}
+        </p>
+        <p class="detail-body">${d.body}</p>
+        <p class="detail-body" style="margin-top:6px;font-size:11px;font-style:italic">${d.when}</p>
+      `;
     });
-  </script>
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') card.click(); });
+  });
+
+  function toggle(btn) {
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.idea-btn').forEach(b => {
+      b.classList.remove('open');
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.nextElementSibling.classList.add('open');
+    }
+  }
+</script>
 </body>
 </html>
