@@ -66,6 +66,129 @@
     .cell-action{font-size:11px;color:#5f5e5a}
 
     @media(max-width:680px){.wrapper{grid-template-columns:1fr}}
+ 
+  :root{
+    --primary:#4f3674;
+    --secondary:#d6a800;
+    --light:#f8f9fc;
+    --border:#d9d9d9;
+    --text:#333;
+}
+
+body{
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:#fff;
+    margin:20px;
+    color:var(--text);
+}
+
+.table-container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.table-header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.table-header h2{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.table-header p{
+    max-width:900px;
+    margin:auto;
+    line-height:1.6;
+}
+
+.search-box{
+    width:100%;
+    max-width:400px;
+    padding:12px;
+    border:2px solid var(--primary);
+    border-radius:8px;
+    font-size:1rem;
+    margin:20px 0;
+}
+
+.table-wrapper{
+    overflow-x:auto;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+thead{
+    background:linear-gradient(135deg,var(--primary),#6b4b9a);
+    color:white;
+}
+
+th{
+    padding:16px;
+    text-align:left;
+    cursor:pointer;
+    position:relative;
+    user-select:none;
+}
+
+th:hover{
+    background:rgba(255,255,255,0.1);
+}
+
+td{
+    padding:14px 16px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+}
+
+tbody tr:nth-child(even){
+    background:#fafafa;
+}
+
+tbody tr:hover{
+    background:#f3f0fa;
+    transition:.3s;
+}
+
+.model-name{
+    font-weight:600;
+    color:var(--primary);
+}
+
+.year-badge{
+    background:var(--secondary);
+    color:#000;
+    padding:4px 10px;
+    border-radius:20px;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.sort-arrow{
+    float:right;
+    opacity:.7;
+}
+
+@media (max-width:768px){
+
+    table{
+        font-size:.9rem;
+    }
+
+    th,td{
+        padding:10px;
+    }
+}
+  
+  
+  
   </style>
 </head>
 <body>
@@ -202,6 +325,230 @@
     </table>
   </div>
 
+
+
+<div class="table-container">
+
+    <div class="table-header">
+        <h2>Evolution of Convolutional Neural Networks (CNNs)</h2>
+        <p>
+            Explore the progression of influential CNN architectures that
+            transformed computer vision, from early digit recognition systems
+            to advanced image classification, segmentation, and mobile AI models.
+        </p>
+    </div>
+
+    <input type="text"
+           id="searchInput"
+           class="search-box"
+           placeholder="Search models, tasks, innovations...">
+
+    <div class="table-wrapper">
+
+        <table id="cnnTable">
+
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Model <span class="sort-arrow">↕</span></th>
+                    <th onclick="sortTable(1)">Primary Task <span class="sort-arrow">↕</span></th>
+                    <th onclick="sortTable(2)">Architecture Style <span class="sort-arrow">↕</span></th>
+                    <th onclick="sortTable(3)">Year <span class="sort-arrow">↕</span></th>
+                    <th onclick="sortTable(4)">Key Innovation <span class="sort-arrow">↕</span></th>
+                    <th onclick="sortTable(5)">Typical Depth <span class="sort-arrow">↕</span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td class="model-name">LeNet-5</td>
+                    <td>Digit Recognition</td>
+                    <td>Early CNN with convolution, pooling, and fully connected layers</td>
+                    <td><span class="year-badge">1998</span></td>
+                    <td>First practical CNN; introduced convolution + subsampling pipeline</td>
+                    <td>7 layers</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">AlexNet</td>
+                    <td>Image Classification</td>
+                    <td>Deep CNN with ReLU activation</td>
+                    <td><span class="year-badge">2012</span></td>
+                    <td>ReLU, dropout, GPU training; ImageNet winner</td>
+                    <td>8 layers</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">ZFNet</td>
+                    <td>Image Classification</td>
+                    <td>Improved AlexNet architecture</td>
+                    <td><span class="year-badge">2013</span></td>
+                    <td>Visualization of convolutional filters and tuning improvements</td>
+                    <td>8 layers</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">VGGNet</td>
+                    <td>Image Classification</td>
+                    <td>Very deep CNN with small filters</td>
+                    <td><span class="year-badge">2014</span></td>
+                    <td>Stacked 3×3 convolutions enabled deeper architectures</td>
+                    <td>16–19 layers</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">GoogLeNet (Inception v1)</td>
+                    <td>Image Classification</td>
+                    <td>Inception modules</td>
+                    <td><span class="year-badge">2014</span></td>
+                    <td>Parallel multi-scale convolutions within one block</td>
+                    <td>22 layers</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">ResNet</td>
+                    <td>Image Classification</td>
+                    <td>Residual learning network</td>
+                    <td><span class="year-badge">2015</span></td>
+                    <td>Skip connections solved vanishing gradient problems</td>
+                    <td>50–152+</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">U-Net</td>
+                    <td>Image Segmentation</td>
+                    <td>Encoder–decoder CNN</td>
+                    <td><span class="year-badge">2015</span></td>
+                    <td>Encoder-decoder skip connections for precise segmentation</td>
+                    <td>~23 layers</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">DenseNet</td>
+                    <td>Image Classification</td>
+                    <td>Dense connectivity architecture</td>
+                    <td><span class="year-badge">2017</span></td>
+                    <td>Every layer connected to all subsequent layers</td>
+                    <td>121–201</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">MobileNet</td>
+                    <td>Mobile Vision Tasks</td>
+                    <td>Lightweight CNN</td>
+                    <td><span class="year-badge">2017</span></td>
+                    <td>Depthwise separable convolutions for efficiency</td>
+                    <td>~28 layers</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">Mask R-CNN</td>
+                    <td>Object Detection & Segmentation</td>
+                    <td>Region-based CNN</td>
+                    <td><span class="year-badge">2017</span></td>
+                    <td>Adds segmentation mask branch to Faster R-CNN</td>
+                    <td>~50+ backbone</td>
+                </tr>
+
+                <tr>
+                    <td class="model-name">EfficientNet</td>
+                    <td>Image Classification</td>
+                    <td>Compound-scaled CNN</td>
+                    <td><span class="year-badge">2019</span></td>
+                    <td>Balanced scaling of width, depth, and resolution</td>
+                    <td>B0–B7</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<script>
+// Search Filter
+document.getElementById("searchInput").addEventListener("keyup", function() {
+
+    const filter = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#cnnTable tbody tr");
+
+    rows.forEach(row => {
+        row.style.display =
+            row.textContent.toLowerCase().includes(filter)
+            ? ""
+            : "none";
+    });
+});
+
+// Column Sort
+function sortTable(columnIndex) {
+
+    const table = document.getElementById("cnnTable");
+    let switching = true;
+    let direction = "asc";
+
+    while (switching) {
+
+        switching = false;
+        let rows = table.rows;
+
+        for (let i = 1; i < rows.length - 1; i++) {
+
+            let shouldSwitch = false;
+
+            let x = rows[i].getElementsByTagName("TD")[columnIndex];
+            let y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+
+            if (direction === "asc") {
+                if (x.innerText.toLowerCase() > y.innerText.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else {
+                if (x.innerText.toLowerCase() < y.innerText.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        } else if (direction === "asc") {
+            direction = "desc";
+            switching = true;
+        }
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
 <script>
