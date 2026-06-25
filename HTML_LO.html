@@ -200,349 +200,363 @@ tbody tr:hover{
   </style>
 </head>
 <body>
-<div class="wrapper">
+    <div class="wrapper">
 
-  <!-- Panel 1: Leadership Styles -->
-  <div class="panel">
-    <p class="panel-title">Flip Card Example</p>
-    <div class="grid">
-      <div class="card card-1" data-index="0" tabindex="0" role="button" aria-label="Visionary">
-        <div class="card-front">
-          <i class="ti ti-telescope card-icon" aria-hidden="true"></i>
-          <p class="card-title">Visionary</p>
-          <p class="card-sub">Long-term direction</p>
+        <!-- Panel 1: Leadership Styles -->
+        <div class="panel">
+            <p class="panel-title">Flip Card Example</p>
+            <div class="grid">
+                <div class="card card-1" data-index="0" tabindex="0" role="button" aria-label="Visionary">
+                    <div class="card-front">
+                        <i class="ti ti-telescope card-icon" aria-hidden="true"></i>
+                        <p class="card-title">Visionary</p>
+                        <p class="card-sub">Long-term direction</p>
+                    </div>
+                    <div class="card-back">
+                        <p class="card-answer-label">Core principle</p>
+                        <p class="card-answer">"Come with me." Mobilises people toward a shared vision.</p>
+                    </div>
+                </div>
+                <div class="card card-2" data-index="1" tabindex="0" role="button" aria-label="Coaching">
+                    <div class="card-front">
+                        <i class="ti ti-heart-handshake card-icon" aria-hidden="true"></i>
+                        <p class="card-title">Coaching</p>
+                        <p class="card-sub">People development</p>
+                    </div>
+                    <div class="card-back">
+                        <p class="card-answer-label">Core principle</p>
+                        <p class="card-answer">"Try this." Connects daily work to long-term goals.</p>
+                    </div>
+                </div>
+                <div class="card card-3" data-index="2" tabindex="0" role="button" aria-label="Democratic">
+                    <div class="card-front">
+                        <i class="ti ti-users card-icon" aria-hidden="true"></i>
+                        <p class="card-title">Democratic</p>
+                        <p class="card-sub">Collaborative input</p>
+                    </div>
+                    <div class="card-back">
+                        <p class="card-answer-label">Core principle</p>
+                        <p class="card-answer">"What do you think?" Builds consensus by involving the team.</p>
+                    </div>
+                </div>
+                <div class="card card-4" data-index="3" tabindex="0" role="button" aria-label="Pacesetting">
+                    <div class="card-front">
+                        <i class="ti ti-rocket card-icon" aria-hidden="true"></i>
+                        <p class="card-title">Pacesetting</p>
+                        <p class="card-sub">High performance</p>
+                    </div>
+                    <div class="card-back">
+                        <p class="card-answer-label">Core principle</p>
+                        <p class="card-answer">"Do as I do." Sets a high bar — best with skilled teams.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-box" id="detail-box">
+                <p class="detail-empty">Hover a card, then click for details.</p>
+            </div>
         </div>
-        <div class="card-back">
-          <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"Come with me." Mobilises people toward a shared vision.</p>
+
+        <!-- Panel 2: Motivation Ideas -->
+        <div class="panel">
+            <p class="panel-title">Drop-down Table Example</p>
+            <div class="instr-pane">
+                <i class="ti ti-info-circle instr-icon" aria-hidden="true"></i>
+                <div>
+                    <p class="instr-title">How to use</p>
+                    <p class="instr-body">Click any idea to expand a deeper explanation, key benefit, and practical
+                        action.</p>
+                </div>
+            </div>
+            <table class="mot-table">
+                <thead>
+                    <tr>
+                        <th style="width:40%">leadership idea</th>
+                        <th style="width:28%">key benefit</th>
+                        <th>practical action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
+                                <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+                                Autonomy &amp; ownership
+                            </button>
+                            <div class="expand-area">
+                                <div class="expand-content">When people feel genuine ownership over their work — not
+                                    just tasks handed down — intrinsic motivation surges. Trust your team to choose the
+                                    <em>how</em>, even when you define the <em>what</em>.
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="td-inner">
+                                <span class="tag tag-purple">Intrinsic drive</span>
+                                <span class="cell-sub">Reduces burnout, boosts accountability</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="td-inner cell-action">Assign a project with a clear outcome but let the team
+                                define the approach.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
+                                <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+                                Meaningful recognition
+                            </button>
+                            <div class="expand-area">
+                                <div class="expand-content">Recognition is most powerful when it's specific, timely, and
+                                    personal. Name exactly what someone did and why it mattered — to the team, the
+                                    customer, or the mission.</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="td-inner">
+                                <span class="tag tag-teal">Engagement</span>
+                                <span class="cell-sub">Reinforces desired behaviors</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="td-inner cell-action">Open each team meeting by calling out one specific
+                                contribution.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
+                                <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+                                Growth &amp; mastery
+                            </button>
+                            <div class="expand-area">
+                                <div class="expand-content">People are energized by progress. Build a culture where
+                                    learning is expected — stretch assignments, mentorship, and skill-building
+                                    conversations signal that you're invested in your people's future.</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="td-inner">
+                                <span class="tag tag-coral">Retention</span>
+                                <span class="cell-sub">Keeps talent engaged long-term</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="td-inner cell-action">Hold a quarterly 1-on-1 focused solely on career goals —
+                                not project status.</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
-      <div class="card card-2" data-index="1" tabindex="0" role="button" aria-label="Coaching">
-        <div class="card-front">
-          <i class="ti ti-heart-handshake card-icon" aria-hidden="true"></i>
-          <p class="card-title">Coaching</p>
-          <p class="card-sub">People development</p>
-        </div>
-        <div class="card-back">
-          <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"Try this." Connects daily work to long-term goals.</p>
-        </div>
-      </div>
-      <div class="card card-3" data-index="2" tabindex="0" role="button" aria-label="Democratic">
-        <div class="card-front">
-          <i class="ti ti-users card-icon" aria-hidden="true"></i>
-          <p class="card-title">Democratic</p>
-          <p class="card-sub">Collaborative input</p>
-        </div>
-        <div class="card-back">
-          <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"What do you think?" Builds consensus by involving the team.</p>
-        </div>
-      </div>
-      <div class="card card-4" data-index="3" tabindex="0" role="button" aria-label="Pacesetting">
-        <div class="card-front">
-          <i class="ti ti-rocket card-icon" aria-hidden="true"></i>
-          <p class="card-title">Pacesetting</p>
-          <p class="card-sub">High performance</p>
-        </div>
-        <div class="card-back">
-          <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"Do as I do." Sets a high bar — best with skilled teams.</p>
-        </div>
-      </div>
     </div>
-    <div class="detail-box" id="detail-box">
-      <p class="detail-empty">Hover a card, then click for details.</p>
+    <!-- Panel 3: CNN Table Example -->
+
+    <div class="table-container">
+
+        <div class="table-header">
+            <h2>Evolution of Convolutional Neural Networks (CNNs)</h2>
+            <p>
+                Explore the progression of influential CNN architectures that
+                transformed computer vision, from early digit recognition systems
+                to advanced image classification, segmentation, and mobile AI models.
+            </p>
+        </div>
+
+        <input type="text" id="searchInput" class="search-box" placeholder="Search models, tasks, innovations...">
+
+        <div class="table-wrapper">
+
+            <table id="cnnTable">
+
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Model <span class="sort-arrow">↕</span></th>
+                        <th onclick="sortTable(1)">Primary Task <span class="sort-arrow">↕</span></th>
+                        <th onclick="sortTable(2)">Architecture Style <span class="sort-arrow">↕</span></th>
+                        <th onclick="sortTable(3)">Year <span class="sort-arrow">↕</span></th>
+                        <th onclick="sortTable(4)">Key Innovation <span class="sort-arrow">↕</span></th>
+                        <th onclick="sortTable(5)">Typical Depth <span class="sort-arrow">↕</span></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td class="model-name">LeNet-5</td>
+                        <td>Digit Recognition</td>
+                        <td>Early CNN with convolution, pooling, and fully connected layers</td>
+                        <td><span class="year-badge">1998</span></td>
+                        <td>First practical CNN; introduced convolution + subsampling pipeline</td>
+                        <td>7 layers</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">AlexNet</td>
+                        <td>Image Classification</td>
+                        <td>Deep CNN with ReLU activation</td>
+                        <td><span class="year-badge">2012</span></td>
+                        <td>ReLU, dropout, GPU training; ImageNet winner</td>
+                        <td>8 layers</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">ZFNet</td>
+                        <td>Image Classification</td>
+                        <td>Improved AlexNet architecture</td>
+                        <td><span class="year-badge">2013</span></td>
+                        <td>Visualization of convolutional filters and tuning improvements</td>
+                        <td>8 layers</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">VGGNet</td>
+                        <td>Image Classification</td>
+                        <td>Very deep CNN with small filters</td>
+                        <td><span class="year-badge">2014</span></td>
+                        <td>Stacked 3×3 convolutions enabled deeper architectures</td>
+                        <td>16–19 layers</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">GoogLeNet (Inception v1)</td>
+                        <td>Image Classification</td>
+                        <td>Inception modules</td>
+                        <td><span class="year-badge">2014</span></td>
+                        <td>Parallel multi-scale convolutions within one block</td>
+                        <td>22 layers</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">ResNet</td>
+                        <td>Image Classification</td>
+                        <td>Residual learning network</td>
+                        <td><span class="year-badge">2015</span></td>
+                        <td>Skip connections solved vanishing gradient problems</td>
+                        <td>50–152+</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">U-Net</td>
+                        <td>Image Segmentation</td>
+                        <td>Encoder–decoder CNN</td>
+                        <td><span class="year-badge">2015</span></td>
+                        <td>Encoder-decoder skip connections for precise segmentation</td>
+                        <td>~23 layers</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">DenseNet</td>
+                        <td>Image Classification</td>
+                        <td>Dense connectivity architecture</td>
+                        <td><span class="year-badge">2017</span></td>
+                        <td>Every layer connected to all subsequent layers</td>
+                        <td>121–201</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">MobileNet</td>
+                        <td>Mobile Vision Tasks</td>
+                        <td>Lightweight CNN</td>
+                        <td><span class="year-badge">2017</span></td>
+                        <td>Depthwise separable convolutions for efficiency</td>
+                        <td>~28 layers</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">Mask R-CNN</td>
+                        <td>Object Detection & Segmentation</td>
+                        <td>Region-based CNN</td>
+                        <td><span class="year-badge">2017</span></td>
+                        <td>Adds segmentation mask branch to Faster R-CNN</td>
+                        <td>~50+ backbone</td>
+                    </tr>
+
+                    <tr>
+                        <td class="model-name">EfficientNet</td>
+                        <td>Image Classification</td>
+                        <td>Compound-scaled CNN</td>
+                        <td><span class="year-badge">2019</span></td>
+                        <td>Balanced scaling of width, depth, and resolution</td>
+                        <td>B0–B7</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
     </div>
-  </div>
 
-  <!-- Panel 2: Motivation Ideas -->
-  <div class="panel">
-    <p class="panel-title">Drop-down Table Example</p>
-    <div class="instr-pane">
-      <i class="ti ti-info-circle instr-icon" aria-hidden="true"></i>
-      <div>
-        <p class="instr-title">How to use</p>
-        <p class="instr-body">Click any idea to expand a deeper explanation, key benefit, and practical action.</p>
-      </div>
-    </div>
-    <table class="mot-table">
-      <thead>
-        <tr>
-          <th style="width:40%">leadership idea</th>
-          <th style="width:28%">key benefit</th>
-          <th>practical action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
-              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
-              Autonomy &amp; ownership
-            </button>
-            <div class="expand-area">
-              <div class="expand-content">When people feel genuine ownership over their work — not just tasks handed down — intrinsic motivation surges. Trust your team to choose the <em>how</em>, even when you define the <em>what</em>.</div>
-            </div>
-          </td>
-          <td>
-            <div class="td-inner">
-              <span class="tag tag-purple">Intrinsic drive</span>
-              <span class="cell-sub">Reduces burnout, boosts accountability</span>
-            </div>
-          </td>
-          <td><div class="td-inner cell-action">Assign a project with a clear outcome but let the team define the approach.</div></td>
-        </tr>
-        <tr>
-          <td>
-            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
-              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
-              Meaningful recognition
-            </button>
-            <div class="expand-area">
-              <div class="expand-content">Recognition is most powerful when it's specific, timely, and personal. Name exactly what someone did and why it mattered — to the team, the customer, or the mission.</div>
-            </div>
-          </td>
-          <td>
-            <div class="td-inner">
-              <span class="tag tag-teal">Engagement</span>
-              <span class="cell-sub">Reinforces desired behaviors</span>
-            </div>
-          </td>
-          <td><div class="td-inner cell-action">Open each team meeting by calling out one specific contribution.</div></td>
-        </tr>
-        <tr>
-          <td>
-            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
-              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
-              Growth &amp; mastery
-            </button>
-            <div class="expand-area">
-              <div class="expand-content">People are energized by progress. Build a culture where learning is expected — stretch assignments, mentorship, and skill-building conversations signal that you're invested in your people's future.</div>
-            </div>
-          </td>
-          <td>
-            <div class="td-inner">
-              <span class="tag tag-coral">Retention</span>
-              <span class="cell-sub">Keeps talent engaged long-term</span>
-            </div>
-          </td>
-          <td><div class="td-inner cell-action">Hold a quarterly 1-on-1 focused solely on career goals — not project status.</div></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <script>
+        // Search Filter
+        document.getElementById("searchInput").addEventListener("keyup", function () {
 
-  <!-- Panel 3: CNN Table Example -->
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll("#cnnTable tbody tr");
 
-<div class="table-container">
+            rows.forEach(row => {
+                row.style.display =
+                    row.textContent.toLowerCase().includes(filter)
+                        ? ""
+                        : "none";
+            });
+        });
 
-    <div class="table-header">
-        <h2>Evolution of Convolutional Neural Networks (CNNs)</h2>
-        <p>
-            Explore the progression of influential CNN architectures that
-            transformed computer vision, from early digit recognition systems
-            to advanced image classification, segmentation, and mobile AI models.
-        </p>
-    </div>
+        // Column Sort
+        function sortTable(columnIndex) {
 
-    <input type="text"
-           id="searchInput"
-           class="search-box"
-           placeholder="Search models, tasks, innovations...">
+            const table = document.getElementById("cnnTable");
+            let switching = true;
+            let direction = "asc";
 
-    <div class="table-wrapper">
+            while (switching) {
 
-        <table id="cnnTable">
+                switching = false;
+                let rows = table.rows;
 
-            <thead>
-                <tr>
-                    <th onclick="sortTable(0)">Model <span class="sort-arrow">↕</span></th>
-                    <th onclick="sortTable(1)">Primary Task <span class="sort-arrow">↕</span></th>
-                    <th onclick="sortTable(2)">Architecture Style <span class="sort-arrow">↕</span></th>
-                    <th onclick="sortTable(3)">Year <span class="sort-arrow">↕</span></th>
-                    <th onclick="sortTable(4)">Key Innovation <span class="sort-arrow">↕</span></th>
-                    <th onclick="sortTable(5)">Typical Depth <span class="sort-arrow">↕</span></th>
-                </tr>
-            </thead>
+                for (let i = 1; i < rows.length - 1; i++) {
 
-            <tbody>
+                    let shouldSwitch = false;
 
-                <tr>
-                    <td class="model-name">LeNet-5</td>
-                    <td>Digit Recognition</td>
-                    <td>Early CNN with convolution, pooling, and fully connected layers</td>
-                    <td><span class="year-badge">1998</span></td>
-                    <td>First practical CNN; introduced convolution + subsampling pipeline</td>
-                    <td>7 layers</td>
-                </tr>
+                    let x = rows[i].getElementsByTagName("TD")[columnIndex];
+                    let y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
 
-                <tr>
-                    <td class="model-name">AlexNet</td>
-                    <td>Image Classification</td>
-                    <td>Deep CNN with ReLU activation</td>
-                    <td><span class="year-badge">2012</span></td>
-                    <td>ReLU, dropout, GPU training; ImageNet winner</td>
-                    <td>8 layers</td>
-                </tr>
-
-                <tr>
-                    <td class="model-name">ZFNet</td>
-                    <td>Image Classification</td>
-                    <td>Improved AlexNet architecture</td>
-                    <td><span class="year-badge">2013</span></td>
-                    <td>Visualization of convolutional filters and tuning improvements</td>
-                    <td>8 layers</td>
-                </tr>
-
-                <tr>
-                    <td class="model-name">VGGNet</td>
-                    <td>Image Classification</td>
-                    <td>Very deep CNN with small filters</td>
-                    <td><span class="year-badge">2014</span></td>
-                    <td>Stacked 3×3 convolutions enabled deeper architectures</td>
-                    <td>16–19 layers</td>
-                </tr>
-
-                <tr>
-                    <td class="model-name">GoogLeNet (Inception v1)</td>
-                    <td>Image Classification</td>
-                    <td>Inception modules</td>
-                    <td><span class="year-badge">2014</span></td>
-                    <td>Parallel multi-scale convolutions within one block</td>
-                    <td>22 layers</td>
-                </tr>
-
-                <tr>
-                    <td class="model-name">ResNet</td>
-                    <td>Image Classification</td>
-                    <td>Residual learning network</td>
-                    <td><span class="year-badge">2015</span></td>
-                    <td>Skip connections solved vanishing gradient problems</td>
-                    <td>50–152+</td>
-                </tr>
-
-                <tr>
-                    <td class="model-name">U-Net</td>
-                    <td>Image Segmentation</td>
-                    <td>Encoder–decoder CNN</td>
-                    <td><span class="year-badge">2015</span></td>
-                    <td>Encoder-decoder skip connections for precise segmentation</td>
-                    <td>~23 layers</td>
-                </tr>
-
-                <tr>
-                    <td class="model-name">DenseNet</td>
-                    <td>Image Classification</td>
-                    <td>Dense connectivity architecture</td>
-                    <td><span class="year-badge">2017</span></td>
-                    <td>Every layer connected to all subsequent layers</td>
-                    <td>121–201</td>
-                </tr>
-
-                <tr>
-                    <td class="model-name">MobileNet</td>
-                    <td>Mobile Vision Tasks</td>
-                    <td>Lightweight CNN</td>
-                    <td><span class="year-badge">2017</span></td>
-                    <td>Depthwise separable convolutions for efficiency</td>
-                    <td>~28 layers</td>
-                </tr>
-
-                <tr>
-                    <td class="model-name">Mask R-CNN</td>
-                    <td>Object Detection & Segmentation</td>
-                    <td>Region-based CNN</td>
-                    <td><span class="year-badge">2017</span></td>
-                    <td>Adds segmentation mask branch to Faster R-CNN</td>
-                    <td>~50+ backbone</td>
-                </tr>
-
-                <tr>
-                    <td class="model-name">EfficientNet</td>
-                    <td>Image Classification</td>
-                    <td>Compound-scaled CNN</td>
-                    <td><span class="year-badge">2019</span></td>
-                    <td>Balanced scaling of width, depth, and resolution</td>
-                    <td>B0–B7</td>
-                </tr>
-
-            </tbody>
-        </table>
-
-    </div>
-</div>
-
-<script>
-// Search Filter
-document.getElementById("searchInput").addEventListener("keyup", function() {
-
-    const filter = this.value.toLowerCase();
-    const rows = document.querySelectorAll("#cnnTable tbody tr");
-
-    rows.forEach(row => {
-        row.style.display =
-            row.textContent.toLowerCase().includes(filter)
-            ? ""
-            : "none";
-    });
-});
-
-// Column Sort
-function sortTable(columnIndex) {
-
-    const table = document.getElementById("cnnTable");
-    let switching = true;
-    let direction = "asc";
-
-    while (switching) {
-
-        switching = false;
-        let rows = table.rows;
-
-        for (let i = 1; i < rows.length - 1; i++) {
-
-            let shouldSwitch = false;
-
-            let x = rows[i].getElementsByTagName("TD")[columnIndex];
-            let y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
-
-            if (direction === "asc") {
-                if (x.innerText.toLowerCase() > y.innerText.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
+                    if (direction === "asc") {
+                        if (x.innerText.toLowerCase() > y.innerText.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else {
+                        if (x.innerText.toLowerCase() < y.innerText.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
                 }
-            } else {
-                if (x.innerText.toLowerCase() < y.innerText.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
+
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                } else if (direction === "asc") {
+                    direction = "desc";
+                    switching = true;
                 }
             }
         }
 
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-        } else if (direction === "asc") {
-            direction = "desc";
-            switching = true;
-        }
-    }
-}
+        const details = [
+            { title: "Visionary leadership", color: "#185FA5", icon: "ti-telescope", body: "Best used when a team needs a new direction or a clear sense of purpose. The leader articulates where the group is going but trusts individuals to find their own path. Strongest positive impact on team climate and motivation.", when: "Useful during: organisational change, strategy pivots, new team formation." },
+            { title: "Coaching leadership", color: "#0F6E56", icon: "ti-heart-handshake", body: "Focuses on individual growth rather than immediate task completion. Leaders invest time in one-on-one conversations to understand each person's ambitions and connect those to their work. Builds loyalty and long-term capability.", when: "Useful during: onboarding, performance reviews, talent development programmes." },
+            { title: "Democratic leadership", color: "#854F0B", icon: "ti-users", body: "Creates buy-in by giving everyone a voice before decisions are made. Teams feel respected and heard, which raises commitment and surfaces ideas. Can slow progress if overused — less effective in genuine crises.", when: "Useful during: strategy planning, team restructuring, policy or process design." },
+            { title: "Pacesetting leadership", color: "#534AB7", icon: "ti-rocket", body: "The leader models excellence and expects others to follow suit. Works brilliantly with highly skilled, self-motivated teams who need little direction. Overused, it can overwhelm people and kill initiative.", when: "Useful during: sprint cycles, expert-led projects, scaling proven processes." }
+        ];
 
-  const details = [
-    {title:"Visionary leadership",color:"#185FA5",icon:"ti-telescope",body:"Best used when a team needs a new direction or a clear sense of purpose. The leader articulates where the group is going but trusts individuals to find their own path. Strongest positive impact on team climate and motivation.",when:"Useful during: organisational change, strategy pivots, new team formation."},
-    {title:"Coaching leadership",color:"#0F6E56",icon:"ti-heart-handshake",body:"Focuses on individual growth rather than immediate task completion. Leaders invest time in one-on-one conversations to understand each person's ambitions and connect those to their work. Builds loyalty and long-term capability.",when:"Useful during: onboarding, performance reviews, talent development programmes."},
-    {title:"Democratic leadership",color:"#854F0B",icon:"ti-users",body:"Creates buy-in by giving everyone a voice before decisions are made. Teams feel respected and heard, which raises commitment and surfaces ideas. Can slow progress if overused — less effective in genuine crises.",when:"Useful during: strategy planning, team restructuring, policy or process design."},
-    {title:"Pacesetting leadership",color:"#534AB7",icon:"ti-rocket",body:"The leader models excellence and expects others to follow suit. Works brilliantly with highly skilled, self-motivated teams who need little direction. Overused, it can overwhelm people and kill initiative.",when:"Useful during: sprint cycles, expert-led projects, scaling proven processes."}
-  ];
+        const box = document.getElementById('detail-box');
 
-  const box = document.getElementById('detail-box');
-
-  document.querySelectorAll('.card').forEach((card, i) => {
-    card.addEventListener('click', () => {
-      const d = details[i];
-      box.innerHTML = `
+        document.querySelectorAll('.card').forEach((card, i) => {
+            card.addEventListener('click', () => {
+                const d = details[i];
+                box.innerHTML = `
         <p class="detail-label" style="color:${d.color}">
           <i class="ti ${d.icon}" style="font-size:12px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>
           ${d.title}
@@ -550,23 +564,23 @@ function sortTable(columnIndex) {
         <p class="detail-body">${d.body}</p>
         <p class="detail-body" style="margin-top:6px;font-size:11px;font-style:italic">${d.when}</p>
       `;
-    });
-    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') card.click(); });
-  });
+            });
+            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') card.click(); });
+        });
 
-  function toggle(btn) {
-    const isOpen = btn.classList.contains('open');
-    document.querySelectorAll('.idea-btn').forEach(b => {
-      b.classList.remove('open');
-      b.setAttribute('aria-expanded', 'false');
-      b.nextElementSibling.classList.remove('open');
-    });
-    if (!isOpen) {
-      btn.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-      btn.nextElementSibling.classList.add('open');
-    }
-  }
-</script>
+        function toggle(btn) {
+            const isOpen = btn.classList.contains('open');
+            document.querySelectorAll('.idea-btn').forEach(b => {
+                b.classList.remove('open');
+                b.setAttribute('aria-expanded', 'false');
+                b.nextElementSibling.classList.remove('open');
+            });
+            if (!isOpen) {
+                btn.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                btn.nextElementSibling.classList.add('open');
+            }
+        }
+    </script>
 </body>
 </html>
