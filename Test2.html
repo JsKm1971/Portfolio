@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Interactive Experience Card</title>
+<title>Interactive Teaching Experience</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
@@ -31,7 +31,7 @@ body{
 
 /* CARD */
 .experience-module{
-    max-width:1100px;
+    max-width:1200px;
     margin:auto;
     background:white;
     border-radius:20px;
@@ -93,9 +93,9 @@ body{
 /* CONTENT */
 .content{
     padding:45px;
-    min-height:320px;
 }
 
+/* PANELS */
 .panel{
     display:none;
     animation:fade .4s ease;
@@ -110,27 +110,34 @@ h3{
     margin-bottom:18px;
 }
 
-/* ROLE BLOCKS */
-.role{
-    background:#f8f9fb;
+/* SECTION CARDS */
+.institution{
+    margin-bottom:30px;
     padding:25px;
+    background:#f8f9fb;
     border-radius:14px;
-    margin-bottom:25px;
     border-left:5px solid var(--secondary);
 }
 
-.role h4{
-    margin-bottom:10px;
+.course{
+    margin-top:15px;
+    padding:20px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+
+.course h4{
+    margin-bottom:5px;
     color:#222;
 }
 
-.role small{
+.course small{
     color:#666;
     display:block;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
-/* LISTS */
 ul{
     margin-left:20px;
     line-height:1.8;
@@ -186,9 +193,9 @@ ul{
 <div class="header">
     <div class="icon">🎓</div>
     <div>
-        <h1>Staff Instructor Experience</h1>
-        <h2>Creighton University • Omaha, Nebraska</h2>
-        <p>2016 • CPS 200: Making the Transition to College</p>
+        <h1>Higher Education Teaching Experience</h1>
+        <h2>Instructional Designer • Adjunct Faculty</h2>
+        <p>Online Higher Education (2016–Present)</p>
     </div>
 </div>
 
@@ -196,8 +203,8 @@ ul{
 <div class="tabs">
 
 <button class="tab active" data-tab="overview">Overview</button>
-<button class="tab" data-tab="adjunct">Adjunct Instructor</button>
-<button class="tab" data-tab="mentor">Peer Mentor</button>
+<button class="tab" data-tab="bellevue">Bellevue University</button>
+<button class="tab" data-tab="creighton">Creighton University</button>
 <button class="tab" data-tab="skills">Skills</button>
 <button class="tab" data-tab="impact">Impact</button>
 
@@ -209,98 +216,113 @@ ul{
 <!-- OVERVIEW -->
 <div class="panel active" id="overview">
 
-<h3>Course Context</h3>
+<h3>Professional Teaching Overview</h3>
 
 <p>
-CPS 200 was an 8-week foundational course designed to support students transitioning into online learning
-and degree completion pathways. This experience included two distinct instructional roles across different
-terms, each focused on student success, engagement, and academic readiness.
+This experience reflects multi-institutional instructional work across fully online higher education environments,
+focused on student engagement, communication development, academic readiness, and leadership growth.
+Roles include adjunct instruction, peer mentoring, and facilitation of structured 8-week and semester-based courses.
 </p>
 
-<!-- ROLE 1 -->
-<div class="role">
+</div>
 
-<h4>Adjunct Instructor</h4>
-<small>August 2016 • 8-week course</small>
+<!-- BELLEVUE -->
+<div class="panel" id="bellevue">
+
+<h3>Bellevue University — College of Business</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>HMGT 315: Business Communication in Hospitality Management</h4>
+<small>Adjunct Instructor • November 2024 – Present</small>
 
 <ul>
-<li>Instructed CPS 200 Making the Transition to College.</li>
-<li>Supported up to 21 students per course section.</li>
-<li>Facilitated online learning strategies and academic readiness.</li>
-<li>Delivered structured weekly learning activities and feedback.</li>
+<li>Facilitate fully online course sections focused on professional business communication in hospitality settings.</li>
+<li>Guide students in developing written, verbal, and interpersonal communication competencies.</li>
+<li>Provide timely, constructive feedback on assignments and projects.</li>
+<li>Foster engagement through dynamic online discussion boards and applied learning activities.</li>
+<li>Create an inclusive virtual learning environment that promotes critical thinking and application.</li>
 </ul>
 
 </div>
 
-<!-- ROLE 2 -->
-<div class="role">
+<div class="course">
 
-<h4>Peer Mentor</h4>
+<h4>HMGT 310: Interpersonal Leadership & Communication</h4>
+<small>Adjunct Instructor • Spring 2019 – Present (9 consecutive semesters)</small>
+
+<ul>
+<li>Facilitated fully online course sections with 12–21 students per semester.</li>
+<li>Delivered detailed feedback on assignments and performance-based assessments.</li>
+<li>Encouraged critical thinking through structured discussion board engagement.</li>
+<li>Maintained consistently high student satisfaction in online learning environments.</li>
+<li>Designed inclusive, interactive digital classroom experiences.</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CREIGHTON -->
+<div class="panel" id="creighton">
+
+<h3>Creighton University — CPS 200</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>Peer Mentor — CPS 200: Making the Transition to College</h4>
 <small>January 2016 • 8-week course</small>
 
 <ul>
-<li>Assisted primary instructor with course facilitation.</li>
-<li>Monitored chat sessions and discussion boards.</li>
-<li>Reviewed coursework and provided feedback support.</li>
-<li>Facilitated breakout group collaboration.</li>
+<li>Assisted primary instructor in supporting first-year online students.</li>
+<li>Monitored discussion boards and chat sessions to support engagement.</li>
+<li>Reviewed coursework and provided formative feedback.</li>
+<li>Facilitated breakout group collaboration activities.</li>
 </ul>
 
 </div>
 
-</div>
+<div class="course">
 
-<!-- ADJUNCT TAB -->
-<div class="panel" id="adjunct">
-
-<h3>Adjunct Instructor Role</h3>
-
-<p>
-In August 2016, served as Adjunct Instructor for CPS 200, leading an 8-week online course focused on
-transitioning students into successful online learners.
-</p>
+<h4>Adjunct Instructor — CPS 200: Making the Transition to College</h4>
+<small>August 2016 • 8-week course</small>
 
 <ul>
-<li>Up to 21 students per section</li>
-<li>Structured weekly instruction</li>
-<li>Academic coaching and engagement</li>
-<li>Course facilitation and feedback delivery</li>
+<li>Instructed up to 21 students in an 8-week online course.</li>
+<li>Delivered curriculum focused on transition to online learning and degree completion strategies.</li>
+<li>Supported student success through structured weekly engagement activities.</li>
+<li>Provided individualized academic coaching and feedback.</li>
 </ul>
 
 </div>
 
-<!-- MENTOR TAB -->
-<div class="panel" id="mentor">
-
-<h3>Peer Mentor Role</h3>
-
-<p>
-In January 2016, supported CPS 200 as a Peer Mentor in an 8-week course cycle, assisting the instructor
-and enhancing student engagement.
-</p>
-
-<ul>
-<li>Moderated online discussions</li>
-<li>Monitored chat sessions</li>
-<li>Assisted with grading support</li>
-<li>Facilitated breakout groups</li>
-</ul>
+</div>
 
 </div>
 
 <!-- SKILLS -->
 <div class="panel" id="skills">
 
-<h3>Instructional Skills</h3>
+<h3>Core Instructional Skills</h3>
 
 <div class="badges">
+
 <span>Online Instruction</span>
+<span>Higher Education Teaching</span>
 <span>Student Engagement</span>
 <span>Academic Coaching</span>
-<span>Facilitation</span>
-<span>Assessment</span>
-<span>Communication</span>
-<span>LMS Support</span>
-<span>Course Design Support</span>
+<span>Curriculum Facilitation</span>
+<span>Discussion Board Management</span>
+<span>Assessment & Feedback</span>
+<span>Inclusive Learning Design</span>
+<span>Communication Development</span>
+
 </div>
 
 </div>
@@ -308,23 +330,28 @@ and enhancing student engagement.
 <!-- IMPACT -->
 <div class="panel" id="impact">
 
-<h3>Combined Impact (Both Roles)</h3>
+<h3>Teaching Impact Summary</h3>
 
 <div class="stats">
 
 <div class="stat">
+<h2>3</h2>
+<p>Course Types Taught</p>
+</div>
+
+<div class="stat">
 <h2>2</h2>
-<p>8-Week Course Terms</p>
+<p>Universities</p>
+</div>
+
+<div class="stat">
+<h2>10+</h2>
+<p>Semesters of Instruction</p>
 </div>
 
 <div class="stat">
 <h2>21</h2>
-<p>Students per Section</p>
-</div>
-
-<div class="stat">
-<h2>2</h2>
-<p>Instructional Roles</p>
+<p>Max Students per Section</p>
 </div>
 
 </div>
