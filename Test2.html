@@ -15,8 +15,6 @@
     --secondary:#D6A800;
     --light:#f5f7fa;
     --text:#444;
-    --white:#fff;
-    --shadow:0 18px 40px rgba(0,0,0,.12);
 }
 
 *{
@@ -26,478 +24,307 @@
 }
 
 body{
-
     font-family:'Roboto',sans-serif;
     background:#eef2f6;
     padding:60px;
-
 }
 
+/* CARD */
 .experience-module{
-
     max-width:1100px;
     margin:auto;
-
-    background:rgba(255,255,255,.92);
-
-    backdrop-filter:blur(10px);
-
+    background:white;
     border-radius:20px;
-
-    box-shadow:var(--shadow);
-
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
     overflow:hidden;
-
 }
 
+/* HEADER */
 .header{
-
     display:flex;
     align-items:center;
     gap:30px;
-
     padding:40px;
-
     background:linear-gradient(135deg,var(--primary),#004b87);
-
     color:white;
-
 }
 
 .icon{
-
-    width:90px;
-    height:90px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.15);
-
+    font-size:50px;
+    width:80px;
+    height:80px;
     display:flex;
-    justify-content:center;
     align-items:center;
-
-    font-size:48px;
-
+    justify-content:center;
+    background:rgba(255,255,255,.15);
+    border-radius:50%;
 }
 
-.header h1{
-
-    font-size:34px;
-    margin-bottom:8px;
-
-}
-
-.header h2{
-
-    font-size:20px;
-    font-weight:400;
-
-}
-
-.header p{
-
-    opacity:.85;
-    margin-top:6px;
-
-}
-
+/* TABS */
 .tabs{
-
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
     gap:15px;
-
-    padding:30px;
-
-    background:white;
-
+    padding:25px;
+    background:#fff;
 }
 
 .tab{
-
     border:none;
-
-    padding:14px 28px;
-
+    padding:12px 22px;
     border-radius:40px;
-
     cursor:pointer;
-
     background:#e9ecef;
-
-    transition:.35s;
-
     font-weight:600;
-
+    transition:.3s;
 }
 
 .tab:hover{
-
-    transform:translateY(-3px);
-
     background:var(--secondary);
-
+    transform:translateY(-2px);
 }
 
 .tab.active{
-
     background:var(--primary);
-
     color:white;
-
 }
 
+/* CONTENT */
 .content{
-
     padding:45px;
-
     min-height:320px;
-
 }
 
 .panel{
-
     display:none;
-
-    animation:fade .45s ease;
-
+    animation:fade .4s ease;
 }
 
 .panel.active{
-
     display:block;
-
 }
 
-.panel h3{
-
+h3{
     color:var(--primary);
-
-    margin-bottom:20px;
-
-    font-size:28px;
-
+    margin-bottom:18px;
 }
 
-.panel p{
+/* ROLE BLOCKS */
+.role{
+    background:#f8f9fb;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:25px;
+    border-left:5px solid var(--secondary);
+}
 
+.role h4{
+    margin-bottom:10px;
+    color:#222;
+}
+
+.role small{
+    color:#666;
+    display:block;
+    margin-bottom:12px;
+}
+
+/* LISTS */
+ul{
+    margin-left:20px;
     line-height:1.8;
-
     color:var(--text);
-
 }
 
-.panel ul{
-
-    margin-left:25px;
-
-    line-height:2;
-
-    color:var(--text);
-
-}
-
+/* SKILLS */
 .badges{
-
     display:flex;
-
     flex-wrap:wrap;
-
-    gap:16px;
-
+    gap:12px;
 }
 
 .badges span{
-
-    padding:12px 22px;
-
-    border-radius:30px;
-
     background:var(--secondary);
-
-    color:#222;
-
-    font-weight:bold;
-
-    transition:.3s;
-
+    padding:10px 16px;
+    border-radius:25px;
+    font-weight:600;
 }
 
-.badges span:hover{
-
-    transform:scale(1.05);
-
-}
-
+/* IMPACT */
 .stats{
-
     display:grid;
-
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:25px;
-
+    gap:20px;
 }
 
 .stat{
-
     background:var(--light);
-
-    padding:35px;
-
+    padding:30px;
     border-radius:16px;
-
     text-align:center;
-
-    transition:.3s;
-
-}
-
-.stat:hover{
-
-    transform:translateY(-6px);
-
 }
 
 .stat h2{
-
+    font-size:44px;
     color:var(--primary);
-
-    font-size:52px;
-
-}
-
-.stat p{
-
-    margin-top:10px;
-
-    font-weight:500;
-
 }
 
 @keyframes fade{
-
-from{
-
-opacity:0;
-
-transform:translateY(20px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-@media(max-width:700px){
-
-.header{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-.tabs{
-
-justify-content:center;
-
-}
-
-.content{
-
-padding:25px;
-
-}
-
+    from{opacity:0;transform:translateY(15px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
 </style>
-
 </head>
 
 <body>
 
 <section class="experience-module">
 
+<!-- HEADER -->
 <div class="header">
-
-<div class="icon">
-
-🎓
-
+    <div class="icon">🎓</div>
+    <div>
+        <h1>Staff Instructor Experience</h1>
+        <h2>Creighton University • Omaha, Nebraska</h2>
+        <p>2016 • CPS 200: Making the Transition to College</p>
+    </div>
 </div>
 
-<div>
-
-<h1>Staff Instructor</h1>
-
-<h2>Creighton University • Omaha, Nebraska</h2>
-
-<p>August 2016</p>
-
-</div>
-
-</div>
-
+<!-- TABS -->
 <div class="tabs">
 
-<button class="tab active" data-tab="overview">
-
-Overview
-
-</button>
-
-<button class="tab" data-tab="adjunct">
-
-Adjunct Faculty
-
-</button>
-
-<button class="tab" data-tab="mentor">
-
-Peer Mentor
-
-</button>
-
-<button class="tab" data-tab="skills">
-
-Skills
-
-</button>
-
-<button class="tab" data-tab="impact">
-
-Impact
-
-</button>
+<button class="tab active" data-tab="overview">Overview</button>
+<button class="tab" data-tab="adjunct">Adjunct Instructor</button>
+<button class="tab" data-tab="mentor">Peer Mentor</button>
+<button class="tab" data-tab="skills">Skills</button>
+<button class="tab" data-tab="impact">Impact</button>
 
 </div>
 
+<!-- CONTENT -->
 <div class="content">
 
+<!-- OVERVIEW -->
 <div class="panel active" id="overview">
 
-<h3>Course Overview</h3>
+<h3>Course Context</h3>
 
 <p>
-
-Served as a Staff Instructor for <strong>CPS 200: Making the Transition to College – Strategies for Degree Completion.</strong>
-This role focused on preparing new online students for academic success through instruction, mentoring, student engagement,
-and individualized coaching. By fostering an encouraging learning environment, students gained the skills necessary to
-navigate online coursework, communicate effectively, and develop habits that support long-term academic achievement.
-
+CPS 200 was an 8-week foundational course designed to support students transitioning into online learning
+and degree completion pathways. This experience included two distinct instructional roles across different
+terms, each focused on student success, engagement, and academic readiness.
 </p>
 
+<!-- ROLE 1 -->
+<div class="role">
+
+<h4>Adjunct Instructor</h4>
+<small>August 2016 • 8-week course</small>
+
+<ul>
+<li>Instructed CPS 200 Making the Transition to College.</li>
+<li>Supported up to 21 students per course section.</li>
+<li>Facilitated online learning strategies and academic readiness.</li>
+<li>Delivered structured weekly learning activities and feedback.</li>
+</ul>
+
 </div>
 
+<!-- ROLE 2 -->
+<div class="role">
+
+<h4>Peer Mentor</h4>
+<small>January 2016 • 8-week course</small>
+
+<ul>
+<li>Assisted primary instructor with course facilitation.</li>
+<li>Monitored chat sessions and discussion boards.</li>
+<li>Reviewed coursework and provided feedback support.</li>
+<li>Facilitated breakout group collaboration.</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- ADJUNCT TAB -->
 <div class="panel" id="adjunct">
 
-<h3>Adjunct Faculty</h3>
+<h3>Adjunct Instructor Role</h3>
+
+<p>
+In August 2016, served as Adjunct Instructor for CPS 200, leading an 8-week online course focused on
+transitioning students into successful online learners.
+</p>
 
 <ul>
-
-<li>Taught CPS 200: Making the Transition to College.</li>
-
-<li>Facilitated online instruction for up to 21 students each semester.</li>
-
-<li>Guided learners in developing effective online learning strategies.</li>
-
-<li>Encouraged engagement through discussions and collaborative activities.</li>
-
-<li>Provided timely feedback and academic support.</li>
-
+<li>Up to 21 students per section</li>
+<li>Structured weekly instruction</li>
+<li>Academic coaching and engagement</li>
+<li>Course facilitation and feedback delivery</li>
 </ul>
 
 </div>
 
+<!-- MENTOR TAB -->
 <div class="panel" id="mentor">
 
-<h3>Peer Mentor</h3>
+<h3>Peer Mentor Role</h3>
+
+<p>
+In January 2016, supported CPS 200 as a Peer Mentor in an 8-week course cycle, assisting the instructor
+and enhancing student engagement.
+</p>
 
 <ul>
-
-<li>Supported the primary instructor throughout the eight-week course.</li>
-
-<li>Moderated student chat sessions and online discussions.</li>
-
-<li>Reviewed assignments and coursework.</li>
-
-<li>Facilitated breakout group collaboration.</li>
-
-<li>Provided coaching and encouragement to improve student success.</li>
-
+<li>Moderated online discussions</li>
+<li>Monitored chat sessions</li>
+<li>Assisted with grading support</li>
+<li>Facilitated breakout groups</li>
 </ul>
 
 </div>
 
+<!-- SKILLS -->
 <div class="panel" id="skills">
 
-<h3>Professional Skills</h3>
+<h3>Instructional Skills</h3>
 
 <div class="badges">
-
-<span>Instruction</span>
-
-<span>Student Success</span>
-
-<span>Mentoring</span>
-
-<span>Facilitation</span>
-
-<span>Communication</span>
-
-<span>Assessment</span>
-
-<span>Online Learning</span>
-
-<span>Collaboration</span>
-
+<span>Online Instruction</span>
+<span>Student Engagement</span>
 <span>Academic Coaching</span>
-
-<span>Feedback</span>
-
+<span>Facilitation</span>
+<span>Assessment</span>
+<span>Communication</span>
+<span>LMS Support</span>
+<span>Course Design Support</span>
 </div>
 
 </div>
 
+<!-- IMPACT -->
 <div class="panel" id="impact">
 
-<h3>Highlights</h3>
+<h3>Combined Impact (Both Roles)</h3>
 
 <div class="stats">
 
 <div class="stat">
-
-<h2 class="counter" data-target="21">0</h2>
-
-<p>Students Per Semester</p>
-
+<h2>2</h2>
+<p>8-Week Course Terms</p>
 </div>
 
 <div class="stat">
+<h2>21</h2>
+<p>Students per Section</p>
+</div>
 
-<h2 class="counter" data-target="2">0</h2>
-
+<div class="stat">
+<h2>2</h2>
 <p>Instructional Roles</p>
-
-</div>
-
-<div class="stat">
-
-<h2>100%</h2>
-
-<p>Student-Centered Instruction</p>
-
 </div>
 
 </div>
@@ -511,70 +338,19 @@ navigate online coursework, communicate effectively, and develop habits that sup
 <script>
 
 const tabs=document.querySelectorAll(".tab");
-
 const panels=document.querySelectorAll(".panel");
 
 tabs.forEach(tab=>{
+    tab.addEventListener("click",()=>{
 
-tab.addEventListener("click",()=>{
+        tabs.forEach(t=>t.classList.remove("active"));
+        panels.forEach(p=>p.classList.remove("active"));
 
-tabs.forEach(t=>t.classList.remove("active"));
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
 
-panels.forEach(panel=>panel.classList.remove("active"));
-
-tab.classList.add("active");
-
-document.getElementById(tab.dataset.tab).classList.add("active");
-
+    });
 });
-
-});
-
-const counters=document.querySelectorAll(".counter");
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-const counter=entry.target;
-
-const target=+counter.dataset.target;
-
-let current=0;
-
-const increment=Math.max(1, Math.ceil(target/40));
-
-const update=()=>{
-
-current+=increment;
-
-if(current>=target){
-
-counter.innerText=target;
-
-}else{
-
-counter.innerText=current;
-
-requestAnimationFrame(update);
-
-}
-
-};
-
-update();
-
-observer.unobserve(counter);
-
-}
-
-});
-
-});
-
-counters.forEach(counter=>observer.observe(counter));
 
 </script>
 
