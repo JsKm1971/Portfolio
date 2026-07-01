@@ -1,247 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Leadership — Styles &amp; Motivation</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,sans-serif;background:#f5f5f3;color:#1a1a18;padding:2rem 1rem;min-height:100vh}
-    .wrapper{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1100px;margin:0 auto;align-items:start}
-    .panel{background:#fff;border:0.5px solid rgba(0,0,0,0.12);border-radius:12px;overflow:hidden}
-    .panel-title{font-size:15px;font-weight:500;padding:14px 16px 10px;color:#1a1a18;border-bottom:0.5px solid rgba(0,0,0,0.12)}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* --- Leadership Grid --- */
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
-    .card{border-radius:10px;cursor:pointer;position:relative;overflow:hidden;min-height:140px;border:0.5px solid rgba(0,0,0,0.10)}
-    .card-front,.card-back{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1rem;text-align:center;border-radius:10px;transition:opacity 0.3s,transform 0.3s}
-    .card-back{opacity:0;transform:translateY(6px)}
-    .card:hover .card-front{opacity:0;transform:translateY(-6px)}
-    .card:hover .card-back{opacity:1;transform:translateY(0)}
-    .card-icon{font-size:22px;margin-bottom:8px}
-    .card-title{font-size:13px;font-weight:500;margin:0 0 3px}
-    .card-sub{font-size:11px;margin:0}
-    .card-answer{font-size:11px;line-height:1.5;font-weight:400}
-    .card-answer-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px}
-    .card-1 .card-front,.card-1 .card-back{background:#E6F1FB}
-    .card-1 .card-title,.card-1 .card-answer{color:#0C447C}
-    .card-1 .card-sub,.card-1 .card-answer-label,.card-1 .card-icon{color:#185FA5}
-    .card-2 .card-front,.card-2 .card-back{background:#E1F5EE}
-    .card-2 .card-title,.card-2 .card-answer{color:#085041}
-    .card-2 .card-sub,.card-2 .card-answer-label,.card-2 .card-icon{color:#0F6E56}
-    .card-3 .card-front,.card-3 .card-back{background:#FAEEDA}
-    .card-3 .card-title,.card-3 .card-answer{color:#633806}
-    .card-3 .card-sub,.card-3 .card-answer-label,.card-3 .card-icon{color:#854F0B}
-    .card-4 .card-front,.card-4 .card-back{background:#EEEDFE}
-    .card-4 .card-title,.card-4 .card-answer{color:#26215C}
-    .card-4 .card-sub,.card-4 .card-answer-label,.card-4 .card-icon{color:#534AB7}
-    .detail-box{margin:0 12px 12px;background:#ebebea;border:0.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:10px 12px;min-height:60px}
-    .detail-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 6px}
-    .detail-body{font-size:12px;color:#5f5e5a;line-height:1.6;margin:0}
-    .detail-empty{font-size:12px;color:#888780;font-style:italic}
+<title>Interactive Experience Card</title>
 
-    /* --- Motivation Table --- */
-    .instr-pane{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:#f5f5f0;border-bottom:0.5px solid rgba(0,0,0,0.12)}
-    .instr-icon{font-size:18px;color:#888780;margin-top:1px;flex-shrink:0}
-    .instr-title{font-size:12px;font-weight:500;color:#1a1a18;margin:0 0 2px}
-    .instr-body{font-size:11px;color:#5f5e5a;margin:0;line-height:1.5}
-    .mot-table{width:100%;border-collapse:collapse;font-size:12px}
-    .mot-table th{padding:8px 12px;text-align:left;font-size:10px;font-weight:500;color:#5f5e5a;border-bottom:0.5px solid rgba(0,0,0,0.12);letter-spacing:0.04em;text-transform:lowercase;background:#f5f5f0}
-    .mot-table td{padding:0;border-bottom:0.5px solid rgba(0,0,0,0.12);vertical-align:top}
-    .mot-table tbody tr:last-child td{border-bottom:none}
-    .td-inner{padding:8px 12px}
-    .idea-btn{display:flex;align-items:center;gap:6px;width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:8px 12px;font-size:12px;font-weight:500;color:#1a1a18;font-family:inherit}
-    .idea-btn:hover{background:#f5f5f0}
-    .idea-btn .chevron{font-size:12px;color:#888780;transition:transform 0.2s;flex-shrink:0}
-    .idea-btn.open .chevron{transform:rotate(180deg)}
-    .expand-area{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
-    .expand-area.open{max-height:160px}
-    .expand-content{font-size:11px;color:#5f5e5a;line-height:1.6;border-top:0.5px solid rgba(0,0,0,0.12);padding:8px 12px 10px 28px}
-    .tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:999px;font-weight:500}
-    .tag-purple{background:#EEEDFE;color:#3C3489}
-    .tag-teal{background:#E1F5EE;color:#085041}
-    .tag-coral{background:#FAECE7;color:#712B13}
-    .cell-sub{font-size:11px;color:#888780;margin-top:4px;display:block}
-    .cell-action{font-size:11px;color:#5f5e5a}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    @media(max-width:680px){.wrapper{grid-template-columns:1fr}}
-  </style>
+<style>
+
+:root{
+    --primary:#003366;
+    --secondary:#D6A800;
+    --light:#f5f7fa;
+    --text:#444;
+    --white:#fff;
+    --shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Roboto',sans-serif;
+    background:#eef2f6;
+    padding:60px;
+
+}
+
+.experience-module{
+
+    max-width:1100px;
+    margin:auto;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+.header{
+
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    padding:40px;
+
+    background:linear-gradient(135deg,var(--primary),#004b87);
+
+    color:white;
+
+}
+
+.icon{
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:48px;
+
+}
+
+.header h1{
+
+    font-size:34px;
+    margin-bottom:8px;
+
+}
+
+.header h2{
+
+    font-size:20px;
+    font-weight:400;
+
+}
+
+.header p{
+
+    opacity:.85;
+    margin-top:6px;
+
+}
+
+.tabs{
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+
+    padding:30px;
+
+    background:white;
+
+}
+
+.tab{
+
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    background:#e9ecef;
+
+    transition:.35s;
+
+    font-weight:600;
+
+}
+
+.tab:hover{
+
+    transform:translateY(-3px);
+
+    background:var(--secondary);
+
+}
+
+.tab.active{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.content{
+
+    padding:45px;
+
+    min-height:320px;
+
+}
+
+.panel{
+
+    display:none;
+
+    animation:fade .45s ease;
+
+}
+
+.panel.active{
+
+    display:block;
+
+}
+
+.panel h3{
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+    font-size:28px;
+
+}
+
+.panel p{
+
+    line-height:1.8;
+
+    color:var(--text);
+
+}
+
+.panel ul{
+
+    margin-left:25px;
+
+    line-height:2;
+
+    color:var(--text);
+
+}
+
+.badges{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+}
+
+.badges span{
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    background:var(--secondary);
+
+    color:#222;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.badges span:hover{
+
+    transform:scale(1.05);
+
+}
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.stat{
+
+    background:var(--light);
+
+    padding:35px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.stat:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.stat h2{
+
+    color:var(--primary);
+
+    font-size:52px;
+
+}
+
+.stat p{
+
+    margin-top:10px;
+
+    font-weight:500;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:700px){
+
+.header{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.tabs{
+
+justify-content:center;
+
+}
+
+.content{
+
+padding:25px;
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-<div class="wrapper">
 
-  <!-- Panel 1: Leadership Styles -->
-  <div class="panel">
-    <p class="panel-title">Leadership styles</p>
-    <div class="grid">
-      <div class="card card-1" data-index="0" tabindex="0" role="button" aria-label="Visionary">
-        <div class="card-front">
-          <i class="ti ti-telescope card-icon" aria-hidden="true"></i>
-          <p class="card-title">Visionary</p>
-          <p class="card-sub">Long-term direction</p>
-        </div>
-        <div class="card-back">
-          <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"Come with me." Mobilises people toward a shared vision.</p>
-        </div>
-      </div>
-      <div class="card card-2" data-index="1" tabindex="0" role="button" aria-label="Coaching">
-        <div class="card-front">
-          <i class="ti ti-heart-handshake card-icon" aria-hidden="true"></i>
-          <p class="card-title">Coaching</p>
-          <p class="card-sub">People development</p>
-        </div>
-        <div class="card-back">
-          <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"Try this." Connects daily work to long-term goals.</p>
-        </div>
-      </div>
-      <div class="card card-3" data-index="2" tabindex="0" role="button" aria-label="Democratic">
-        <div class="card-front">
-          <i class="ti ti-users card-icon" aria-hidden="true"></i>
-          <p class="card-title">Democratic</p>
-          <p class="card-sub">Collaborative input</p>
-        </div>
-        <div class="card-back">
-          <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"What do you think?" Builds consensus by involving the team.</p>
-        </div>
-      </div>
-      <div class="card card-4" data-index="3" tabindex="0" role="button" aria-label="Pacesetting">
-        <div class="card-front">
-          <i class="ti ti-rocket card-icon" aria-hidden="true"></i>
-          <p class="card-title">Pacesetting</p>
-          <p class="card-sub">High performance</p>
-        </div>
-        <div class="card-back">
-          <p class="card-answer-label">Core principle</p>
-          <p class="card-answer">"Do as I do." Sets a high bar — best with skilled teams.</p>
-        </div>
-      </div>
-    </div>
-    <div class="detail-box" id="detail-box">
-      <p class="detail-empty">Hover a card, then click for details.</p>
-    </div>
-  </div>
+<section class="experience-module">
 
-  <!-- Panel 2: Motivation Ideas -->
-  <div class="panel">
-    <p class="panel-title">Leadership ideas — motivation</p>
-    <div class="instr-pane">
-      <i class="ti ti-info-circle instr-icon" aria-hidden="true"></i>
-      <div>
-        <p class="instr-title">How to use</p>
-        <p class="instr-body">Click any idea to expand a deeper explanation, key benefit, and practical action.</p>
-      </div>
-    </div>
-    <table class="mot-table">
-      <thead>
-        <tr>
-          <th style="width:40%">leadership idea</th>
-          <th style="width:28%">key benefit</th>
-          <th>practical action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
-              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
-              Autonomy &amp; ownership
-            </button>
-            <div class="expand-area">
-              <div class="expand-content">When people feel genuine ownership over their work — not just tasks handed down — intrinsic motivation surges. Trust your team to choose the <em>how</em>, even when you define the <em>what</em>.</div>
-            </div>
-          </td>
-          <td>
-            <div class="td-inner">
-              <span class="tag tag-purple">Intrinsic drive</span>
-              <span class="cell-sub">Reduces burnout, boosts accountability</span>
-            </div>
-          </td>
-          <td><div class="td-inner cell-action">Assign a project with a clear outcome but let the team define the approach.</div></td>
-        </tr>
-        <tr>
-          <td>
-            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
-              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
-              Meaningful recognition
-            </button>
-            <div class="expand-area">
-              <div class="expand-content">Recognition is most powerful when it's specific, timely, and personal. Name exactly what someone did and why it mattered — to the team, the customer, or the mission.</div>
-            </div>
-          </td>
-          <td>
-            <div class="td-inner">
-              <span class="tag tag-teal">Engagement</span>
-              <span class="cell-sub">Reinforces desired behaviors</span>
-            </div>
-          </td>
-          <td><div class="td-inner cell-action">Open each team meeting by calling out one specific contribution.</div></td>
-        </tr>
-        <tr>
-          <td>
-            <button class="idea-btn" onclick="toggle(this)" aria-expanded="false">
-              <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
-              Growth &amp; mastery
-            </button>
-            <div class="expand-area">
-              <div class="expand-content">People are energized by progress. Build a culture where learning is expected — stretch assignments, mentorship, and skill-building conversations signal that you're invested in your people's future.</div>
-            </div>
-          </td>
-          <td>
-            <div class="td-inner">
-              <span class="tag tag-coral">Retention</span>
-              <span class="cell-sub">Keeps talent engaged long-term</span>
-            </div>
-          </td>
-          <td><div class="td-inner cell-action">Hold a quarterly 1-on-1 focused solely on career goals — not project status.</div></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="header">
+
+<div class="icon">
+
+🎓
 
 </div>
 
+<div>
+
+<h1>Staff Instructor</h1>
+
+<h2>Creighton University • Omaha, Nebraska</h2>
+
+<p>August 2016</p>
+
+</div>
+
+</div>
+
+<div class="tabs">
+
+<button class="tab active" data-tab="overview">
+
+Overview
+
+</button>
+
+<button class="tab" data-tab="adjunct">
+
+Adjunct Faculty
+
+</button>
+
+<button class="tab" data-tab="mentor">
+
+Peer Mentor
+
+</button>
+
+<button class="tab" data-tab="skills">
+
+Skills
+
+</button>
+
+<button class="tab" data-tab="impact">
+
+Impact
+
+</button>
+
+</div>
+
+<div class="content">
+
+<div class="panel active" id="overview">
+
+<h3>Course Overview</h3>
+
+<p>
+
+Served as a Staff Instructor for <strong>CPS 200: Making the Transition to College – Strategies for Degree Completion.</strong>
+This role focused on preparing new online students for academic success through instruction, mentoring, student engagement,
+and individualized coaching. By fostering an encouraging learning environment, students gained the skills necessary to
+navigate online coursework, communicate effectively, and develop habits that support long-term academic achievement.
+
+</p>
+
+</div>
+
+<div class="panel" id="adjunct">
+
+<h3>Adjunct Faculty</h3>
+
+<ul>
+
+<li>Taught CPS 200: Making the Transition to College.</li>
+
+<li>Facilitated online instruction for up to 21 students each semester.</li>
+
+<li>Guided learners in developing effective online learning strategies.</li>
+
+<li>Encouraged engagement through discussions and collaborative activities.</li>
+
+<li>Provided timely feedback and academic support.</li>
+
+</ul>
+
+</div>
+
+<div class="panel" id="mentor">
+
+<h3>Peer Mentor</h3>
+
+<ul>
+
+<li>Supported the primary instructor throughout the eight-week course.</li>
+
+<li>Moderated student chat sessions and online discussions.</li>
+
+<li>Reviewed assignments and coursework.</li>
+
+<li>Facilitated breakout group collaboration.</li>
+
+<li>Provided coaching and encouragement to improve student success.</li>
+
+</ul>
+
+</div>
+
+<div class="panel" id="skills">
+
+<h3>Professional Skills</h3>
+
+<div class="badges">
+
+<span>Instruction</span>
+
+<span>Student Success</span>
+
+<span>Mentoring</span>
+
+<span>Facilitation</span>
+
+<span>Communication</span>
+
+<span>Assessment</span>
+
+<span>Online Learning</span>
+
+<span>Collaboration</span>
+
+<span>Academic Coaching</span>
+
+<span>Feedback</span>
+
+</div>
+
+</div>
+
+<div class="panel" id="impact">
+
+<h3>Highlights</h3>
+
+<div class="stats">
+
+<div class="stat">
+
+<h2 class="counter" data-target="21">0</h2>
+
+<p>Students Per Semester</p>
+
+</div>
+
+<div class="stat">
+
+<h2 class="counter" data-target="2">0</h2>
+
+<p>Instructional Roles</p>
+
+</div>
+
+<div class="stat">
+
+<h2>100%</h2>
+
+<p>Student-Centered Instruction</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 <script>
-  const details = [
-    {title:"Visionary leadership",color:"#185FA5",icon:"ti-telescope",body:"Best used when a team needs a new direction or a clear sense of purpose. The leader articulates where the group is going but trusts individuals to find their own path. Strongest positive impact on team climate and motivation.",when:"Useful during: organisational change, strategy pivots, new team formation."},
-    {title:"Coaching leadership",color:"#0F6E56",icon:"ti-heart-handshake",body:"Focuses on individual growth rather than immediate task completion. Leaders invest time in one-on-one conversations to understand each person's ambitions and connect those to their work. Builds loyalty and long-term capability.",when:"Useful during: onboarding, performance reviews, talent development programmes."},
-    {title:"Democratic leadership",color:"#854F0B",icon:"ti-users",body:"Creates buy-in by giving everyone a voice before decisions are made. Teams feel respected and heard, which raises commitment and surfaces ideas. Can slow progress if overused — less effective in genuine crises.",when:"Useful during: strategy planning, team restructuring, policy or process design."},
-    {title:"Pacesetting leadership",color:"#534AB7",icon:"ti-rocket",body:"The leader models excellence and expects others to follow suit. Works brilliantly with highly skilled, self-motivated teams who need little direction. Overused, it can overwhelm people and kill initiative.",when:"Useful during: sprint cycles, expert-led projects, scaling proven processes."}
-  ];
 
-  const box = document.getElementById('detail-box');
+const tabs=document.querySelectorAll(".tab");
 
-  document.querySelectorAll('.card').forEach((card, i) => {
-    card.addEventListener('click', () => {
-      const d = details[i];
-      box.innerHTML = `
-        <p class="detail-label" style="color:${d.color}">
-          <i class="ti ${d.icon}" style="font-size:12px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>
-          ${d.title}
-        </p>
-        <p class="detail-body">${d.body}</p>
-        <p class="detail-body" style="margin-top:6px;font-size:11px;font-style:italic">${d.when}</p>
-      `;
-    });
-    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') card.click(); });
-  });
+const panels=document.querySelectorAll(".panel");
 
-  function toggle(btn) {
-    const isOpen = btn.classList.contains('open');
-    document.querySelectorAll('.idea-btn').forEach(b => {
-      b.classList.remove('open');
-      b.setAttribute('aria-expanded', 'false');
-      b.nextElementSibling.classList.remove('open');
-    });
-    if (!isOpen) {
-      btn.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-      btn.nextElementSibling.classList.add('open');
-    }
-  }
+tabs.forEach(tab=>{
+
+tab.addEventListener("click",()=>{
+
+tabs.forEach(t=>t.classList.remove("active"));
+
+panels.forEach(panel=>panel.classList.remove("active"));
+
+tab.classList.add("active");
+
+document.getElementById(tab.dataset.tab).classList.add("active");
+
+});
+
+});
+
+const counters=document.querySelectorAll(".counter");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+const counter=entry.target;
+
+const target=+counter.dataset.target;
+
+let current=0;
+
+const increment=Math.max(1, Math.ceil(target/40));
+
+const update=()=>{
+
+current+=increment;
+
+if(current>=target){
+
+counter.innerText=target;
+
+}else{
+
+counter.innerText=current;
+
+requestAnimationFrame(update);
+
+}
+
+};
+
+update();
+
+observer.unobserve(counter);
+
+}
+
+});
+
+});
+
+counters.forEach(counter=>observer.observe(counter));
+
 </script>
+
 </body>
 </html>
