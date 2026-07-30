@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leadership — Styles &amp; Motivation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <style>
+    /* ==========================================================
+       RESET & ROOT VARIABLES
+       ========================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #4f3674;
+      --primary-hover: #6b4b9a;
+      --secondary: #d6a800;
+      --border: #d9d9d9;
+      --text: #333;
+
+      /* navy blue accent (used for flip cards + accordions) */
+      --navy: #1B2A4A;
+      --navy-hover: #2C4270;
+
+      /* card accent palette */
+      --blue-bg: #E6F1FB;   --blue-text: #0C447C;   --blue-accent: #185FA5;
+      --teal-bg: #E1F5EE;   --teal-text: #085041;   --teal-accent: #0F6E56;
+      --amber-bg: #FAEEDA;  --amber-text: #633806;  --amber-accent: #854F0B;
+      --violet-bg: #EEEDFE; --violet-text: #26215C; --violet-accent: #534AB7;
+      --coral-bg: #FAECE7;  --coral-text: #712B13;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f5f5f3;
+      color: #1a1a18;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    h2 { color: var(--primary); }
+
+    /* ==========================================================
+       SHARED PANEL / CONTAINER STYLES
+       ========================================================== */
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto 30px;
+    }
+
+    .panel {
+      background: #fff;
+      border: 0.5px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .panel-title {
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 16px 10px;
+      color: #1a1a18;
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .table-container {
+      width: 100%;
+      max-width: 1600px;
+      margin: 30px auto;
+      background: #fff;
+      border: 0.5px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .table-header { text-align: center; padding: 20px 20px 0; }
+    .table-header p { max-width: 900px; margin: 10px auto 0; line-height: 1.6; }
+
+    @media (max-width: 680px) {
+      .wrapper { grid-template-columns: 1fr; }
+    }
+
+    /* ==========================================================
+       PANEL 1 — LEADERSHIP FLIP GRID
+       ========================================================== */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; }
+
+    .card {
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      min-height: 140px;
+      border: 0.5px solid rgba(0, 0, 0, 0.10);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 10px;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .card-back { opacity: 0; transform: translateY(6px); }
+    .card:hover .card-front { opacity: 0; transform: translateY(-6px); }
+    .card:hover .card-back { opacity: 1; transform: translateY(0); }
+
+    .card-icon { font-size: 22px; margin-bottom: 8px; }
+    .card-title { font-size: 13px; font-weight: 500; margin: 0 0 3px; }
+    .card-sub { font-size: 11px; margin: 0; }
+    .card-answer { font-size: 11px; line-height: 1.5; font-weight: 400; }
+    .card-answer-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
+
+    .card-1 .card-front, .card-1 .card-back { background: var(--blue-bg); }
+    .card-1 .card-title, .card-1 .card-answer { color: var(--blue-text); }
+    .card-1 .card-sub, .card-1 .card-answer-label, .card-1 .card-icon { color: var(--blue-accent); }
+
+    .card-2 .card-front, .card-2 .card-back { background: var(--teal-bg); }
+    .card-2 .card-title, .card-2 .card-answer { color: var(--teal-text); }
+    .card-2 .card-sub, .card-2 .card-answer-label, .card-2 .card-icon { color: var(--teal-accent); }
+
+    .card-3 .card-front, .card-3 .card-back { background: var(--amber-bg); }
+    .card-3 .card-title, .card-3 .card-answer { color: var(--amber-text); }
+    .card-3 .card-sub, .card-3 .card-answer-label, .card-3 .card-icon { color: var(--amber-accent); }
+
+    .card-4 .card-front, .card-4 .card-back { background: var(--violet-bg); }
+    .card-4 .card-title, .card-4 .card-answer { color: var(--violet-text); }
+    .card-4 .card-sub, .card-4 .card-answer-label, .card-4 .card-icon { color: var(--violet-accent); }
+
+    .detail-box {
+      margin: 0 12px 12px;
+      background: #ebebea;
+      border: 0.5px solid rgba(0, 0, 0, 0.12);
+      border-radius: 8px;
+      padding: 10px 12px;
+      min-height: 60px;
+    }
+
+    .detail-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 6px; }
+    .detail-body { font-size: 12px; color: #5f5e5a; line-height: 1.6; margin: 0; }
+    .detail-empty { font-size: 12px; color: #888780; font-style: italic; }
+
+    /* ==========================================================
+       PANEL 2 — MOTIVATION DROPDOWN TABLE
+       ========================================================== */
+    .instr-pane {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 14px;
+      background: #f5f5f0;
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .instr-icon { font-size: 18px; color: #888780; margin-top: 1px; flex-shrink: 0; }
+    .instr-title { font-size: 12px; font-weight: 500; color: #1a1a18; margin: 0 0 2px; }
+    .instr-body { font-size: 11px; color: #5f5e5a; margin: 0; line-height: 1.5; }
+
+    .mot-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+
+    .mot-table th {
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 10px;
+      font-weight: 500;
+      color: #5f5e5a;
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.12);
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+      background: #f5f5f0;
+    }
+
+    .mot-table td { padding: 0; border-bottom: 0.5px solid rgba(0, 0, 0, 0.12); vertical-align: top; }
+    .mot-table tbody tr:last-child td { border-bottom: none; }
+
+    .td-inner { padding: 8px 12px; }
+
+    .idea-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #1a1a18;
+      font-family: inherit;
+    }
+
+    .idea-btn:hover { background: #f5f5f0; }
+    .idea-btn .chevron { font-size: 12px; color: #888780; transition: transform 0.2s; flex-shrink: 0; }
+    .idea-btn.open .chevron { transform: rotate(180deg); }
+
+    .expand-area { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .expand-area.open { max-height: 160px; }
+    .expand-content { font-size: 11px; color: #5f5e5a; line-height: 1.6; border-top: 0.5px solid rgba(0, 0, 0, 0.12); padding: 8px 12px 10px 28px; }
+
+    .tag { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 999px; font-weight: 500; }
+    .tag-purple { background: var(--violet-bg); color: #3C3489; }
+    .tag-teal { background: var(--teal-bg); color: var(--teal-text); }
+    .tag-coral { background: var(--coral-bg); color: var(--coral-text); }
+
+    .cell-sub { font-size: 11px; color: #888780; margin-top: 4px; display: block; }
+    .cell-action { font-size: 11px; color: #5f5e5a; }
+
+    /* ==========================================================
+       PANEL 3 — SORTABLE / SEARCHABLE CNN TABLE
+       ========================================================== */
+    .search-box { width: 100%; max-width: 400px; margin: 20px; }
+
+    .table-wrapper { overflow-x: auto; border: 0.5px solid rgba(0, 0, 0, 0.12); border-radius: 12px; }
+
+    #cnnTable { width: 100%; border-collapse: collapse; background: white; }
+
+    #cnnTable thead { background: linear-gradient(135deg, var(--primary), var(--primary-hover)); color: white; }
+
+    #cnnTable th { padding: 16px; text-align: left; cursor: pointer; position: relative; user-select: none; }
+    #cnnTable th:hover { background: rgba(255, 255, 255, 0.1); }
+
+    #cnnTable td { padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    #cnnTable tbody tr:nth-child(even) { background: #fafafa; }
+    #cnnTable tbody tr:hover { background: #f3f0fa; transition: 0.3s; }
+
+    .model-name { font-weight: 600; color: var(--primary); }
+
+    .year-badge {
+      background: var(--secondary);
+      color: #000;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .sort-arrow { float: right; opacity: 0.7; }
+
+    @media (max-width: 768px) {
+      #cnnTable { font-size: 0.9rem; }
+      #cnnTable th, #cnnTable td { padding: 10px; }
+    }
+
+    /* ==========================================================
+       PANEL 4 — 3D FLIP CARDS
+       ========================================================== */
+    .flip-card { background-color: transparent; width: 300px; height: 200px; perspective: 1000px; margin: 20px; }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flip-card-front { background-color: var(--navy); color: white; font-size: 24px; font-weight: bold; }
+
+    .flip-card-back {
+      background-color: #f1f1f1;
+      color: black;
+      font-size: 18px;
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-container { display: flex; justify-content: space-around; flex-wrap: wrap; }
+
+    /* ==========================================================
+       PANEL 5 — ACCORDION
+       (renamed inner content class to .accordion-panel to avoid
+        colliding with the unrelated .panel container class above)
+       ========================================================== */
+    .accordion-container {
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .accordion {
+      background-color: var(--navy);
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      transition: background-color 0.2s ease;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+
+    .accordion:hover { background-color: #ddd; color: black; }
+    .accordion.active { background-color: #ccc; }
+
+    .accordion-panel {
+      padding: 18px;
+      display: none;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <!-- Panel 1: Leadership Styles (flip cards) -->
+    <div class="panel">
+      <p class="panel-title">Flip Card Example</p>
+      <div class="grid">
+        <div class="card card-1" data-index="0" tabindex="0" role="button" aria-label="Visionary">
+          <div class="card-front">
+            <i class="ti ti-telescope card-icon" aria-hidden="true"></i>
+            <p class="card-title">Visionary</p>
+            <p class="card-sub">Long-term direction</p>
+          </div>
+          <div class="card-back">
+            <p class="card-answer-label">Core principle</p>
+            <p class="card-answer">"Come with me." Mobilises people toward a shared vision.</p>
+          </div>
+        </div>
+        <div class="card card-2" data-index="1" tabindex="0" role="button" aria-label="Coaching">
+          <div class="card-front">
+            <i class="ti ti-heart-handshake card-icon" aria-hidden="true"></i>
+            <p class="card-title">Coaching</p>
+            <p class="card-sub">People development</p>
+          </div>
+          <div class="card-back">
+            <p class="card-answer-label">Core principle</p>
+            <p class="card-answer">"Try this." Connects daily work to long-term goals.</p>
+          </div>
+        </div>
+        <div class="card card-3" data-index="2" tabindex="0" role="button" aria-label="Democratic">
+          <div class="card-front">
+            <i class="ti ti-users card-icon" aria-hidden="true"></i>
+            <p class="card-title">Democratic</p>
+            <p class="card-sub">Collaborative input</p>
+          </div>
+          <div class="card-back">
+            <p class="card-answer-label">Core principle</p>
+            <p class="card-answer">"What do you think?" Builds consensus by involving the team.</p>
+          </div>
+        </div>
+        <div class="card card-4" data-index="3" tabindex="0" role="button" aria-label="Pacesetting">
+          <div class="card-front">
+            <i class="ti ti-rocket card-icon" aria-hidden="true"></i>
+            <p class="card-title">Pacesetting</p>
+            <p class="card-sub">High performance</p>
+          </div>
+          <div class="card-back">
+            <p class="card-answer-label">Core principle</p>
+            <p class="card-answer">"Do as I do." Sets a high bar — best with skilled teams.</p>
+          </div>
+        </div>
+      </div>
+      <div class="detail-box" id="detail-box">
+        <p class="detail-empty">Hover a card, then click for details.</p>
+      </div>
+    </div>
+
+    <!-- Panel 2: Motivation Ideas (dropdown table) -->
+    <div class="panel">
+      <p class="panel-title">Drop-down Table Example</p>
+      <div class="instr-pane">
+        <i class="ti ti-info-circle instr-icon" aria-hidden="true"></i>
+        <div>
+          <p class="instr-title">How to use</p>
+          <p class="instr-body">Click any idea to expand a deeper explanation, key benefit, and practical action.</p>
+        </div>
+      </div>
+      <table class="mot-table">
+        <thead>
+          <tr>
+            <th style="width:40%">leadership idea</th>
+            <th style="width:28%">key benefit</th>
+            <th>practical action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <button class="idea-btn" onclick="toggleIdea(this)" aria-expanded="false">
+                <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+                Autonomy &amp; ownership
+              </button>
+              <div class="expand-area">
+                <div class="expand-content">
+                  When people feel genuine ownership over their work — not just tasks handed down — intrinsic
+                  motivation surges. Trust your team to choose the <em>how</em>, even when you define the <em>what</em>.
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="td-inner">
+                <span class="tag tag-purple">Intrinsic drive</span>
+                <span class="cell-sub">Reduces burnout, boosts accountability</span>
+              </div>
+            </td>
+            <td>
+              <div class="td-inner cell-action">Assign a project with a clear outcome but let the team define the approach.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="idea-btn" onclick="toggleIdea(this)" aria-expanded="false">
+                <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+                Meaningful recognition
+              </button>
+              <div class="expand-area">
+                <div class="expand-content">
+                  Recognition is most powerful when it's specific, timely, and personal. Name exactly what someone
+                  did and why it mattered — to the team, the customer, or the mission.
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="td-inner">
+                <span class="tag tag-teal">Engagement</span>
+                <span class="cell-sub">Reinforces desired behaviors</span>
+              </div>
+            </td>
+            <td>
+              <div class="td-inner cell-action">Open each team meeting by calling out one specific contribution.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="idea-btn" onclick="toggleIdea(this)" aria-expanded="false">
+                <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+                Growth &amp; mastery
+              </button>
+              <div class="expand-area">
+                <div class="expand-content">
+                  People are energized by progress. Build a culture where learning is expected — stretch
+                  assignments, mentorship, and skill-building conversations signal that you're invested in your
+                  people's future.
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="td-inner">
+                <span class="tag tag-coral">Retention</span>
+                <span class="cell-sub">Keeps talent engaged long-term</span>
+              </div>
+            </td>
+            <td>
+              <div class="td-inner cell-action">Hold a quarterly 1-on-1 focused solely on career goals — not project status.</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Panel 3: CNN Table Example -->
+  <div class="table-container">
+    <div class="table-header">
+      <h2>Evolution of Convolutional Neural Networks (CNNs) - Example used in live AI Course </h2>
+      <p>
+        Explore the progression of influential CNN architectures that transformed computer vision, from early
+        digit recognition systems to advanced image classification, segmentation, and mobile AI models.
+      </p>
+    </div>
+
+    <input type="text" id="searchInput" class="search-box" placeholder="Search models, tasks, innovations...">
+
+    <div class="table-wrapper">
+      <table id="cnnTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">Model <span class="sort-arrow">↕</span></th>
+            <th onclick="sortTable(1)">Primary Task <span class="sort-arrow">↕</span></th>
+            <th onclick="sortTable(2)">Architecture Style <span class="sort-arrow">↕</span></th>
+            <th onclick="sortTable(3)">Year <span class="sort-arrow">↕</span></th>
+            <th onclick="sortTable(4)">Key Innovation <span class="sort-arrow">↕</span></th>
+            <th onclick="sortTable(5)">Typical Depth <span class="sort-arrow">↕</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="model-name">LeNet-5</td>
+            <td>Digit Recognition</td>
+            <td>Early CNN with convolution, pooling, and fully connected layers</td>
+            <td><span class="year-badge">1998</span></td>
+            <td>First practical CNN; introduced convolution + subsampling pipeline</td>
+            <td>7 layers</td>
+          </tr>
+          <tr>
+            <td class="model-name">AlexNet</td>
+            <td>Image Classification</td>
+            <td>Deep CNN with ReLU activation</td>
+            <td><span class="year-badge">2012</span></td>
+            <td>ReLU, dropout, GPU training; ImageNet winner</td>
+            <td>8 layers</td>
+          </tr>
+          <tr>
+            <td class="model-name">ZFNet</td>
+            <td>Image Classification</td>
+            <td>Improved AlexNet architecture</td>
+            <td><span class="year-badge">2013</span></td>
+            <td>Visualization of convolutional filters and tuning improvements</td>
+            <td>8 layers</td>
+          </tr>
+          <tr>
+            <td class="model-name">VGGNet</td>
+            <td>Image Classification</td>
+            <td>Very deep CNN with small filters</td>
+            <td><span class="year-badge">2014</span></td>
+            <td>Stacked 3×3 convolutions enabled deeper architectures</td>
+            <td>16–19 layers</td>
+          </tr>
+          <tr>
+            <td class="model-name">GoogLeNet (Inception v1)</td>
+            <td>Image Classification</td>
+            <td>Inception modules</td>
+            <td><span class="year-badge">2014</span></td>
+            <td>Parallel multi-scale convolutions within one block</td>
+            <td>22 layers</td>
+          </tr>
+          <tr>
+            <td class="model-name">ResNet</td>
+            <td>Image Classification</td>
+            <td>Residual learning network</td>
+            <td><span class="year-badge">2015</span></td>
+            <td>Skip connections solved vanishing gradient problems</td>
+            <td>50–152+</td>
+          </tr>
+          <tr>
+            <td class="model-name">U-Net</td>
+            <td>Image Segmentation</td>
+            <td>Encoder–decoder CNN</td>
+            <td><span class="year-badge">2015</span></td>
+            <td>Encoder-decoder skip connections for precise segmentation</td>
+            <td>~23 layers</td>
+          </tr>
+          <tr>
+            <td class="model-name">DenseNet</td>
+            <td>Image Classification</td>
+            <td>Dense connectivity architecture</td>
+            <td><span class="year-badge">2017</span></td>
+            <td>Every layer connected to all subsequent layers</td>
+            <td>121–201</td>
+          </tr>
+          <tr>
+            <td class="model-name">MobileNet</td>
+            <td>Mobile Vision Tasks</td>
+            <td>Lightweight CNN</td>
+            <td><span class="year-badge">2017</span></td>
+            <td>Depthwise separable convolutions for efficiency</td>
+            <td>~28 layers</td>
+          </tr>
+          <tr>
+            <td class="model-name">Mask R-CNN</td>
+            <td>Object Detection &amp; Segmentation</td>
+            <td>Region-based CNN</td>
+            <td><span class="year-badge">2017</span></td>
+            <td>Adds segmentation mask branch to Faster R-CNN</td>
+            <td>~50+ backbone</td>
+          </tr>
+          <tr>
+            <td class="model-name">EfficientNet</td>
+            <td>Image Classification</td>
+            <td>Compound-scaled CNN</td>
+            <td><span class="year-badge">2019</span></td>
+            <td>Balanced scaling of width, depth, and resolution</td>
+            <td>B0–B7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Panel 4: Flip Card Example -->
+  <div class="table-container">
+    <div class="table-header">
+      <h2>Flip Card Example</h2>
+      <p>
+        HTML flip cards provide an engaging way to present content by revealing additional information only
+        when learners interact with the element. Rather than overwhelming students with large blocks of text,
+        flip cards support progressive disclosure by breaking information into manageable pieces, reducing
+        cognitive load while encouraging exploration. In my course designs, flip cards are used to reinforce key
+        concepts, present definitions and examples, compare ideas, and promote active learner engagement. When
+        designed with accessibility and responsive web standards in mind, they create a modern, interactive
+        learning experience that supports both learner motivation and knowledge retention.
+      </p>
+    </div>
+    <div class="flip-card-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">Card 1</div>
+          <div class="flip-card-back">Place any content in here that will work for your course.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">Card 2</div>
+          <div class="flip-card-back">This is the back of Card 2.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">Card 3</div>
+          <div class="flip-card-back">This is the back of Card 3.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 5: Accordion Example -->
+  <div class="table-container">
+    <div class="table-header">
+      <h2>Accordion with Collapsible Sections and Rounded Edges - Example, used in many courses.</h2>
+      <p>HTML accordions are an effective design strategy for organizing large amounts of content into manageable, easy-to-navigate sections. Rather than requiring learners to scroll through lengthy pages of information, accordions allow users to expand only the topics they wish to explore, reducing cognitive overload and improving the overall learning experience. This progressive disclosure approach helps maintain focus, enhances usability, and makes complex content feel more approachable. In addition to their functional benefits, accordions create a clean, modern interface that improves the visual appeal of a course while supporting responsive and accessible web design principles.
+</p>
+    </div>
+
+    <p style="text-align:center;padding:0 20px;">This is the HTML code for the accordions.</p>
+    <h2 style="text-align:center;margin-top:16px;">Accordion with Collapsible Sections and Rounded Edges</h2>
+    <p style="text-align:center;padding-bottom:16px;">Click On The Box Below to Expand</p>
+
+    <div style="padding:0 20px 20px;">
+      <div class="accordion-container">
+        <button class="accordion">Section 1</button>
+        <div class="accordion-panel">
+          <p>This is the content for Section 1. The accordion will expand and collapse when you click the headers.</p>
+        </div>
+      </div>
+      <div class="accordion-container">
+        <button class="accordion">Section 2</button>
+        <div class="accordion-panel">
+          <p>This is the content for Section 2. The accordion will expand and collapse when you click the headers.</p>
+        </div>
+      </div>
+      <div class="accordion-container">
+        <button class="accordion">Section 3</button>
+        <div class="accordion-panel">
+          <p>This is the content for Section 3. Accordion sections can help organize large amounts of information in a compact way.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    // ----------------------------------------------------------
+    // Accordion (Panel 5)
+    // ----------------------------------------------------------
+    document.querySelectorAll('.accordion').forEach(btn => {
+      btn.addEventListener('click', function () {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // ----------------------------------------------------------
+    // CNN table: search filter
+    // ----------------------------------------------------------
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+      const filter = this.value.toLowerCase();
+      document.querySelectorAll('#cnnTable tbody tr').forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none';
+      });
+    });
+
+    // ----------------------------------------------------------
+    // CNN table: column sort
+    // ----------------------------------------------------------
+    function sortTable(columnIndex) {
+      const table = document.getElementById('cnnTable');
+      let switching = true;
+      let direction = 'asc';
+
+      while (switching) {
+        switching = false;
+        const rows = table.rows;
+        let i;
+
+        for (i = 1; i < rows.length - 1; i++) {
+          let shouldSwitch = false;
+          const x = rows[i].getElementsByTagName('TD')[columnIndex];
+          const y = rows[i + 1].getElementsByTagName('TD')[columnIndex];
+
+          if (direction === 'asc') {
+            if (x.innerText.toLowerCase() > y.innerText.toLowerCase()) { shouldSwitch = true; break; }
+          } else {
+            if (x.innerText.toLowerCase() < y.innerText.toLowerCase()) { shouldSwitch = true; break; }
+          }
+        }
+
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+        } else if (direction === 'asc') {
+          direction = 'desc';
+          switching = true;
+        }
+      }
+    }
+
+    // ----------------------------------------------------------
+    // Leadership flip grid: detail box on click
+    // ----------------------------------------------------------
+    const leadershipDetails = [
+      { title: 'Visionary leadership', color: '#185FA5', icon: 'ti-telescope',
+        body: 'Best used when a team needs a new direction or a clear sense of purpose. The leader articulates where the group is going but trusts individuals to find their own path. Strongest positive impact on team climate and motivation.',
+        when: 'Useful during: organisational change, strategy pivots, new team formation.' },
+      { title: 'Coaching leadership', color: '#0F6E56', icon: 'ti-heart-handshake',
+        body: "Focuses on individual growth rather than immediate task completion. Leaders invest time in one-on-one conversations to understand each person's ambitions and connect those to their work. Builds loyalty and long-term capability.",
+        when: 'Useful during: onboarding, performance reviews, talent development programmes.' },
+      { title: 'Democratic leadership', color: '#854F0B', icon: 'ti-users',
+        body: 'Creates buy-in by giving everyone a voice before decisions are made. Teams feel respected and heard, which raises commitment and surfaces ideas. Can slow progress if overused — less effective in genuine crises.',
+        when: 'Useful during: strategy planning, team restructuring, policy or process design.' },
+      { title: 'Pacesetting leadership', color: '#534AB7', icon: 'ti-rocket',
+        body: 'The leader models excellence and expects others to follow suit. Works brilliantly with highly skilled, self-motivated teams who need little direction. Overused, it can overwhelm people and kill initiative.',
+        when: 'Useful during: sprint cycles, expert-led projects, scaling proven processes.' }
+    ];
+
+    const detailBox = document.getElementById('detail-box');
+
+    document.querySelectorAll('.card').forEach((card, i) => {
+      card.addEventListener('click', () => {
+        const d = leadershipDetails[i];
+        detailBox.innerHTML = `
+          <p class="detail-label" style="color:${d.color}">
+            <i class="ti ${d.icon}" style="font-size:12px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>
+            ${d.title}
+          </p>
+          <p class="detail-body">${d.body}</p>
+          <p class="detail-body" style="margin-top:6px;font-size:11px;font-style:italic">${d.when}</p>
+        `;
+      });
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') card.click();
+      });
+    });
+
+    // ----------------------------------------------------------
+    // Motivation dropdown table: expand/collapse rows
+    // ----------------------------------------------------------
+    function toggleIdea(btn) {
+      const isOpen = btn.classList.contains('open');
+      document.querySelectorAll('.idea-btn').forEach(b => {
+        b.classList.remove('open');
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+      if (!isOpen) {
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling.classList.add('open');
+      }
+    }
+  </script>
+</body>
+</html>
