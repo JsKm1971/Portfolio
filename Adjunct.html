@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Interactive Teaching Experience</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#003366;
+    --secondary:#D6A800;
+    --light:#f5f7fa;
+    --text:#444;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Roboto',sans-serif;
+    background:#eef2f6;
+    padding:60px;
+}
+
+/* CARD */
+.experience-module{
+    max-width:1200px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
+    overflow:hidden;
+}
+
+/* HEADER */
+.header{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    padding:40px;
+    background:linear-gradient(135deg,var(--primary),#004b87);
+    color:white;
+}
+
+.icon{
+    font-size:50px;
+    width:80px;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.15);
+    border-radius:50%;
+}
+
+/* TABS */
+.tabs{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    padding:25px;
+    background:#fff;
+}
+
+.tab{
+    border:none;
+    padding:12px 22px;
+    border-radius:40px;
+    cursor:pointer;
+    background:#e9ecef;
+    font-weight:600;
+    transition:.3s;
+}
+
+.tab:hover{
+    background:var(--secondary);
+    transform:translateY(-2px);
+}
+
+.tab.active{
+    background:var(--primary);
+    color:white;
+}
+
+/* CONTENT */
+.content{
+    padding:45px;
+}
+
+/* PANELS */
+.panel{
+    display:none;
+    animation:fade .4s ease;
+}
+
+.panel.active{
+    display:block;
+}
+
+h3{
+    color:var(--primary);
+    margin-bottom:18px;
+}
+
+/* SECTION CARDS */
+.institution{
+    margin-bottom:30px;
+    padding:25px;
+    background:#f8f9fb;
+    border-radius:14px;
+    border-left:5px solid var(--secondary);
+}
+
+.course{
+    margin-top:15px;
+    padding:20px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+
+.course h4{
+    margin-bottom:5px;
+    color:#222;
+}
+
+.course small{
+    color:#666;
+    display:block;
+    margin-bottom:10px;
+}
+
+ul{
+    margin-left:20px;
+    line-height:1.8;
+    color:var(--text);
+}
+
+/* SKILLS */
+.badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.badges span{
+    background:var(--secondary);
+    padding:10px 16px;
+    border-radius:25px;
+    font-weight:600;
+}
+
+/* IMPACT */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat{
+    background:var(--light);
+    padding:30px;
+    border-radius:16px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:44px;
+    color:var(--primary);
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(15px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="experience-module">
+
+<!-- HEADER -->
+<div class="header">
+    <div class="icon">🎓</div>
+    <div>
+        <h1>Higher Education Teaching Experience</h1>
+        <h2>Peer Mentor • Adjunct Faculty</h2>
+        <p>Online Higher Education (2016–Present)</p>
+    </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+
+<button class="tab active" data-tab="overview">Overview</button>
+<button class="tab" data-tab="bellevue">Bellevue University</button>
+<button class="tab" data-tab="creighton">Creighton University</button>
+
+<button class="tab" data-tab="impact">Impact</button>
+
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<!-- OVERVIEW -->
+<div class="panel active" id="overview">
+
+<h3>Professional Teaching Overview</h3>
+
+<p>
+This experience reflects multi-institutional instructional work across fully online higher education environments,
+focused on student engagement, communication development, academic readiness, and leadership growth.
+Roles include adjunct instruction, peer mentoring, and facilitation of structured 8-week and 6-week courses.
+</p>
+
+</div>
+
+<!-- BELLEVUE -->
+<div class="panel" id="bellevue">
+
+<h3>Bellevue University — College of Business</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>HMGT 315: Business Communication in Hospitality Management</h4>
+<small>Adjunct Instructor • November 2024 – Present</small>
+
+<ul>
+<li>Facilitate fully online course sections focused on professional business communication in hospitality settings.</li>
+<li>Guide students in developing written, verbal, and interpersonal communication competencies.</li>
+<li>Provide timely, constructive feedback on assignments and projects.</li>
+<li>Foster engagement through dynamic online discussion boards and applied learning activities.</li>
+<li>Create an inclusive virtual learning environment that promotes critical thinking and application.</li>
+</ul>
+
+</div>
+
+<div class="course">
+
+<h4>HMGT 310: Interpersonal Leadership & Communication</h4>
+<small>Adjunct Instructor • Spring 2019 – November 2024 (9 consecutive semesters)</small>
+
+<ul>
+<li>Facilitated fully online course sections with 12–21 students per semester.</li>
+<li>Delivered detailed feedback on assignments and performance-based assessments.</li>
+<li>Encouraged critical thinking through structured discussion board engagement.</li>
+<li>Maintained consistently high student satisfaction in online learning environments.</li>
+<li>Designed inclusive, interactive digital classroom experiences.</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CREIGHTON -->
+<div class="panel" id="creighton">
+
+<h3>Creighton University — CPS 200</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>Adjunct Instructor — CPS 200: Making the Transition to College</h4>
+<small>August 2016 • 8-week course</small>
+
+<ul>
+<li>Instructed up to 21 students in an 8-week online course.</li>
+<li>Delivered curriculum focused on transition to online learning and degree completion strategies.</li>
+<li>Supported student success through structured weekly engagement activities.</li>
+<li>Provided individualized academic coaching and feedback.</li>
+</ul>
+
+</div>
+
+<div class="course">
+
+<h4>Peer Mentor — CPS 200: Making the Transition to College</h4>
+<small>January 2016 • 8-week course</small>
+
+<ul>
+<li>Assisted primary instructor in supporting first-year online students.</li>
+<li>Monitored discussion boards and chat sessions to support engagement.</li>
+<li>Reviewed coursework and provided formative feedback.</li>
+<li>Facilitated breakout group collaboration activities.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+    
+
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SKILLS -->
+<div class="panel" id="skills">
+
+<h3>Core Instructional Skills</h3>
+
+<div class="badges">
+
+<span>Online Instruction</span>
+<span>Higher Education Teaching</span>
+<span>Student Engagement</span>
+<span>Academic Coaching</span>
+<span>Curriculum Facilitation</span>
+<span>Discussion Board Management</span>
+<span>Assessment & Feedback</span>
+<span>Inclusive Learning Design</span>
+<span>Communication Development</span>
+
+</div>
+
+</div>
+
+<!-- IMPACT -->
+<div class="panel" id="impact">
+
+<h3>Teaching Impact Summary</h3>
+
+<div class="stats">
+
+<div class="stat">
+<h2>3</h2>
+<p>Course Types Taught</p>
+</div>
+
+<div class="stat">
+<h2>2</h2>
+<p>Universities</p>
+</div>
+
+<div class="stat">
+<h2>10+</h2>
+<p>Semesters of Instruction</p>
+</div>
+
+<div class="stat">
+<h2>21</h2>
+<p>Max Students per Section</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const tabs=document.querySelectorAll(".tab");
+const panels=document.querySelectorAll(".panel");
+
+tabs.forEach(tab=>{
+    tab.addEventListener("click",()=>{
+
+        tabs.forEach(t=>t.classList.remove("active"));
+        panels.forEach(p=>p.classList.remove("active"));
+
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+
+    });
+});
+
+</script>
+
+</body>
+</html>
