@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Accessible Accordion</title>
+
+<style>
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px;
+}
+
+/* Centered headings */
+.center-text {
+    text-align: center;
+}
+
+/* Accordion Container */
+.accordion-container {
+    width: 75%;
+    max-width: 1000px;
+    margin: 0 auto 12px auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Accordion Button */
+.accordion {
+    background-color: #000080;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    padding: 18px 24px;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: background-color 0.3s ease;
+}
+
+/* Hover State */
+.accordion:hover {
+    background-color: #2863fa;
+}
+
+/* Focus State (WCAG) */
+.accordion:focus {
+    outline: 3px solid #D6A800;
+    outline-offset: -3px;
+}
+
+/* Active State */
+.accordion.active {
+    background-color: #0a4cf5;
+}
+
+/* Plus/Minus Symbol */
+.icon {
+    font-size: 24px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+/* Accordion Panel */
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    background-color: white;
+    transition: max-height 0.4s ease;
+}
+
+.panel-content {
+    padding: 18px 24px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .accordion-container {
+        width: 95%;
+    }
+
+    .accordion {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h2 class="center-text">
+    Training Manual Examples
+</h2>
+
+<p class="center-text">
+    Click the accordion to to expand sections.
+</p>
+
+<!-- Section 1 -->
+<div class="accordion-container">
+    <button class="accordion"
+            aria-expanded="false"
+            aria-controls="panel1"
+            id="accordion1">
+        Product Training Manual Example
+        <span class="icon">+</span>
+    </button>
+
+    <div id="panel1"
+         class="panel"
+         role="region"
+         aria-labelledby="accordion1">
+
+        <div class="panel-content">
+           
+               <iframe
+    src="https://jskm1971.github.io/Portfolio/Documents/HardwareandSystemsTrainingManualFinal.pdf"
+    title="Storyboard PDF"
+    width="100%"
+    height="800"
+    style="border:1px solid #ccc; border-radius:8px;">
+</iframe>
+          
+        </div>
+    </div>
+</div>
+
+<!-- Section 2 -->
+<div class="accordion-container">
+    <button class="accordion"
+            aria-expanded="false"
+            aria-controls="panel2"
+            id="accordion2">
+        Storyboard Example
+        <span class="icon">+</span>
+    </button>
+
+    <div id="panel2"
+         class="panel"
+         role="region"
+         aria-labelledby="accordion2">
+
+        <div class="panel-content">
+           <iframe
+    src="https://jskm1971.github.io/Portfolio/Documents/FoundationsofArtificialIntelligenceAI600Storyboard.pdf"
+    title="Storyboard PDF"
+    width="100%"
+    height="800"
+    style="border:1px solid #ccc; border-radius:8px;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Section 3 -->
+<div class="accordion-container">
+    <button class="accordion"
+            aria-expanded="false"
+            aria-controls="panel3"
+            id="accordion3">
+        Foundations of AI Training Example
+        <span class="icon">+</span>
+    </button>
+
+    <div id="panel3"
+         class="panel"
+         role="region"
+         aria-labelledby="accordion3">
+
+        <div class="panel-content">
+            <iframe
+    src="https://jskm1971.github.io/Portfolio/Documents/FoundationsofArtificialIntelligence.pdf"
+    title="Storyboard PDF"
+    width="100%"
+    height="800"
+    style="border:1px solid #ccc; border-radius:8px;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Section 4 -->
+<div class="accordion-container">
+    <button class="accordion"
+            aria-expanded="false"
+            aria-controls="panel3"
+            id="accordion3">
+        Foundations of AI Training PowerPoint Example
+        <span class="icon">+</span>
+    </button>
+
+    <div id="panel3"
+         class="panel"
+         role="region"
+         aria-labelledby="accordion3">
+
+        <div class="panel-content">
+            <iframe
+    src="https://jskm1971.github.io/Portfolio/Documents/CS600sample.pdf"
+    title="Storyboard PDF"
+    width="100%"
+    height="800"
+    style="border:1px solid #ccc; border-radius:8px;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<script>
+
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach(button => {
+
+    button.addEventListener("click", toggleAccordion);
+
+    button.addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter" || event.key === " ") {
+
+            event.preventDefault();
+
+            toggleAccordion.call(this);
+
+        }
+
+    });
+
+});
+
+function toggleAccordion() {
+
+    const panel = this.nextElementSibling;
+
+    const expanded =
+        this.getAttribute("aria-expanded") === "true";
+
+    this.setAttribute(
+        "aria-expanded",
+        !expanded
+    );
+
+    this.classList.toggle("active");
+
+    const icon =
+        this.querySelector(".icon");
+
+    if (!expanded) {
+
+        panel.style.maxHeight =
+            panel.scrollHeight + "px";
+
+        icon.textContent = "−";
+
+    } else {
+
+        panel.style.maxHeight = null;
+
+        icon.textContent = "+";
+
+    }
+
+}
+</script>
+
+</body>
+</html>
