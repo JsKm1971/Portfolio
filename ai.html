@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Technologies</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#003366;
+    --secondary:#D6A800;
+    --light:#f5f7fa;
+    --text:#444;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Roboto',sans-serif;
+    background:#eef2f6;
+    padding:60px;
+}
+
+/* CARD */
+
+.experience-module{
+    max-width:1200px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
+    overflow:hidden;
+}
+
+/* HEADER */
+
+.header{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    padding:40px;
+    background:linear-gradient(135deg,var(--primary),#004b87);
+    color:white;
+}
+
+.icon{
+    font-size:50px;
+    width:80px;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.15);
+    border-radius:50%;
+}
+
+/* TABS */
+
+.tabs{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    padding:25px;
+    background:#fff;
+}
+
+.tab{
+    border:none;
+    padding:12px 22px;
+    border-radius:40px;
+    cursor:pointer;
+    background:#e9ecef;
+    font-weight:600;
+    transition:.3s;
+}
+
+.tab:hover{
+    background:var(--secondary);
+    transform:translateY(-2px);
+}
+
+.tab.active{
+    background:var(--primary);
+    color:white;
+}
+
+/* CONTENT */
+
+.content{
+    padding:45px;
+}
+
+.panel{
+    display:none;
+    animation:fade .4s ease;
+}
+
+.panel.active{
+    display:block;
+}
+
+h3{
+    color:var(--primary);
+    margin-bottom:18px;
+}
+
+.institution{
+    margin-bottom:30px;
+    padding:25px;
+    background:#f8f9fb;
+    border-radius:14px;
+    border-left:5px solid var(--secondary);
+}
+
+.course{
+    margin-top:15px;
+    padding:20px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+
+.course h4{
+    margin-bottom:5px;
+    color:#222;
+}
+
+.course small{
+    color:#666;
+    display:block;
+    margin-bottom:10px;
+}
+
+ul{
+    margin-left:20px;
+    line-height:1.8;
+    color:var(--text);
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat{
+    background:var(--light);
+    padding:30px;
+    border-radius:16px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:42px;
+    color:var(--primary);
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(15px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="experience-module">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="icon">🤖</div>
+
+<div>
+<h1>Artificial Intelligence Technologies</h1>
+<h2>AI-Enhanced Instructional Design</h2>
+<p>Leveraging AI to improve learning design, development, and productivity</p>
+</div>
+
+</div>
+
+<!-- TABS -->
+
+<div class="tabs">
+
+<button class="tab active" data-tab="overview">Overview</button>
+<button class="tab" data-tab="chatgpt">ChatGPT</button>
+<button class="tab" data-tab="claude">Claude</button>
+<button class="tab" data-tab="copilot">Microsoft Copilot</button>
+<button class="tab" data-tab="grammarly">Grammarly</button>    
+<button class="tab" data-tab="impact">Impact</button>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<!-- OVERVIEW -->
+
+<div class="panel active" id="overview">
+
+<h3>AI in Instructional Design</h3>
+
+<p>
+
+Artificial intelligence has become an essential component of my instructional design workflow.
+I leverage AI technologies to accelerate course development, improve instructional quality,
+generate learning scenarios, enhance accessibility, create assessments, refine instructional
+content, and streamline development processes while maintaining sound instructional design
+principles and quality assurance standards.
+
+</p>
+
+</div>
+
+<!-- CHATGPT -->
+
+<div class="panel" id="chatgpt">
+
+<h3>OpenAI ChatGPT</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>Instructional Design Applications</h4>
+
+<ul>
+
+<li>Develop learning objectives aligned with Bloom's Taxonomy.</li>
+
+<li>Create realistic scenario-based learning activities and case studies.</li>
+
+<li>Generate quiz questions, knowledge checks, and formative assessments.</li>
+
+<li>Draft instructor guides, learner communications, and course documentation.</li>
+
+<li>Produce HTML, CSS, and JavaScript for interactive learning experiences.</li>
+
+<li>Support accessibility improvements and content refinement.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CLAUDE -->
+
+<div class="panel" id="claude">
+
+<h3>Anthropic Claude</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>Content Review & Learning Design</h4>
+
+<ul>
+
+<li>Review instructional materials for clarity and consistency.</li>
+
+<li>Analyze complex documents and summarize technical information.</li>
+
+<li>Improve instructional writing and learner-focused communication.</li>
+
+<li>Refine assessments and course alignment.</li>
+
+<li>Support storyboard creation and instructional planning.</li>
+
+<li>Assist with quality assurance and course review processes.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- COPILOT -->
+
+<div class="panel" id="copilot">
+
+<h3>Microsoft Copilot</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>Microsoft 365 Productivity</h4>
+
+<ul>
+
+<li>Create and enhance PowerPoint presentations.</li>
+
+<li>Draft professional emails and project documentation.</li>
+
+<li>Summarize meetings and organize project information.</li>
+
+<li>Generate reports and instructional support materials.</li>
+
+<li>Improve workflow efficiency across Microsoft 365 applications.</li>
+
+<li>Assist with research and information synthesis.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- GRAMMARLY -->
+
+<div class="panel" id="grammarly">
+
+<h3>Grammarly</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>Document Review & Content Refinement</h4>
+
+<ul>
+
+<li>Review instructional materials for grammar, spelling, and punctuation accuracy.</li>
+
+<li>Improve sentence structure, readability, and overall writing clarity.</li>
+
+<li>Ensure consistency in tone, style, and professional communication.</li>
+
+<li>Refine course content, learner instructions, and assessment directions.</li>
+
+<li>Identify opportunities to improve conciseness and eliminate unnecessary wording.</li>
+
+<li>Support quality assurance processes through comprehensive document review.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+    
+
+<!-- IMPACT -->
+
+<div class="panel" id="impact">
+
+<h3>AI Technology Impact</h3>
+
+<div class="stats">
+
+<div class="stat">
+<h2>4</h2>
+<p>Primary AI Platforms</p>
+</div>
+
+<div class="stat">
+<h2>100+</h2>
+<p>AI-Assisted Learning Assets</p>
+</div>
+
+<div class="stat">
+<h2>Daily</h2>
+<p>Workflow Integration</p>
+</div>
+
+<div class="stat">
+<h2>ADDIE</h2>
+<p>Framework Supported</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const tabs=document.querySelectorAll(".tab");
+const panels=document.querySelectorAll(".panel");
+
+tabs.forEach(tab=>{
+
+tab.addEventListener("click",()=>{
+
+tabs.forEach(t=>t.classList.remove("active"));
+panels.forEach(p=>p.classList.remove("active"));
+
+tab.classList.add("active");
+document.getElementById(tab.dataset.tab).classList.add("active");
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
